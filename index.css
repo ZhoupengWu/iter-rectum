@@ -1,0 +1,24 @@
+body {
+    background-color: #1A2238;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#title-game {
+    color: #ffefcd;
+    margin-bottom: 2rem;
+}
+
+#start-here {
+    text-decoration: none;
+    font-size: 4rem;
+}
