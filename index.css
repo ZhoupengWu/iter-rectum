@@ -16,6 +16,8 @@ body {
 #title-game {
     color: #ffefcd;
     margin-bottom: 2rem;
+    text-shadow: 6px 15px 6px #000000;
+    text-align: center;
 }
 
 #start-here {
