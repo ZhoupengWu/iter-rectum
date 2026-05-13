@@ -12,6 +12,9 @@ const positionFigure = {
 };
 let position = 1;
 
+let phase = 0;
+let is_walking = true;
+
 const game = /** @type {HTMLElement} */ (document.getElementById("game"));
 
 const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
@@ -89,7 +92,7 @@ function figureRendering() {
             if (position === 1) return;
 
             position--;
-            human_figure_ctx?.clearRect(0, 0, human_figure.width, human_figure.height);
+            human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
             person.y = positionFigure[position];
             person.draw(human_figure_ctx);
         }
@@ -98,9 +101,36 @@ function figureRendering() {
             if (position === 3) return;
 
             position++;
-            human_figure_ctx?.clearRect(0, 0, human_figure.width, human_figure.height);
+            human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
             person.y = positionFigure[position];
             person.draw(human_figure_ctx);
         }
     });
+
+    /**
+     * The figure can walk
+     * @returns {void}
+     */
+    function figureWalk() {
+        if (!is_walking) return;
+
+        human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
+
+        phase += 0.1;
+        const amplitude = 0.7;
+
+        // Legs move in opposition
+        person.leftLegAngle = Math.sin(phase) * amplitude;
+        person.rightLegAngle = Math.sin(phase + Math.PI) * amplitude;
+
+        // Arms move in opposition to legs
+        person.leftArmAngle = Math.sin(phase + Math.PI) * (amplitude * 0.8);
+        person.rightArmAngle = Math.sin(phase) * (amplitude * 0.8);
+
+        person.draw(human_figure_ctx);
+
+        requestAnimationFrame(figureWalk);
+    }
+
+    figureWalk();
 }

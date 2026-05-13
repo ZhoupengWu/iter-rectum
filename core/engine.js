@@ -54,6 +54,10 @@ export class StickFigure {
         this.scale = scale;
         this.color = color;
         this.width = width;
+        this.leftArmAngle = Math.PI / 4;
+        this.rightArmAngle = -Math.PI / 4;
+        this.leftLegAngle = Math.PI / 6;
+        this.rightLegAngle = -Math.PI / 6;
     }
 
     /**
@@ -70,18 +74,36 @@ export class StickFigure {
         head.draw(ctx);
 
         // Body
-        const body = new Line(this.x, this.y - 10 * this.scale, this.x, this.y + 20 * this.scale, this.color, this.width);
+        const bodyTopY = this.y - 10 * this.scale;
+        const bodyBottomY = this.y + 20 * this.scale;
+        const body = new Line(this.x, bodyTopY, this.x, bodyBottomY, this.color, this.width);
         body.draw(ctx);
 
-        // Arms (posed slightly forward/angled to suggest rightward orientation)
-        const leftArm = new Line(this.x, this.y, this.x + 15 * this.scale, this.y - 10 * this.scale, this.color, this.width);
-        const rightArm = new Line(this.x, this.y, this.x + 15 * this.scale, this.y + 10 * this.scale, this.color, this.width);
+        // Arm length and Leg length
+        const armLength = 20 * this.scale;
+        const legLength = 25 * this.scale;
+
+        // Arms (pivot at shoulder/middle of torso)
+        const shoulderY = this.y;
+        const leftArmX2 = this.x + Math.sin(this.leftArmAngle) * armLength;
+        const leftArmY2 = shoulderY + Math.cos(this.leftArmAngle) * armLength;
+        const rightArmX2 = this.x + Math.sin(this.rightArmAngle) * armLength;
+        const rightArmY2 = shoulderY + Math.cos(this.rightArmAngle) * armLength;
+
+        const leftArm = new Line(this.x, shoulderY, leftArmX2, leftArmY2, this.color, this.width);
+        const rightArm = new Line(this.x, shoulderY, rightArmX2, rightArmY2, this.color, this.width);
         leftArm.draw(ctx);
         rightArm.draw(ctx);
 
-        // Legs
-        const leftLeg = new Line(this.x, this.y + 20 * this.scale, this.x - 10 * this.scale, this.y + 40 * this.scale, this.color, this.width);
-        const rightLeg = new Line(this.x, this.y + 20 * this.scale, this.x + 10 * this.scale, this.y + 40 * this.scale, this.color, this.width);
+        // Legs (pivot at hips)
+        const hipY = bodyBottomY;
+        const leftLegX2 = this.x + Math.sin(this.leftLegAngle) * legLength;
+        const leftLegY2 = hipY + Math.cos(this.leftLegAngle) * legLength;
+        const rightLegX2 = this.x + Math.sin(this.rightLegAngle) * legLength;
+        const rightLegY2 = hipY + Math.cos(this.rightLegAngle) * legLength;
+
+        const leftLeg = new Line(this.x, hipY, leftLegX2, leftLegY2, this.color, this.width);
+        const rightLeg = new Line(this.x, hipY, rightLegX2, rightLegY2, this.color, this.width);
         leftLeg.draw(ctx);
         rightLeg.draw(ctx);
 
