@@ -39,16 +39,33 @@ function baseGame() {
     ctx.fillStyle = COLOURS.green;
     ctx.fillRect(192, 0, 1152, 576);
 
+    ctx.strokeStyle = COLOURS.black;
+    ctx.lineWidth = 1;
+    const padding = 20;
+
+    // General field grass
+    for (let i = 0; i < 200; i++) {
+        const grassX = (192 + padding) + Math.random() * (1152 - 192 - (padding * 2));
+        const grassY = padding + Math.random() * (576 - (padding * 2));
+        const safetyZone = 15;
+
+        if (Math.abs(grassY - 192) < safetyZone || Math.abs(grassY - 384) < safetyZone) {
+            continue;
+        }
+
+        drawCluster(ctx, grassX, grassY);
+    }
+
     ctx.beginPath();
     ctx.moveTo(192, 192);
     ctx.lineTo(1152, 192);
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = COLOURS.black;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.moveTo(192, 384);
     ctx.lineTo(1152, 384);
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = COLOURS.black;
     ctx.stroke();
 
     for (let y = 0; y < road.height; y += length_base_triangle) {
@@ -62,7 +79,7 @@ function baseGame() {
         ctx.fillStyle = "brown";
         ctx.fill();
 
-        ctx.strokeStyle = "black";
+        ctx.strokeStyle = COLOURS.black;
         ctx.stroke()
     }
 }
@@ -80,7 +97,7 @@ function figureRendering() {
 
     const human_figure_ctx = /** @type {CanvasRenderingContext2D} */ (human_figure.getContext("2d"));
 
-    const person = new StickFigure(96, 96, 1.5, "black", 2);
+    const person = new StickFigure(96, 96, 1.5, COLOURS.black, 2);
     person.draw(human_figure_ctx);
 
     document.addEventListener("keydown", event => {
@@ -133,4 +150,20 @@ function figureRendering() {
     }
 
     figureWalk();
+}
+
+/**
+ *
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {number} x
+ * @param {number} y
+ */
+function drawCluster(ctx, x, y) {
+    for (let j = 0; j < 5; j++) {
+        const rx = x + (Math.random() - 0.5) * 10;
+        ctx.beginPath();
+        ctx.moveTo(rx, y);
+        ctx.lineTo(rx + (Math.random() - 0.5) * 4, y - 5 - Math.random() * 5);
+        ctx.stroke();
+    }
 }
