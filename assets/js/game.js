@@ -2,7 +2,7 @@ import { COLOURS } from "../../core/models/colours.js";
 import { StickFigure } from "../../core/engine.js";
 
 /**
- * Altezza della figura nei tre percorsi
+ * Maps the lane index to the Y-coordinate height for the stick figure.
  * @type {Object<number, number>}
  */
 const positionFigure = {
@@ -10,13 +10,35 @@ const positionFigure = {
     2: 288,
     3: 480
 };
+
+/**
+ * The current lane position of the stick figure (1, 2, or 3).
+ * @type {number}
+ */
 let position = 1;
 
+/**
+ * The current phase of the walking animation.
+ * @type {number}
+ */
 let phase = 0;
+
+/**
+ * Flag indicating if the stick figure is currently walking.
+ * @type {boolean}
+ */
 let is_walking = true;
 
+/**
+ * The main game container element.
+ * @type {HTMLElement}
+ */
 const game = /** @type {HTMLElement} */ (document.getElementById("game"));
 
+/**
+ * The background canvas element representing the road/field.
+ * @type {HTMLCanvasElement}
+ */
 const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
 road.width = road.offsetWidth;
 road.height = road.offsetHeight;
@@ -27,15 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Render the base of the game
+ * Renders the static background of the game, including the grass, lane dividers, and side patterns.
  * @returns {void}
  */
 function baseGame() {
+    /**
+     * Calculated height of the equilateral triangle used for the side pattern.
+     * @type {number}
+     */
     const height_triangle = Math.round(Math.sqrt(Math.pow(16, 2) - Math.pow(8, 2)));
+
+    /**
+     * Base length of the triangle used for the side pattern.
+     * @type {number}
+     */
     const length_base_triangle = 16;
 
     const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
 
+    // Fill the main play area with green
     ctx.fillStyle = COLOURS.green;
     ctx.fillRect(192, 0, 1152, 576);
 
@@ -43,7 +75,7 @@ function baseGame() {
     ctx.lineWidth = 1;
     const padding = 20;
 
-    // General field grass
+    // Draw random clusters of grass as "general field grass"
     for (let i = 0; i < 200; i++) {
         const grassX = (192 + padding) + Math.random() * (1152 - 192 - (padding * 2));
         const grassY = padding + Math.random() * (576 - (padding * 2));
@@ -56,21 +88,23 @@ function baseGame() {
         drawCluster(ctx, grassX, grassY);
     }
 
+    // Draw lane divider 1
     ctx.beginPath();
     ctx.moveTo(192, 192);
     ctx.lineTo(1152, 192);
     ctx.strokeStyle = COLOURS.black;
     ctx.stroke();
 
+    // Draw lane divider 2
     ctx.beginPath();
     ctx.moveTo(192, 384);
     ctx.lineTo(1152, 384);
     ctx.strokeStyle = COLOURS.black;
     ctx.stroke();
 
+    // Draw the sawtooth pattern on the left side
     for (let y = 0; y < road.height; y += length_base_triangle) {
         ctx.beginPath();
-
         ctx.moveTo(192, y);
         ctx.lineTo(192 + height_triangle, y + 8);
         ctx.lineTo(192, y + 16);
@@ -80,15 +114,20 @@ function baseGame() {
         ctx.fill();
 
         ctx.strokeStyle = COLOURS.black;
-        ctx.stroke()
+        ctx.stroke();
     }
 }
 
 /**
- * Render the figure
+ * Initializes the stick figure, creates its canvas, handles keyboard input for lane switching,
+ * and starts the walking animation loop.
  * @returns {void}
  */
 function figureRendering() {
+    /**
+     * Canvas dedicated to rendering the human figure to allow independent clearing.
+     * @type {HTMLCanvasElement}
+     */
     const human_figure = document.createElement("canvas");
     human_figure.width = road.offsetWidth;
     human_figure.height = road.offsetHeight;
@@ -97,6 +136,10 @@ function figureRendering() {
 
     const human_figure_ctx = /** @type {CanvasRenderingContext2D} */ (human_figure.getContext("2d"));
 
+    /**
+     * The stick figure instance.
+     * @type {StickFigure}
+     */
     const person = new StickFigure(96, 96, 1.5, COLOURS.black, 2);
     person.draw(human_figure_ctx);
 
@@ -125,7 +168,8 @@ function figureRendering() {
     });
 
     /**
-     * The figure can walk
+     * Animation loop that updates the stick figure's limb angles to simulate walking.
+     * Uses requestAnimationFrame for smooth rendering.
      * @returns {void}
      */
     function figureWalk() {
@@ -153,10 +197,11 @@ function figureRendering() {
 }
 
 /**
- *
- * @param {CanvasRenderingContext2D} ctx
- * @param {number} x
- * @param {number} y
+ * Draws a small cluster of lines at a given coordinate to represent grass.
+ * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
+ * @param {number} x - The base X coordinate of the cluster.
+ * @param {number} y - The base Y coordinate of the cluster.
+ * @returns {void}
  */
 function drawCluster(ctx, x, y) {
     for (let j = 0; j < 5; j++) {
