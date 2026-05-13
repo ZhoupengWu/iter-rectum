@@ -1,12 +1,15 @@
+/**
+ * Represents a line segment to be drawn on a canvas.
+ */
 export class Line {
     /**
-     *
-     * @param {number} x1
-     * @param {number} y1
-     * @param {number} x2
-     * @param {number} y2
-     * @param {string | CanvasGradient | CanvasPattern} color
-     * @param {number} width
+     * Creates an instance of Line.
+     * @param {number} x1 - The starting x-coordinate.
+     * @param {number} y1 - The starting y-coordinate.
+     * @param {number} x2 - The ending x-coordinate.
+     * @param {number} y2 - The ending y-coordinate.
+     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the line.
+     * @param {number} [width=1] - The thickness of the line.
      */
     constructor(x1, y1, x2, y2, color = 'black', width = 1) {
         this.x1 = x1;
@@ -18,7 +21,8 @@ export class Line {
     }
 
     /**
-     * @param {CanvasRenderingContext2D} ctx
+     * Draws the line on the provided canvas context.
+     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
      * @returns {void}
      */
     draw(ctx) {
@@ -32,13 +36,17 @@ export class Line {
     }
 }
 
+/**
+ * Represents a stylized person (stick figure) facing right.
+ */
 export class StickFigure {
     /**
-     * @param {number} x
-     * @param {number} y
-     * @param {number} scale
-     * @param {string | CanvasGradient | CanvasPattern} color
-     * @param {number} width
+     * Creates an instance of StickFigure.
+     * @param {number} x - The horizontal center position of the figure.
+     * @param {number} y - The vertical center position (around the waist/arms area).
+     * @param {number} [scale=1] - Scale factor for the figure's size.
+     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the figure.
+     * @param {number} [width=2] - The thickness of the lines used for the figure.
      */
     constructor(x, y, scale = 1, color = 'black', width = 2) {
         this.x = x;
@@ -49,7 +57,8 @@ export class StickFigure {
     }
 
     /**
-     * @param {CanvasRenderingContext2D} ctx
+     * Draws the stick figure facing right on the provided canvas context.
+     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
      * @returns {void}
      */
     draw(ctx) {
@@ -64,7 +73,7 @@ export class StickFigure {
         const body = new Line(this.x, this.y - 10 * this.scale, this.x, this.y + 20 * this.scale, this.color, this.width);
         body.draw(ctx);
 
-        // Arms
+        // Arms (posed slightly forward/angled to suggest rightward orientation)
         const leftArm = new Line(this.x, this.y, this.x + 15 * this.scale, this.y - 10 * this.scale, this.color, this.width);
         const rightArm = new Line(this.x, this.y, this.x + 15 * this.scale, this.y + 10 * this.scale, this.color, this.width);
         leftArm.draw(ctx);
@@ -76,21 +85,24 @@ export class StickFigure {
         leftLeg.draw(ctx);
         rightLeg.draw(ctx);
 
-        // Face facing right
+        // Face details to indicate facing right
         // Eye
         const eye = new Circle(this.x + 4 * this.scale, headY - 2 * this.scale, 1.5 * this.scale, this.color, true);
         eye.draw(ctx);
     }
 }
 
+/**
+ * Represents a circle to be drawn on a canvas.
+ */
 export class Circle {
     /**
-     *
-     * @param {number} x
-     * @param {number} y
-     * @param {number} radius
-     * @param {string | CanvasGradient | CanvasPattern} color
-     * @param {boolean} fill
+     * Creates an instance of Circle.
+     * @param {number} x - The x-coordinate of the circle's center.
+     * @param {number} y - The y-coordinate of the circle's center.
+     * @param {number} radius - The radius of the circle.
+     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the circle.
+     * @param {boolean} [fill=false] - Whether to fill the circle or just stroke the outline.
      */
     constructor(x, y, radius, color = 'black', fill = false) {
         this.x = x;
@@ -101,7 +113,8 @@ export class Circle {
     }
 
     /**
-     * @param {CanvasRenderingContext2D} ctx
+     * Draws the circle on the provided canvas context.
+     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
      * @returns {void}
      */
     draw(ctx) {

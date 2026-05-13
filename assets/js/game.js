@@ -14,6 +14,10 @@ let position = 1;
 
 const game = /** @type {HTMLElement} */ (document.getElementById("game"));
 
+const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
+road.width = road.offsetWidth;
+road.height = road.offsetHeight;
+
 document.addEventListener("DOMContentLoaded", () => {
     baseGame();
     figureRendering();
@@ -24,10 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
  * @returns {void}
  */
 function baseGame() {
-    const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
-    road.width = road.offsetWidth;
-    road.height = road.offsetHeight;
-
     const height_triangle = Math.round(Math.sqrt(Math.pow(16, 2) - Math.pow(8, 2)));
     const length_base_triangle = 16;
 
