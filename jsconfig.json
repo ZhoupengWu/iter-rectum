@@ -16,7 +16,7 @@
     "include": [
         "*.js",
         "core/**/*.js",
-        "assets/**/*.js"
+        "assets/js/*.js"
     ],
     "exclude": [
         "node_modules",
