@@ -43,79 +43,100 @@ const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
 road.width = road.offsetWidth;
 road.height = road.offsetHeight;
 
+/**
+ * Offscreen canvas used to pre-render the grass pattern.
+ * @type {HTMLCanvasElement}
+ */
+const grassTile = document.createElement("canvas");
+// Set tile width to match canvas width for a full loop
+grassTile.width = road.width;
+grassTile.height = road.height;
+
+/**
+ * The current horizontal scroll offset for the background animation.
+ * @type {number}
+ */
+let scrollX = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
-    baseGame();
+    setupGrassTile();
     figureRendering();
 });
 
 /**
- * Renders the static background of the game, including the grass, lane dividers, and side patterns.
+ * Pre-renders the grass pattern onto the offscreen grassTile canvas.
+ * Ensures the pattern is seamless for looping.
  * @returns {void}
  */
-function baseGame() {
-    /**
-     * Calculated height of the equilateral triangle used for the side pattern.
-     * @type {number}
-     */
-    const height_triangle = Math.round(Math.sqrt(Math.pow(16, 2) - Math.pow(8, 2)));
-
-    /**
-     * Base length of the triangle used for the side pattern.
-     * @type {number}
-     */
-    const length_base_triangle = 16;
-
-    const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
-
-    // Fill the main play area with green
-    ctx.fillStyle = COLOURS.green;
-    ctx.fillRect(192, 0, 1152, 576);
-
-    ctx.strokeStyle = COLOURS.black;
-    ctx.lineWidth = 1;
+function setupGrassTile() {
+    const tileCtx = /** @type {CanvasRenderingContext2D} */ (grassTile.getContext("2d"));
     const padding = 20;
 
-    // Draw random clusters of grass as "general field grass"
+    // Fill the tile with green
+    tileCtx.fillStyle = COLOURS.green;
+    tileCtx.fillRect(0, 0, grassTile.width, grassTile.height);
+
+    tileCtx.strokeStyle = COLOURS.black;
+    tileCtx.lineWidth = 1;
+
+    // Draw random clusters of grass into the tile
     for (let i = 0; i < 200; i++) {
-        const grassX = (192 + padding) + Math.random() * (1152 - 192 - (padding * 2));
-        const grassY = padding + Math.random() * (576 - (padding * 2));
+        const grassX = Math.random() * grassTile.width;
+        const grassY = padding + Math.random() * (grassTile.height - (padding * 2));
         const safetyZone = 15;
 
+        // Avoid drawing on lane dividers
         if (Math.abs(grassY - 192) < safetyZone || Math.abs(grassY - 384) < safetyZone) {
             continue;
         }
 
-        drawCluster(ctx, grassX, grassY);
+        // Draw the cluster normally
+        drawCluster(tileCtx, grassX, grassY);
+
+        // For seamless looping: if the cluster is near the edges, wrap it around
+        if (grassX < 15) {
+            drawCluster(tileCtx, grassX + grassTile.width, grassY);
+        } else if (grassX > grassTile.width - 15) {
+            drawCluster(tileCtx, grassX - grassTile.width, grassY);
+        }
+    }
+}
+
+/**
+ * Renders the moving background, including the grass, lane dividers, and side patterns.
+ * @returns {void}
+ */
+function renderBackground() {
+    const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
+    const height_triangle = Math.round(Math.sqrt(Math.pow(16, 2) - Math.pow(8, 2)));
+    const length_base_triangle = 16;
+
+    // Update scroll offset
+    scrollX -= 2; // Walking speed
+    if (scrollX <= -grassTile.width) {
+        scrollX = 0;
     }
 
-    // Draw lane divider 1
-    ctx.beginPath();
-    ctx.moveTo(192, 192);
-    ctx.lineTo(1152, 192);
+    // Draw the scrolling grass tile (two copies for seamless loop)
+    // Now starting from X=0 as requested
+    ctx.drawImage(grassTile, scrollX, 0);
+    ctx.drawImage(grassTile, scrollX + grassTile.width, 0);
+
+    // Draw lane dividers (static or moving? Usually static for a road feel)
     ctx.strokeStyle = COLOURS.black;
+    ctx.lineWidth = 1;
+
+    // Lane divider 1
+    ctx.beginPath();
+    ctx.moveTo(0, 192);
+    ctx.lineTo(road.width, 192);
     ctx.stroke();
 
-    // Draw lane divider 2
+    // Lane divider 2
     ctx.beginPath();
-    ctx.moveTo(192, 384);
-    ctx.lineTo(1152, 384);
-    ctx.strokeStyle = COLOURS.black;
+    ctx.moveTo(0, 384);
+    ctx.lineTo(road.width, 384);
     ctx.stroke();
-
-    // Draw the sawtooth pattern on the left side
-    for (let y = 0; y < road.height; y += length_base_triangle) {
-        ctx.beginPath();
-        ctx.moveTo(192, y);
-        ctx.lineTo(192 + height_triangle, y + 8);
-        ctx.lineTo(192, y + 16);
-        ctx.closePath();
-
-        ctx.fillStyle = "brown";
-        ctx.fill();
-
-        ctx.strokeStyle = COLOURS.black;
-        ctx.stroke();
-    }
 }
 
 /**
@@ -161,19 +182,21 @@ function figureRendering() {
             if (position === 3) return;
 
             position++;
-            human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
+            human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure_ctx.canvas.height);
             person.y = positionFigure[position];
             person.draw(human_figure_ctx);
         }
     });
 
     /**
-     * Animation loop that updates the stick figure's limb angles to simulate walking.
+     * Animation loop that updates the stick figure's limb angles and moves the background.
      * Uses requestAnimationFrame for smooth rendering.
      * @returns {void}
      */
     function figureWalk() {
         if (!is_walking) return;
+
+        renderBackground();
 
         human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
 
