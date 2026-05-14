@@ -1,156 +1,135 @@
-/**
- * Represents a line segment to be drawn on a canvas.
- */
-export class Line {
-    /**
-     * Creates an instance of Line.
-     * @param {number} x1 - The starting x-coordinate.
-     * @param {number} y1 - The starting y-coordinate.
-     * @param {number} x2 - The ending x-coordinate.
-     * @param {number} y2 - The ending y-coordinate.
-     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the line.
-     * @param {number} [width=1] - The thickness of the line.
-     */
-    constructor(x1, y1, x2, y2, color = 'black', width = 1) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.color = color;
-        this.width = width;
-    }
-
-    /**
-     * Draws the line on the provided canvas context.
-     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
-     * @returns {void}
-     */
-    draw(ctx) {
-        ctx.beginPath();
-        ctx.moveTo(this.x1, this.y1);
-        ctx.lineTo(this.x2, this.y2);
-        ctx.strokeStyle = this.color;
-        ctx.lineWidth = this.width;
-        ctx.stroke();
-        ctx.closePath();
-    }
-}
+import * as THREE from "three";
 
 /**
- * Represents a stylized person (stick figure) facing right.
+ * Represents a 3D stick figure built from Three.js geometries (cylinders + spheres).
+ * The figure is assembled in a Group and can be added to any Three.js scene.
  */
-export class StickFigure {
+export class StickFigure3D {
     /**
-     * Creates an instance of StickFigure.
-     * @param {number} x - The horizontal center position of the figure.
-     * @param {number} y - The vertical center position (around the waist/arms area).
-     * @param {number} [scale=1] - Scale factor for the figure's size.
-     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the figure.
-     * @param {number} [width=2] - The thickness of the lines used for the figure.
+     * @param {number} x - World X position
+     * @param {number} y - World Y position (lane height)
+     * @param {number} z - World Z position
+     * @param {number} [scale=1] - Overall scale multiplier
+     * @param {number|string} [color=0x111111] - Hex color for the figure material
      */
-    constructor(x, y, scale = 1, color = 'black', width = 2) {
-        this.x = x;
-        this.y = y;
+    constructor(x, y, z, scale = 1, color = 0x111111) {
         this.scale = scale;
         this.color = color;
-        this.width = width;
-        this.leftArmAngle = Math.PI / 4;
-        this.rightArmAngle = -Math.PI / 4;
-        this.leftLegAngle = Math.PI / 6;
-        this.rightLegAngle = -Math.PI / 6;
+        this.phase = 0;
+
+        this.group = new THREE.Group();
+        this.group.position.set(x, y, z);
+
+        this._material = new THREE.MeshToonMaterial({ color });
+
+        this._buildFigure();
     }
 
     /**
-     * Draws the stick figure facing right on the provided canvas context.
-     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
-     * @returns {void}
+     * Builds all body parts and attaches them to this.group.
+     * @private
      */
-    draw(ctx) {
-        const headRadius = 10 * this.scale;
-        const headY = this.y - 20 * this.scale;
+    _buildFigure() {
+        const s = this.scale;
+        const mat = this._material;
 
-        // Head
-        const head = new Circle(this.x, headY, headRadius, this.color);
-        head.draw(ctx);
+        // ── HEAD ──────────────────────────────────────────────
+        const headGeo = new THREE.SphereGeometry(0.18 * s, 16, 16);
+        this.head = new THREE.Mesh(headGeo, mat);
+        this.head.position.set(0, 1.55 * s, 0);
 
-        // Body
-        const bodyTopY = this.y - 10 * this.scale;
-        const bodyBottomY = this.y + 20 * this.scale;
-        const body = new Line(this.x, bodyTopY, this.x, bodyBottomY, this.color, this.width);
-        body.draw(ctx);
+        // Eye dot (faces +X direction = right)
+        const eyeGeo = new THREE.SphereGeometry(0.035 * s, 8, 8);
+        const eyeMat = new THREE.MeshToonMaterial({ color: 0xffffff });
+        this.eye = new THREE.Mesh(eyeGeo, eyeMat);
+        this.eye.position.set(0.15 * s, 1.58 * s, 0.06 * s);
 
-        // Arm length and Leg length
-        const armLength = 20 * this.scale;
-        const legLength = 25 * this.scale;
+        // ── TORSO ─────────────────────────────────────────────
+        const torsoGeo = new THREE.CylinderGeometry(0.07 * s, 0.07 * s, 0.55 * s, 8);
+        this.torso = new THREE.Mesh(torsoGeo, mat);
+        this.torso.position.set(0, 1.1 * s, 0);
 
-        // Arms (pivot at shoulder/middle of torso)
-        const shoulderY = this.y;
-        const leftArmX2 = this.x + Math.sin(this.leftArmAngle) * armLength;
-        const leftArmY2 = shoulderY + Math.cos(this.leftArmAngle) * armLength;
-        const rightArmX2 = this.x + Math.sin(this.rightArmAngle) * armLength;
-        const rightArmY2 = shoulderY + Math.cos(this.rightArmAngle) * armLength;
+        // ── ARMS (pivot groups) ───────────────────────────────
+        const armLen = 0.38 * s;
+        const armGeo = new THREE.CylinderGeometry(0.045 * s, 0.045 * s, armLen, 8);
 
-        const leftArm = new Line(this.x, shoulderY, leftArmX2, leftArmY2, this.color, this.width);
-        const rightArm = new Line(this.x, shoulderY, rightArmX2, rightArmY2, this.color, this.width);
-        leftArm.draw(ctx);
-        rightArm.draw(ctx);
+        // Left arm pivot at shoulder
+        this.leftArmPivot = new THREE.Group();
+        this.leftArmPivot.position.set(0, 1.32 * s, 0);
+        const leftArmMesh = new THREE.Mesh(armGeo, mat);
+        leftArmMesh.position.set(0, -(armLen / 2), 0);
+        this.leftArmPivot.add(leftArmMesh);
 
-        // Legs (pivot at hips)
-        const hipY = bodyBottomY;
-        const leftLegX2 = this.x + Math.sin(this.leftLegAngle) * legLength;
-        const leftLegY2 = hipY + Math.cos(this.leftLegAngle) * legLength;
-        const rightLegX2 = this.x + Math.sin(this.rightLegAngle) * legLength;
-        const rightLegY2 = hipY + Math.cos(this.rightLegAngle) * legLength;
+        // Right arm
+        this.rightArmPivot = new THREE.Group();
+        this.rightArmPivot.position.set(0, 1.32 * s, 0);
+        const rightArmMesh = new THREE.Mesh(armGeo, mat);
+        rightArmMesh.position.set(0, -(armLen / 2), 0);
+        this.rightArmPivot.add(rightArmMesh);
 
-        const leftLeg = new Line(this.x, hipY, leftLegX2, leftLegY2, this.color, this.width);
-        const rightLeg = new Line(this.x, hipY, rightLegX2, rightLegY2, this.color, this.width);
-        leftLeg.draw(ctx);
-        rightLeg.draw(ctx);
+        // ── LEGS (pivot groups) ───────────────────────────────
+        const legLen = 0.5 * s;
+        const legGeo = new THREE.CylinderGeometry(0.055 * s, 0.055 * s, legLen, 8);
 
-        // Face details to indicate facing right
-        // Eye
-        const eye = new Circle(this.x + 4 * this.scale, headY - 2 * this.scale, 1.5 * this.scale, this.color, true);
-        eye.draw(ctx);
+        // Left leg pivot at hip
+        this.leftLegPivot = new THREE.Group();
+        this.leftLegPivot.position.set(0, 0.83 * s, 0);
+        const leftLegMesh = new THREE.Mesh(legGeo, mat);
+        leftLegMesh.position.set(0, -(legLen / 2), 0);
+        this.leftLegPivot.add(leftLegMesh);
+
+        // Right leg
+        this.rightLegPivot = new THREE.Group();
+        this.rightLegPivot.position.set(0, 0.83 * s, 0);
+        const rightLegMesh = new THREE.Mesh(legGeo, mat);
+        rightLegMesh.position.set(0, -(legLen / 2), 0);
+        this.rightLegPivot.add(rightLegMesh);
+
+        // ── ASSEMBLE ──────────────────────────────────────────
+        this.group.add(
+            this.head,
+            this.eye,
+            this.torso,
+            this.leftArmPivot,
+            this.rightArmPivot,
+            this.leftLegPivot,
+            this.rightLegPivot
+        );
+
+        // Separate arms along Z so they don't overlap
+        this.leftArmPivot.position.z  =  0.08 * s;
+        this.rightArmPivot.position.z = -0.08 * s;
+        this.leftLegPivot.position.z  =  0.07 * s;
+        this.rightLegPivot.position.z = -0.07 * s;
     }
-}
 
-/**
- * Represents a circle to be drawn on a canvas.
- */
-export class Circle {
     /**
-     * Creates an instance of Circle.
-     * @param {number} x - The x-coordinate of the circle's center.
-     * @param {number} y - The y-coordinate of the circle's center.
-     * @param {number} radius - The radius of the circle.
-     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the circle.
-     * @param {boolean} [fill=false] - Whether to fill the circle or just stroke the outline.
+     * Advances the walking animation by one tick.
+     * @param {number} [delta=0.016] - Time delta in seconds (for frame-rate independence)
      */
-    constructor(x, y, radius, color = 'black', fill = false) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.color = color;
-        this.fill = fill;
+    walk(delta = 0.016) {
+        this.phase += delta * 4.5;
+        const amp = 0.65;
+
+        this.leftLegPivot.rotation.x  =  Math.sin(this.phase) * amp;
+        this.rightLegPivot.rotation.x =  Math.sin(this.phase + Math.PI) * amp;
+        this.leftArmPivot.rotation.x  =  Math.sin(this.phase + Math.PI) * (amp * 0.7);
+        this.rightArmPivot.rotation.x =  Math.sin(this.phase) * (amp * 0.7);
     }
 
     /**
-     * Draws the circle on the provided canvas context.
-     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
-     * @returns {void}
+     * Moves the figure to a new Y world position (lane switch).
+     * @param {number} y
      */
-    draw(ctx) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    setLaneY(y) {
+        this.group.position.y = y;
+    }
 
-        if (this.fill) {
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        } else {
-            ctx.strokeStyle = this.color;
-            ctx.stroke();
-        }
-
-        ctx.closePath();
+    /**
+     * Adds the figure's group to a Three.js scene.
+     * @param {THREE.Scene} scene
+     */
+    addTo(scene) {
+        scene.add(this.group);
     }
 }

@@ -12,15 +12,30 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="../../index.css">
     <link rel="stylesheet" href="../styles/game.css">
+
+    <!--
+        Three.js is imported as an ES module via importmap.
+        The game.js and engine.js both use:  import * as THREE from "three";
+    -->
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.184.0/examples/jsm/"
+          }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1 id="title-game" class="display-1">ITER RECTUM</h1>
     </div>
 
-    <div id="game">
-        <canvas id="road"></canvas>
-    </div>
+    <!--
+        #game is now just a mount point for the Three.js renderer canvas.
+        The old <canvas id="road"> is removed — Three.js creates its own canvas.
+    -->
+    <div id="game"></div>
 
     <script type="module" src="../js/game.js"></script>
 

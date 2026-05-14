@@ -1,214 +1,189 @@
-import { COLOURS } from "../../core/models/colours.js";
-import { StickFigure } from "../../core/engine.js";
+import * as THREE from "three";
+import { StickFigure3D } from "../../core/engine.js";
 
-/**
- * Maps the lane index to the Y-coordinate height for the stick figure.
- * @type {Object<number, number>}
- */
-const positionFigure = {
-    1: 96,
-    2: 288,
-    3: 480
-};
+// ─── LANE CONFIG ─────────────────────────────────────────────────────────────
+// Three lanes along world Z axis (isometric lateral view → lanes spread in Z)
+const LANE_Z = { 1: 2, 2: 0, 3: -2 };
+let currentLane = 2; // start in middle lane
 
-/**
- * The current lane position of the stick figure (1, 2, or 3).
- * @type {number}
- */
-let position = 1;
+// ─── SCENE SETUP ─────────────────────────────────────────────────────────────
+const scene    = new THREE.Scene();
+scene.background = new THREE.Color(0x1a2238);
+scene.fog = new THREE.Fog(0x1a2238, 30, 60);
 
-/**
- * The current phase of the walking animation.
- * @type {number}
- */
-let phase = 0;
+// ── ISOMETRIC-STYLE CAMERA ────────────────────────────────────────────────────
+// OrthographicCamera gives the true isometric look (no perspective distortion)
+const aspect   = window.innerWidth / window.innerHeight;
+const viewSize = 8;
+const camera   = new THREE.OrthographicCamera(
+    -viewSize * aspect / 2,
+     viewSize * aspect / 2,
+     viewSize / 2,
+    -viewSize / 2,
+    0.1,
+    200
+);
 
-/**
- * Flag indicating if the stick figure is currently walking.
- * @type {boolean}
- */
-let is_walking = true;
+// Classic isometric angle: 45° horizontal, ~35.26° vertical
+camera.position.set(14, 10, 14);
+camera.lookAt(0, 1, 0);
 
-/**
- * The main game container element.
- * @type {HTMLElement}
- */
-const game = /** @type {HTMLElement} */ (document.getElementById("game"));
+// ── RENDERER ─────────────────────────────────────────────────────────────────
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
+document.getElementById("game").appendChild(renderer.domElement);
 
-/**
- * The background canvas element representing the road/field.
- * @type {HTMLCanvasElement}
- */
-const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
-road.width = road.offsetWidth;
-road.height = road.offsetHeight;
+// ─── LIGHTING ────────────────────────────────────────────────────────────────
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambient);
 
-document.addEventListener("DOMContentLoaded", () => {
-    baseGame();
-    figureRendering();
-});
+const sun = new THREE.DirectionalLight(0xfff5e0, 1.4);
+sun.position.set(10, 20, 10);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.near = 0.1;
+sun.shadow.camera.far  = 80;
+sun.shadow.camera.left = -20;
+sun.shadow.camera.right = 20;
+sun.shadow.camera.top  = 20;
+sun.shadow.camera.bottom = -20;
+scene.add(sun);
 
-/**
- * Renders the static background of the game, including the grass, lane dividers, and side patterns.
- * @returns {void}
- */
-function baseGame() {
-    /**
-     * Calculated height of the equilateral triangle used for the side pattern.
-     * @type {number}
-     */
-    const height_triangle = Math.round(Math.sqrt(Math.pow(16, 2) - Math.pow(8, 2)));
+// Soft fill from the opposite side
+const fill = new THREE.DirectionalLight(0x9ab0ff, 0.4);
+fill.position.set(-8, 6, -8);
+scene.add(fill);
 
-    /**
-     * Base length of the triangle used for the side pattern.
-     * @type {number}
-     */
-    const length_base_triangle = 16;
+// ─── GROUND / LANES ──────────────────────────────────────────────────────────
+buildWorld();
 
-    const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
+function buildWorld() {
+    // Main grassy plane
+    const groundGeo = new THREE.PlaneGeometry(60, 8);
+    const groundMat = new THREE.MeshToonMaterial({ color: 0x059036 });
+    const ground    = new THREE.Mesh(groundGeo, groundMat);
+    ground.rotation.x = -Math.PI / 2;
+    ground.receiveShadow = true;
+    scene.add(ground);
 
-    // Fill the main play area with green
-    ctx.fillStyle = COLOURS.green;
-    ctx.fillRect(192, 0, 1152, 576);
-
-    ctx.strokeStyle = COLOURS.black;
-    ctx.lineWidth = 1;
-    const padding = 20;
-
-    // Draw random clusters of grass as "general field grass"
-    for (let i = 0; i < 200; i++) {
-        const grassX = (192 + padding) + Math.random() * (1152 - 192 - (padding * 2));
-        const grassY = padding + Math.random() * (576 - (padding * 2));
-        const safetyZone = 15;
-
-        if (Math.abs(grassY - 192) < safetyZone || Math.abs(grassY - 384) < safetyZone) {
-            continue;
-        }
-
-        drawCluster(ctx, grassX, grassY);
-    }
-
-    // Draw lane divider 1
-    ctx.beginPath();
-    ctx.moveTo(192, 192);
-    ctx.lineTo(1152, 192);
-    ctx.strokeStyle = COLOURS.black;
-    ctx.stroke();
-
-    // Draw lane divider 2
-    ctx.beginPath();
-    ctx.moveTo(192, 384);
-    ctx.lineTo(1152, 384);
-    ctx.strokeStyle = COLOURS.black;
-    ctx.stroke();
-
-    // Draw the sawtooth pattern on the left side
-    for (let y = 0; y < road.height; y += length_base_triangle) {
-        ctx.beginPath();
-        ctx.moveTo(192, y);
-        ctx.lineTo(192 + height_triangle, y + 8);
-        ctx.lineTo(192, y + 16);
-        ctx.closePath();
-
-        ctx.fillStyle = "brown";
-        ctx.fill();
-
-        ctx.strokeStyle = COLOURS.black;
-        ctx.stroke();
-    }
-}
-
-/**
- * Initializes the stick figure, creates its canvas, handles keyboard input for lane switching,
- * and starts the walking animation loop.
- * @returns {void}
- */
-function figureRendering() {
-    /**
-     * Canvas dedicated to rendering the human figure to allow independent clearing.
-     * @type {HTMLCanvasElement}
-     */
-    const human_figure = document.createElement("canvas");
-    human_figure.width = road.offsetWidth;
-    human_figure.height = road.offsetHeight;
-    human_figure.style.border = "1px solid black";
-    game.appendChild(human_figure);
-
-    const human_figure_ctx = /** @type {CanvasRenderingContext2D} */ (human_figure.getContext("2d"));
-
-    /**
-     * The stick figure instance.
-     * @type {StickFigure}
-     */
-    const person = new StickFigure(96, 96, 1.5, COLOURS.black, 2);
-    person.draw(human_figure_ctx);
-
-    document.addEventListener("keydown", event => {
-        const arrows = ["ArrowUp", "ArrowDown"];
-
-        if (arrows.includes(event.key)) event.preventDefault();
-
-        if (event.key === "ArrowUp") {
-            if (position === 1) return;
-
-            position--;
-            human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
-            person.y = positionFigure[position];
-            person.draw(human_figure_ctx);
-        }
-
-        if (event.key === "ArrowDown") {
-            if (position === 3) return;
-
-            position++;
-            human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
-            person.y = positionFigure[position];
-            person.draw(human_figure_ctx);
-        }
+    // Lane divider lines (thin flat boxes)
+    const divMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    [-1, 1].forEach(z => {
+        const divGeo = new THREE.BoxGeometry(60, 0.02, 0.06);
+        const div    = new THREE.Mesh(divGeo, divMat);
+        div.position.set(0, 0.01, z);
+        scene.add(div);
     });
 
-    /**
-     * Animation loop that updates the stick figure's limb angles to simulate walking.
-     * Uses requestAnimationFrame for smooth rendering.
-     * @returns {void}
-     */
-    function figureWalk() {
-        if (!is_walking) return;
-
-        human_figure_ctx.clearRect(0, 0, human_figure.width, human_figure.height);
-
-        phase += 0.1;
-        const amplitude = 0.7;
-
-        // Legs move in opposition
-        person.leftLegAngle = Math.sin(phase) * amplitude;
-        person.rightLegAngle = Math.sin(phase + Math.PI) * amplitude;
-
-        // Arms move in opposition to legs
-        person.leftArmAngle = Math.sin(phase + Math.PI) * (amplitude * 0.8);
-        person.rightArmAngle = Math.sin(phase) * (amplitude * 0.8);
-
-        person.draw(human_figure_ctx);
-
-        requestAnimationFrame(figureWalk);
+    // Sawtooth fence on the left side (decorative, replaces the 2D triangles)
+    const fenceMat = new THREE.MeshToonMaterial({ color: 0x8B4513 });
+    for (let i = -28; i < 30; i += 1) {
+        const toothGeo = new THREE.ConeGeometry(0.15, 0.4, 4);
+        const tooth    = new THREE.Mesh(toothGeo, fenceMat);
+        tooth.position.set(i, 0.2, 4.2);
+        tooth.rotation.y = Math.PI / 4;
+        scene.add(tooth);
     }
 
-    figureWalk();
+    // Grass tufts scattered in lanes (small cylinders)
+    const grassMat = new THREE.MeshToonMaterial({ color: 0x04722b });
+    for (let i = 0; i < 120; i++) {
+        const gx = (Math.random() - 0.5) * 56;
+        const gz = (Math.random() - 0.5) * 7;
+
+        // Avoid lane divider safety zone
+        if (Math.abs(Math.abs(gz) - 1) < 0.25) continue;
+
+        const h      = 0.05 + Math.random() * 0.12;
+        const tGeo   = new THREE.CylinderGeometry(0.02, 0.04, h, 4);
+        const tuft   = new THREE.Mesh(tGeo, grassMat);
+        tuft.position.set(gx, h / 2, gz);
+        scene.add(tuft);
+    }
+
+    // Infinite road scroll: moving ground stripes (visual feedback for movement)
+    // We'll handle this in the animation loop via stripe groups
 }
 
-/**
- * Draws a small cluster of lines at a given coordinate to represent grass.
- * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
- * @param {number} x - The base X coordinate of the cluster.
- * @param {number} y - The base Y coordinate of the cluster.
- * @returns {void}
- */
-function drawCluster(ctx, x, y) {
-    for (let j = 0; j < 5; j++) {
-        const rx = x + (Math.random() - 0.5) * 10;
-        ctx.beginPath();
-        ctx.moveTo(rx, y);
-        ctx.lineTo(rx + (Math.random() - 0.5) * 4, y - 5 - Math.random() * 5);
-        ctx.stroke();
-    }
+// ─── MOVING ROAD STRIPES ─────────────────────────────────────────────────────
+// Thin white dashes that scroll left → gives illusion of the figure walking
+const stripeGroup = new THREE.Group();
+scene.add(stripeGroup);
+const STRIPE_SPACING = 3;
+const STRIPE_COUNT   = 20;
+const stripeMat      = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.25, transparent: true });
+
+for (let i = 0; i < STRIPE_COUNT; i++) {
+    const sGeo   = new THREE.BoxGeometry(1.2, 0.015, 0.06);
+    const stripe = new THREE.Mesh(sGeo, stripeMat);
+    stripe.position.set(i * STRIPE_SPACING - 30, 0.02, 0); // center lane
+    stripeGroup.add(stripe);
 }
+
+// ─── STICK FIGURE ────────────────────────────────────────────────────────────
+const person = new StickFigure3D(0, 0, LANE_Z[currentLane], 1.2, 0x111111);
+person.addTo(scene);
+
+// ─── LANE SWITCHING ──────────────────────────────────────────────────────────
+let targetZ    = LANE_Z[currentLane];
+let isMoving   = false;
+
+document.addEventListener("keydown", e => {
+    const arrows = ["ArrowUp", "ArrowDown"];
+    if (arrows.includes(e.key)) e.preventDefault();
+
+    if (e.key === "ArrowUp"   && currentLane > 1) { currentLane--; applyLane(); }
+    if (e.key === "ArrowDown" && currentLane < 3) { currentLane++; applyLane(); }
+});
+
+function applyLane() {
+    targetZ  = LANE_Z[currentLane];
+    isMoving = true;
+}
+
+// ─── CLOCK & ANIMATION LOOP ──────────────────────────────────────────────────
+const clock = new THREE.Clock();
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    const delta = clock.getDelta();
+
+    // Walk animation
+    person.walk(delta);
+
+    // Smooth lane transition (lerp on Z)
+    const currentZ = person.group.position.z;
+    if (Math.abs(currentZ - targetZ) > 0.01) {
+        person.group.position.z += (targetZ - currentZ) * 0.18;
+    } else {
+        person.group.position.z = targetZ;
+        isMoving = false;
+    }
+
+    // Tilt figure slightly when changing lane
+    const leanTarget = isMoving ? (targetZ > currentZ ? -0.15 : 0.15) : 0;
+    person.group.rotation.x += (leanTarget - person.group.rotation.x) * 0.1;
+
+    // Scroll stripes to simulate forward movement
+    stripeGroup.children.forEach(stripe => {
+        stripe.position.x -= delta * 4;
+        if (stripe.position.x < -30) stripe.position.x += STRIPE_COUNT * STRIPE_SPACING;
+    });
+
+    renderer.render(scene, camera);
+}
+
+animate();
+
+// ─── RESIZE HANDLER ──────────────────────────────────────────────────────────
+window.addEventListener("resize", () => {
+    const a = window.innerWidth / window.innerHeight;
+    camera.left   = -viewSize * a / 2;
+    camera.right  =  viewSize * a / 2;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
