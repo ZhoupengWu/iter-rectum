@@ -108,8 +108,6 @@ function setupGrassTile() {
  */
 function renderBackground() {
     const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
-    const height_triangle = Math.round(Math.sqrt(Math.pow(16, 2) - Math.pow(8, 2)));
-    const length_base_triangle = 16;
 
     // Update scroll offset
     scrollX -= 2; // Walking speed

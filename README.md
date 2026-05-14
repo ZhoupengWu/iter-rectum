@@ -29,3 +29,32 @@ Il movimento dei personaggi si basa su principi matematici di oscillazione per s
 | **Velocità** | Aumenta l'incremento di `phase` | L'omino corre o cammina molto velocemente. |
 | **Passo** | Aumenta `amplitude` | L'omino fa passi molto ampi (quasi una spaccata). |
 | **Stile** | Rimuovi `Math.PI` | L'omino salta a piedi uniti (stile canguro). |
+
+## Animazione del Prato Infinito
+
+Il gioco utilizza una tecnica di "scorrimento infinito" (parallax semplificato) per simulare il movimento del personaggio attraverso un campo.
+
+### Componenti Tecnici
+
+1. **Il "Tile" del Prato (`grassTile`):**
+   - Viene creato un canvas "offscreen" (non visibile direttamente) della stessa dimensione del canvas principale.
+   - La funzione `setupGrassTile()` riempie questo tile con un colore di sfondo verde e disegna casualmente dei ciuffi d'erba.
+   - **Seamless Loop:** Per evitare uno stacco visibile quando l'immagine ricomincia, i ciuffi d'erba disegnati vicino al bordo destro vengono replicati sul bordo sinistro (e viceversa).
+
+2. **Offset di Scorrimento (`scrollX`):**
+   - La variabile `scrollX` tiene traccia della posizione orizzontale del background.
+   - Ad ogni frame, viene decrementata: `scrollX -= 2`. Il valore `2` rappresenta la **velocità di camminata**.
+
+3. **Il Meccanismo di Rendering:**
+   - Nella funzione `renderBackground()`, il `grassTile` viene disegnato due volte:
+     - La prima copia alla posizione `scrollX`.
+     - La seconda copia alla posizione `scrollX + grassTile.width`.
+   - Quando `scrollX` diventa minore o uguale alla larghezza negativa del tile (`-grassTile.width`), viene resettato a `0`. Questo crea un ciclo continuo senza interruzioni percepibili.
+
+### Variabili e Modifiche
+
+| Variabile | Funzione | Effetto della Modifica |
+| :--- | :--- | :--- |
+| **Velocità** (`scrollX -= 2`) | Determina quanto velocemente si muove il terreno. | Aumentando il valore (es. `scrollX -= 5`), l'omino sembrerà correre molto più velocemente. |
+| **Densità Erba** (ciclo `for` in `setupGrassTile`) | Numero di ciuffi d'erba generati. | Aumentando il numero di iterazioni (es. da 200 a 500), il prato sembrerà più folto. |
+| **Direzione** (`scrollX -= 2`) | Il segno meno indica il movimento verso sinistra. | Cambiando in `scrollX += 2`, il prato si muoverà verso destra, facendo sembrare che l'omino cammini all'indietro. |
