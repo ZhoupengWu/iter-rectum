@@ -92,8 +92,8 @@ export class QuestionManager {
             <div class="modal fade" id="questionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-header bg-dark text-white">
-                            <h5 class="modal-title" id="questionModalLabel">Domanda <span id="q-current">1</span> di 10</h5>
+                        <div class="modal-header bg-dark text-white text-center">
+                            <h5 class="modal-title w-100" id="questionModalLabel">Domanda <span id="q-current">1</span> di 10</h5>
                         </div>
                         <div class="modal-body text-center py-4">
                             <div id="q-category" class="badge rounded-pill bg-primary mb-3"></div>
@@ -194,8 +194,9 @@ export class QuestionManager {
             <div class="modal fade" id="feedbackModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-header ${headerClass} text-white">
-                            <h5 class="modal-title">${title} <span class="badge bg-white text-dark ms-2">${pointsText}</span></h5>
+                        <div class="modal-header ${headerClass} text-white d-flex justify-content-between align-items-center">
+                            <h5 class="modal-title mb-0">${title}</h5>
+                            <span class="badge bg-white text-dark fs-6">${pointsText}</span>
                         </div>
                         <div class="modal-body py-4">
                             <div class="mb-3">
@@ -276,7 +277,7 @@ export class QuestionManager {
                                 </div>
                             </div>
                             <div class="mt-5">
-                                <p class="lead italic text-secondary">
+                                <p class="lead fw-bold text-dark">
                                     ${this._getResultMessage()}
                                 </p>
                             </div>
