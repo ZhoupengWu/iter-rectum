@@ -27,6 +27,8 @@ export class QuestionManager {
         this.correctCount = 0;
         this.modalElement = null;
         this.bsModal = null;
+        this.isProcessing = false;
+
         /** @type {Object<string, number>} */
         this.difficultyPoints = {
             facile: 10,
@@ -116,7 +118,7 @@ export class QuestionManager {
         this.bsModal = new bootstrap.Modal(this.modalElement);
 
         document.addEventListener("keydown", (event) => {
-            if (event.code === "Space") {
+            if (event.code === "Space" && !this.isProcessing) {
                 const startBtn = document.getElementById("btn-start-question");
                 const nextBtn = document.getElementById("btn-next-question");
 
@@ -144,6 +146,7 @@ export class QuestionManager {
             return;
         }
 
+        this.isProcessing = false;
         const question = this.sessionQuestions[this.currentIndex];
 
         // Update UI
@@ -166,14 +169,13 @@ export class QuestionManager {
         // @ts-ignore
         btn.parentNode.replaceChild(newBtn, btn);
 
-        newBtn.addEventListener(
-            "click",
-            () => {
-                this.bsModal.hide();
-                onStartCallback(question);
-            },
-            { once: true },
-        );
+        newBtn.addEventListener("click", () => {
+            if (this.isProcessing) return;
+
+            this.isProcessing = true;
+            this.bsModal.hide();
+            onStartCallback(question);
+        }, { once: true });
 
         this.bsModal.show();
     }
@@ -187,6 +189,7 @@ export class QuestionManager {
      * @returns {void}
      */
     showFeedback(isCorrect, question, chosenAnswerKey, onNext) {
+        this.isProcessing = false;
         const points = this.difficultyPoints[question.difficulty];
 
         if (isCorrect) {
@@ -240,28 +243,36 @@ export class QuestionManager {
             </div>
         `;
 
-        // Remove old feedback modal if exists
         const existing = document.getElementById("feedbackModal");
-        // @ts-ignore
-        if (existing) existing.parentElement.remove();
+
+        if (existing) {
+            // @ts-ignore
+            const oldInstance = bootstrap.Modal.getInstance(existing);
+            if (oldInstance) oldInstance.dispose();
+            // @ts-ignore
+            existing.parentElement.remove();
+        }
 
         const div = document.createElement("div");
         div.innerHTML = feedbackHtml;
         document.body.appendChild(div);
 
+        const feedbackEl = document.getElementById("feedbackModal");
         // @ts-ignore
-        const bsFeedbackModal = new bootstrap.Modal(
-            document.getElementById("feedbackModal"),
-        );
+        const bsFeedbackModal = new bootstrap.Modal(feedbackEl);
 
         // @ts-ignore
         document.getElementById("btn-next-question").addEventListener("click", () => {
-                bsFeedbackModal.hide();
+            if (this.isProcessing) return;
+
+            this.isProcessing = true;
+            bsFeedbackModal.hide();
+            // @ts-ignore
+            feedbackEl.addEventListener('hidden.bs.modal', () => {
                 this.currentIndex++;
                 onNext();
-            },
-            { once: true },
-        );
+            }, { once: true });
+        }, { once: true });
 
         bsFeedbackModal.show();
     }
