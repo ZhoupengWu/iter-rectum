@@ -311,12 +311,12 @@ export class QuestionManager {
      * @returns {string}
      */
     _getResultMessage() {
-        if (this.correctCount === 10) return "Perfetto! Sei un vero esperto di cittadinanza digitale.";
+        if (this.correctCount === 10) return "Perfetto! Sei un vero esperto nella prevenzione del cyberbullismo.";
 
-        if (this.correctCount >= 8) return "Ottimo lavoro! Conosci molto bene i pericoli della rete.";
+        if (this.correctCount >= 8) return "Ottimo lavoro! Sai come proteggerti e come promuovere il rispetto online.";
 
-        if (this.correctCount >= 5) return "Buon risultato, ma c'è ancora qualche concetto da ripassare.";
+        if (this.correctCount >= 5) return "Buon risultato, ma ripassa i termini e le leggi contro il cyberbullismo.";
 
-        return "Continua a informarti: la sicurezza online è fondamentale!";
+        return "Continua a informarti: conoscere il cyberbullismo è il primo passo per fermarlo!";
     }
 }
