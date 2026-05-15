@@ -9,7 +9,9 @@ body {
 
 header {
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 1rem 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
     width: 100%;
 }
 
@@ -22,26 +24,29 @@ main {
 
 footer {
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 1.5rem 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
     width: 100%;
-    text-align: center;
 }
 
 .nav-link {
     color: #ffefcd !important;
     font-weight: bold;
     margin: 0 1rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
     color: #ffffff !important;
+    border-bottom: 2px solid #ffefcd;
 }
 
 .footer-link {
     color: #ffefcd;
     text-decoration: none;
-    margin: 0 0.5rem;
+    margin-right: 1.5rem;
 }
 
 .footer-link:hover {
