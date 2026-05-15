@@ -115,6 +115,94 @@ export class StickFigure {
 }
 
 /**
+ * Represents an answer card drawn on the road.
+ */
+export class Card {
+    /**
+     * @param {number} x - Horizontal position.
+     * @param {number} y - Vertical center position.
+     * @param {number} width - Width of the card.
+     * @param {number} height - Height of the card.
+     * @param {string} text - Answer text.
+     * @param {string} key - Identifier for the answer (e.g., "1", "2", "3").
+     * @param {string | CanvasGradient | CanvasPattern} color - Background color.
+     * @param {string | CanvasGradient | CanvasPattern} textColor - Text color.
+     */
+    constructor(x, y, width, height, text, key, color = 'white', textColor = 'black') {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.text = text;
+        this.key = key;
+        this.color = color;
+        this.textColor = textColor;
+        this.passed = false;
+    }
+
+    /**
+     * Draws the card and its wrapped text.
+     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
+     * @returns {void}
+     */
+    draw(ctx) {
+        // Shadow effect
+        ctx.fillStyle = 'rgba(0,0,0,0.2)';
+        ctx.fillRect(this.x + 4, this.y - this.height / 2 + 4, this.width, this.height);
+
+        // Card body
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y - this.height / 2, this.width, this.height);
+
+        // Border
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(this.x, this.y - this.height / 2, this.width, this.height);
+
+        // Text
+        ctx.fillStyle = this.textColor;
+        ctx.font = 'bold 14px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        this._wrapText(ctx, this.text, this.x + this.width / 2, this.y, this.width - 20, 18);
+    }
+
+    /**
+     * Helper to wrap text within the card boundaries.
+     * @private
+     */
+    _wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+        const lines = [];
+
+        for (let n = 0; n < words.length; n++) {
+            const testLine = line + words[n] + ' ';
+            const metrics = ctx.measureText(testLine);
+
+            if (metrics.width > maxWidth && n > 0) {
+                lines.push(line);
+                line = words[n] + ' ';
+            }
+            else {
+                line = testLine;
+            }
+        }
+        
+        lines.push(line);
+
+        const totalHeight = lines.length * lineHeight;
+        let currentY = y - (totalHeight / 2) + (lineHeight / 2);
+
+        for (const l of lines) {
+            ctx.fillText(l.trim(), x, currentY);
+            currentY += lineHeight;
+        }
+    }
+}
+
+/**
  * Represents a circle to be drawn on a canvas.
  */
 export class Circle {
