@@ -28,7 +28,7 @@ let phase = 0;
  * Flag indicating if the game is currently running (walking).
  * @type {boolean}
  */
-let is_running = false;
+let isRunning = false;
 
 /**
  * Current question being played in the current turn.
@@ -80,7 +80,7 @@ let person;
  * Canvas context for the human figure.
  * @type {CanvasRenderingContext2D}
  */
-let human_figure_ctx;
+let humanFigureCtx;
 
 /**
  * Question manager instance.
@@ -99,18 +99,18 @@ document.addEventListener("DOMContentLoaded", async () => {
  * @returns {void}
  */
 function initFigure() {
-    const human_figure = document.createElement("canvas");
-    human_figure.width = road.offsetWidth;
-    human_figure.height = road.offsetHeight;
-    human_figure.style.position = "absolute";
-    human_figure.style.top = "0";
-    human_figure.style.left = "0";
-    human_figure.style.pointerEvents = "none";
-    game.appendChild(human_figure);
+    const humanFigure = document.createElement("canvas");
+    humanFigure.width = road.offsetWidth;
+    humanFigure.height = road.offsetHeight;
+    humanFigure.style.position = "absolute";
+    humanFigure.style.top = "0";
+    humanFigure.style.left = "0";
+    humanFigure.style.pointerEvents = "none";
+    game.appendChild(humanFigure);
 
-    human_figure_ctx = /** @type {CanvasRenderingContext2D} */ (human_figure.getContext("2d"));
+    humanFigureCtx = /** @type {CanvasRenderingContext2D} */ (humanFigure.getContext("2d"));
     person = new StickFigure(96, positionFigure[position], 1.5, COLOURS.black, 2);
-    person.draw(human_figure_ctx);
+    person.draw(humanFigureCtx);
 
     setupControls();
 }
@@ -121,7 +121,7 @@ function initFigure() {
  */
 function setupControls() {
     document.addEventListener("keydown", event => {
-        if (!is_running) return;
+        if (!isRunning) return;
 
         const arrows = ["ArrowUp", "ArrowDown"];
         if (arrows.includes(event.key)) event.preventDefault();
@@ -145,11 +145,11 @@ function setupControls() {
  * @returns {void}
  */
 function startNewTurn() {
-    is_running = false;
+    isRunning = false;
     qManager.showQuestion((/** @type {import("../../core/components/question.js").Question} */ question) => {
         currentQuestion = question;
         spawnCards(question);
-        is_running = true;
+        isRunning = true;
         requestAnimationFrame(gameLoop);
     });
 }
@@ -212,7 +212,7 @@ function setupGrassTile() {
  * @returns {void}
  */
 function gameLoop() {
-    if (!is_running) return;
+    if (!isRunning) return;
 
     renderBackground();
     updateAndDrawCards();
@@ -266,7 +266,7 @@ function updateAndDrawCards() {
  * @returns {void}
  */
 function updateAndDrawFigure() {
-    human_figure_ctx.clearRect(0, 0, road.width, road.height);
+    humanFigureCtx.clearRect(0, 0, road.width, road.height);
 
     phase += 0.15;
     const amplitude = 0.7;
@@ -276,7 +276,7 @@ function updateAndDrawFigure() {
     person.leftArmAngle = Math.sin(phase + Math.PI) * (amplitude * 0.8);
     person.rightArmAngle = Math.sin(phase) * (amplitude * 0.8);
 
-    person.draw(human_figure_ctx);
+    person.draw(humanFigureCtx);
 }
 
 /**
@@ -300,7 +300,7 @@ function checkCollisions() {
 
     // If all cards have passed and no choice was made (shouldn't happen if lanes are full)
     if (cards.length > 0 && cards.every(c => (c.x + c.width) < 0)) {
-        is_running = false;
+        isRunning = false;
         // Maybe repeat the question or handle as wrong?
         startNewTurn();
     }
@@ -312,9 +312,24 @@ function checkCollisions() {
  * @returns {void}
  */
 function handleChoice(chosenKey) {
-    is_running = false;
+    if (!isRunning) return;
 
-    if (currentQuestion === null) throw new Error("Something wrong");
+    isRunning = false;
+
+    if (!currentQuestion) {
+        console.error("Gameplay Error: 'handleChoice' called but no active 'currentQuestion' found.");
+        // Attempt to recover by restarting the turn
+        startNewTurn();
+
+        return;
+    }
+
+    if (!currentQuestion.answers[chosenKey]) {
+        console.error(`Gameplay Error: Chosen key '${chosenKey}' does not exist in the current question.`);
+        isRunning = true; // Resume if it was a false positive
+
+        return;
+    }
 
     const isCorrect = chosenKey === currentQuestion.correct_answer;
 
