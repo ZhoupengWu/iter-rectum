@@ -380,14 +380,14 @@
       "difficulty": "difficile",
       "question": "Cosa si intende per 'Happy Slapping'?",
       "answers": {
-        "1": "Un gioco online dove bisogna colpire dei bersagli mobili",
+        "1": "Un gioco online in cui bisogna colpire dei bersagli mobili",
         "2": "Schiaffeggiare qualcuno mentre un complice riprende video per pubblicarli",
         "3": "Inviarsi emoji divertenti per fare pace dopo un litigio"
       },
       "correct_answer": "2",
       "explanations": {
         "1": "Esistono giochi simili, ma il termine è nato per descrivere atti di bullismo reale.",
-        "2": "È una pratica violenta dove l'aggressione fisica viene amplificata dalla diffusione online.",
+        "2": "È una pratica violenta in cui l'aggressione fisica viene amplificata dalla diffusione online.",
         "3": "Non ha nulla a che fare con la violenza digitale."
       }
     },

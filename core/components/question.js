@@ -114,6 +114,22 @@ export class QuestionManager {
         this.modalElement = document.getElementById("questionModal");
         // @ts-ignore
         this.bsModal = new bootstrap.Modal(this.modalElement);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "Space") {
+                const startBtn = document.getElementById("btn-start-question");
+                const nextBtn = document.getElementById("btn-next-question");
+
+                if (startBtn && startBtn.offsetParent !== null) {
+                    event.preventDefault();
+                    startBtn.click();
+                }
+                else if (nextBtn && nextBtn.offsetParent !== null) {
+                    event.preventDefault();
+                    nextBtn.click();
+                }
+            }
+        });
     }
 
     /**
@@ -282,8 +298,9 @@ export class QuestionManager {
                                 </p>
                             </div>
                         </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" id="btn-restart" class="btn btn-success btn-lg px-5">GIOCA ANCORA</button>
+                        <div class="modal-footer justify-content-center flex-nowrap">
+                            <a href="../../index.html" class="btn btn-outline-primary btn-lg px-3 me-2 text-nowrap">HOME</a>
+                            <button type="button" id="btn-restart" class="btn btn-success btn-lg px-3 text-nowrap">GIOCA ANCORA</button>
                         </div>
                     </div>
                 </div>
