@@ -12,19 +12,14 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="../../index.css">
     <link rel="stylesheet" href="../styles/game.css">
-
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@0.184.0/examples/jsm/"
-          }
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container d-flex justify-content-between align-items-center">
         <h1 id="title-game" class="display-1">ITER RECTUM</h1>
+        <div id="score-container" class="text-end">
+            <div class="h4 text-muted mb-0">PUNTEGGIO</div>
+            <div id="score-value" class="display-4 fw-bold text-primary">0</div>
+        </div>
     </div>
 
     <div id="game">
@@ -32,7 +27,6 @@
     </div>
 
     <script type="module" src="../js/game.js"></script>
-    <script type="module" src="../../core/utils/skeleton.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

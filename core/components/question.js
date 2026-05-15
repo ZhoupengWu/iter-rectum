@@ -23,8 +23,16 @@ export class QuestionManager {
         /** @type {Question[]} */
         this.sessionQuestions = [];
         this.currentIndex = 0;
+        this.score = 0;
+        this.correctCount = 0;
         this.modalElement = null;
         this.bsModal = null;
+        /** @type {Object<string, number>} */
+        this.difficultyPoints = {
+            facile: 10,
+            medio: 15,
+            difficile: 25
+        };
     }
 
     /**
@@ -42,8 +50,22 @@ export class QuestionManager {
             this.allQuestions = data.questions;
             this._prepareSession();
             this._createModalElement();
+            this._updateScoreDisplay();
         } catch (error) {
             console.error("QuestionManager initialization failed:", error);
+        }
+    }
+
+    /**
+     * Updates the score display in the UI if it exists.
+     * @private
+     * @returns {void}
+     */
+    _updateScoreDisplay() {
+        const scoreEl = document.getElementById("score-value");
+
+        if (scoreEl) {
+            scoreEl.textContent = this.score.toString();
         }
     }
 
@@ -56,6 +78,8 @@ export class QuestionManager {
         const shuffled = [...this.allQuestions].sort(() => 0.5 - Math.random());
         this.sessionQuestions = shuffled.slice(0, 10);
         this.currentIndex = 0;
+        this.score = 0;
+        this.correctCount = 0;
     }
 
     /**
@@ -147,13 +171,23 @@ export class QuestionManager {
      * @returns {void}
      */
     showFeedback(isCorrect, question, chosenAnswerKey, onNext) {
+        const points = this.difficultyPoints[question.difficulty];
+
+        if (isCorrect) {
+            this.score += points;
+            this.correctCount++;
+        }
+        else {
+            this.score -= points;
+        }
+
+        this._updateScoreDisplay();
+
         const title = isCorrect ? "CORRETTO! 🎉" : "SBAGLIATO! ❌";
         const headerClass = isCorrect ? "bg-success" : "bg-danger";
-        // @ts-ignore
-        const explanation =
-            question.explanations[chosenAnswerKey] ||
-            "Nessuna spiegazione disponibile.";
-        // @ts-ignore
+        const pointsText = isCorrect ? `+${points} punti` : `-${points} punti`;
+
+        const explanation = question.explanations[chosenAnswerKey];
         const correctAnswerText = question.answers[question.correct_answer];
 
         const feedbackHtml = `
@@ -161,7 +195,7 @@ export class QuestionManager {
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header ${headerClass} text-white">
-                            <h5 class="modal-title">${title}</h5>
+                            <h5 class="modal-title">${title} <span class="badge bg-white text-dark ms-2">${pointsText}</span></h5>
                         </div>
                         <div class="modal-body py-4">
                             <div class="mb-3">
@@ -221,7 +255,68 @@ export class QuestionManager {
      * @returns {void}
      */
     _onSessionEnd() {
-        alert("Sessione completata! Ottimo lavoro.");
-        location.reload();
+        const resultHtml = `
+            <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white text-center">
+                            <h5 class="modal-title w-100">SESSIONE COMPLETATA! 🏁</h5>
+                        </div>
+                        <div class="modal-body text-center py-5">
+                            <h2 class="mb-4">Il tuo punteggio finale è:</h2>
+                            <div class="display-1 fw-bold mb-4 text-primary">${this.score}</div>
+                            <div class="row mt-4">
+                                <div class="col-6 border-end">
+                                    <div class="h4 mb-0">${this.correctCount}/10</div>
+                                    <small class="text-muted">Risposte Corrette</small>
+                                </div>
+                                <div class="col-6">
+                                    <div class="h4 mb-0">${Math.round((this.correctCount / 10) * 100)}%</div>
+                                    <small class="text-muted">Accuratezza</small>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <p class="lead italic text-secondary">
+                                    ${this._getResultMessage()}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" id="btn-restart" class="btn btn-success btn-lg px-5">GIOCA ANCORA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const div = document.createElement("div");
+        div.innerHTML = resultHtml;
+        document.body.appendChild(div);
+
+        // @ts-ignore
+        const bsResultModal = new bootstrap.Modal(document.getElementById("resultModal"));
+
+        // @ts-ignore
+        document.getElementById("btn-restart").addEventListener("click", () => {
+            bsResultModal.hide();
+            location.reload();
+        }, { once: true });
+
+        bsResultModal.show();
+    }
+
+    /**
+     * Returns a personalized message based on the final score.
+     * @private
+     * @returns {string}
+     */
+    _getResultMessage() {
+        if (this.correctCount === 10) return "Perfetto! Sei un vero esperto di cittadinanza digitale.";
+
+        if (this.correctCount >= 8) return "Ottimo lavoro! Conosci molto bene i pericoli della rete.";
+
+        if (this.correctCount >= 5) return "Buon risultato, ma c'è ancora qualche concetto da ripassare.";
+
+        return "Continua a informarti: la sicurezza online è fondamentale!";
     }
 }
