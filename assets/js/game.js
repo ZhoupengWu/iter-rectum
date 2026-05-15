@@ -326,7 +326,7 @@ function handleChoice(chosenKey) {
 
     if (!currentQuestion.answers[chosenKey]) {
         console.error(`Gameplay Error: Chosen key '${chosenKey}' does not exist in the current question.`);
-        isRunning = true; // Resume if it was a false positive
+        isRunning = true;
 
         return;
     }

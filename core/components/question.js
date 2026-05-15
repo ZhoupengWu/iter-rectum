@@ -24,6 +24,7 @@ export class QuestionManager {
         this.sessionQuestions = [];
         this.currentIndex = 0;
         this.score = 0;
+        this.maxScore = 0;
         this.correctCount = 0;
         this.modalElement = null;
         this.bsModal = null;
@@ -82,6 +83,7 @@ export class QuestionManager {
         this.currentIndex = 0;
         this.score = 0;
         this.correctCount = 0;
+        this.maxScore = this.sessionQuestions.reduce((acc, q) => acc + this.difficultyPoints[q.difficulty], 0);
     }
 
     /**
@@ -283,6 +285,7 @@ export class QuestionManager {
      * @returns {void}
      */
     _onSessionEnd() {
+        const accuracy = Math.round((this.score / this.maxScore) * 100);
         const resultHtml = `
             <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -295,17 +298,17 @@ export class QuestionManager {
                             <div class="display-1 fw-bold mb-4 text-primary">${this.score}</div>
                             <div class="row mt-4">
                                 <div class="col-6 border-end">
-                                    <div class="h4 mb-0">${this.correctCount}/10</div>
-                                    <small class="text-muted">Risposte Corrette</small>
+                                    <div class="h4 mb-0">${this.score}/${this.maxScore}</div>
+                                    <small class="text-muted">Punti ottenuti</small>
                                 </div>
                                 <div class="col-6">
-                                    <div class="h4 mb-0">${Math.round((this.correctCount / 10) * 100)}%</div>
+                                    <div class="h4 mb-0">${accuracy}%</div>
                                     <small class="text-muted">Accuratezza</small>
                                 </div>
                             </div>
                             <div class="mt-5">
                                 <p class="lead fw-bold text-dark">
-                                    ${this._getResultMessage()}
+                                    ${this._getResultMessage(accuracy)}
                                 </p>
                             </div>
                         </div>
@@ -337,15 +340,18 @@ export class QuestionManager {
     /**
      * Returns a personalized message based on the final score.
      * @private
+     * @param {number} percentage - The score percentage.
      * @returns {string}
      */
-    _getResultMessage() {
-        if (this.correctCount === 10) return "Perfetto! Sei un vero esperto nella prevenzione del cyberbullismo.";
+    _getResultMessage(percentage) {
+        if (percentage >= 100) return "Perfetto! Sei un vero esperto nella prevenzione del cyberbullismo.";
 
-        if (this.correctCount >= 8) return "Ottimo lavoro! Sai come proteggerti e come promuovere il rispetto online.";
+        if (percentage >= 80) return "Ottimo lavoro! Sai come proteggerti e come promuovere il rispetto online.";
 
-        if (this.correctCount >= 5) return "Buon risultato, ma ripassa i termini e le leggi contro il cyberbullismo.";
+        if (percentage >= 50) return "Buon risultato, ma ripassa i termini e le leggi contro il cyberbullismo.";
 
-        return "Continua a informarti: conoscere il cyberbullismo è il primo passo per fermarlo!";
+        if (percentage >= 0) return "Continua a informarti: conoscere il cyberbullismo è il primo passo per fermarlo!";
+
+        return "Attenzione: le tue risposte indicano una scarsa consapevolezza dei rischi online. Ripassa subito i materiali per evitare comportamenti dannosi!";
     }
 }
