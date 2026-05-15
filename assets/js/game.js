@@ -286,10 +286,11 @@ function updateAndDrawFigure() {
 function checkCollisions() {
     const figureX = person.x;
     const figureLane = position;
+    const figureRightEdge = figureX + 25; // Approximate reach of the figure at scale 1.5
 
     cards.forEach(card => {
-        // Simple collision: if card passes the figure's X and is in the same lane
-        if (!card.passed && (card.x + card.width) < figureX + 30) {
+        // Trigger collision as soon as the left edge of the card touches the figure
+        if (!card.passed && card.x <= figureRightEdge) {
             card.passed = true;
             // If this card is in the player's current lane, it's the choice!
             if (parseInt(card.key) === figureLane) {
@@ -301,7 +302,6 @@ function checkCollisions() {
     // If all cards have passed and no choice was made (shouldn't happen if lanes are full)
     if (cards.length > 0 && cards.every(c => (c.x + c.width) < 0)) {
         isRunning = false;
-        // Maybe repeat the question or handle as wrong?
         startNewTurn();
     }
 }
