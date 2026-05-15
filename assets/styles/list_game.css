@@ -1,0 +1,61 @@
+body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#title-game {
+    margin-bottom: 3rem;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-width: 3px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(5px);
+}
+
+.card:hover:not(.opacity-75) {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 239, 205, 0.3);
+    border-color: #ffefcd !important;
+}
+
+.card-title {
+    color: #ffefcd;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.btn-warning {
+    background-color: #ffefcd;
+    border-color: #ffefcd;
+    color: #1A2238;
+}
+
+.btn-warning:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #1A2238;
+    transform: scale(1.05);
+}
+
+.opacity-75 {
+    filter: grayscale(0.5);
+}
