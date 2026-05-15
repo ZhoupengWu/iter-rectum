@@ -148,7 +148,7 @@ export class QuestionManager {
             return;
         }
 
-        this.isProcessing = false;
+        this.isProcessing = true;
         const question = this.sessionQuestions[this.currentIndex];
 
         // Update UI
@@ -171,12 +171,22 @@ export class QuestionManager {
         // @ts-ignore
         btn.parentNode.replaceChild(newBtn, btn);
 
+        // @ts-ignore
+        this.modalElement.addEventListener('shown.bs.modal', () => {
+            this.isProcessing = false;
+        }, { once: true });
+
         newBtn.addEventListener("click", () => {
             if (this.isProcessing) return;
 
             this.isProcessing = true;
+
+            // @ts-ignore
+            this.modalElement.addEventListener('hidden.bs.modal', () => {
+                onStartCallback(question);
+            }, { once: true });
+
             this.bsModal.hide();
-            onStartCallback(question);
         }, { once: true });
 
         this.bsModal.show();
@@ -191,7 +201,7 @@ export class QuestionManager {
      * @returns {void}
      */
     showFeedback(isCorrect, question, chosenAnswerKey, onNext) {
-        this.isProcessing = false;
+        this.isProcessing = true;
         const points = this.difficultyPoints[question.difficulty];
 
         if (isCorrect) {
@@ -264,16 +274,23 @@ export class QuestionManager {
         const bsFeedbackModal = new bootstrap.Modal(feedbackEl);
 
         // @ts-ignore
+        feedbackEl.addEventListener('shown.bs.modal', () => {
+            this.isProcessing = false;
+        }, { once: true });
+
+        // @ts-ignore
         document.getElementById("btn-next-question").addEventListener("click", () => {
             if (this.isProcessing) return;
 
             this.isProcessing = true;
-            bsFeedbackModal.hide();
+
             // @ts-ignore
             feedbackEl.addEventListener('hidden.bs.modal', () => {
                 this.currentIndex++;
                 onNext();
             }, { once: true });
+
+            bsFeedbackModal.hide();
         }, { once: true });
 
         bsFeedbackModal.show();
@@ -285,6 +302,7 @@ export class QuestionManager {
      * @returns {void}
      */
     _onSessionEnd() {
+        this.isProcessing = true;
         const accuracy = Math.round((this.score / this.maxScore) * 100);
         const resultHtml = `
             <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
@@ -325,13 +343,27 @@ export class QuestionManager {
         div.innerHTML = resultHtml;
         document.body.appendChild(div);
 
+        const resultEl = document.getElementById("resultModal");
         // @ts-ignore
-        const bsResultModal = new bootstrap.Modal(document.getElementById("resultModal"));
+        const bsResultModal = new bootstrap.Modal(resultEl);
+
+        // @ts-ignore
+        resultEl.addEventListener('shown.bs.modal', () => {
+            this.isProcessing = false;
+        }, { once: true });
 
         // @ts-ignore
         document.getElementById("btn-restart").addEventListener("click", () => {
+            if (this.isProcessing) return;
+
+            this.isProcessing = true;
+
+            // @ts-ignore
+            resultEl.addEventListener('hidden.bs.modal', () => {
+                location.reload();
+            }, { once: true });
+
             bsResultModal.hide();
-            location.reload();
         }, { once: true });
 
         bsResultModal.show();
