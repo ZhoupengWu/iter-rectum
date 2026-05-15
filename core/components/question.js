@@ -1,4 +1,15 @@
 /**
+ * @typedef {Object} Question
+ * @property {string} id - Unique identifier for the question.
+ * @property {string} category - Category/topic of the question.
+ * @property {string} difficulty - Difficulty level (e.g., "facile", "medio", "difficile").
+ * @property {string} question - The question text.
+ * @property {Object<string, string>} answers - Map of answer keys ("1", "2", "3") to answer text.
+ * @property {string} correct_answer - The key of the correct answer.
+ * @property {Object<string, string>} explanations - Map of answer keys to their respective explanations.
+ */
+
+/**
  * Manages the question lifecycle, including fetching, randomizing, and displaying questions via a Bootstrap modal.
  */
 export class QuestionManager {
@@ -7,7 +18,9 @@ export class QuestionManager {
      */
     constructor(questionsUrl) {
         this.questionsUrl = questionsUrl;
+        /** @type {Question[]} */
         this.allQuestions = [];
+        /** @type {Question[]} */
         this.sessionQuestions = [];
         this.currentIndex = 0;
         this.modalElement = null;
@@ -24,6 +37,7 @@ export class QuestionManager {
 
             if (!response.ok) throw new Error("Failed to fetch questions");
 
+            /** @type {{questions: Question[]}} */
             const data = await response.json();
             this.allQuestions = data.questions;
             this._prepareSession();
@@ -127,7 +141,7 @@ export class QuestionManager {
     /**
      * Displays the feedback modal (correct/incorrect).
      * @param {boolean} isCorrect - Whether the player's choice was correct.
-     * @param {Object} question - The current question object.
+     * @param {Question} question - The current question object.
      * @param {string} chosenAnswerKey - The key of the answer chosen by the player.
      * @param {Function} onNext - Callback to proceed to the next question.
      * @returns {void}
@@ -190,9 +204,7 @@ export class QuestionManager {
         );
 
         // @ts-ignore
-        document.getElementById("btn-next-question").addEventListener(
-            "click",
-            () => {
+        document.getElementById("btn-next-question").addEventListener("click", () => {
                 bsFeedbackModal.hide();
                 this.currentIndex++;
                 onNext();
@@ -203,6 +215,11 @@ export class QuestionManager {
         bsFeedbackModal.show();
     }
 
+    /**
+     * Handles the end of a question session.
+     * @private
+     * @returns {void}
+     */
     _onSessionEnd() {
         alert("Sessione completata! Ottimo lavoro.");
         location.reload();

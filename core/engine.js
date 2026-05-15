@@ -169,8 +169,15 @@ export class Card {
     }
 
     /**
-     * Helper to wrap text within the card boundaries.
+     * Helper to wrap text within the card boundaries and center it vertically.
+     * @param {CanvasRenderingContext2D} ctx - The canvas 2D rendering context.
+     * @param {string} text - The text to wrap.
+     * @param {number} x - Horizontal center for the text.
+     * @param {number} y - Vertical center for the text block.
+     * @param {number} maxWidth - Maximum width allowed for a line.
+     * @param {number} lineHeight - Height of each line of text.
      * @private
+     * @returns {void}
      */
     _wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         const words = text.split(' ');

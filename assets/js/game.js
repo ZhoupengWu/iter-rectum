@@ -31,12 +31,13 @@ let phase = 0;
 let is_running = false;
 
 /**
- * Current question being played.
+ * Current question being played in the current turn.
+ * @type {import("../../core/components/question.js").Question | null}
  */
 let currentQuestion = null;
 
 /**
- * Array of card objects currently on the road.
+ * Array of card objects currently rendered on the road.
  * @type {Card[]}
  */
 let cards = [];
@@ -145,7 +146,7 @@ function setupControls() {
  */
 function startNewTurn() {
     is_running = false;
-    qManager.showQuestion((question) => {
+    qManager.showQuestion((/** @type {import("../../core/components/question.js").Question} */ question) => {
         currentQuestion = question;
         spawnCards(question);
         is_running = true;
@@ -155,7 +156,7 @@ function startNewTurn() {
 
 /**
  * Spawns answer cards on the road based on the current question.
- * @param {Object} question
+ * @param {import("../../core/components/question.js").Question} question
  * @returns {void}
  */
 function spawnCards(question) {
@@ -312,6 +313,9 @@ function checkCollisions() {
  */
 function handleChoice(chosenKey) {
     is_running = false;
+
+    if (currentQuestion === null) throw new Error("Something wrong");
+
     const isCorrect = chosenKey === currentQuestion.correct_answer;
 
     qManager.showFeedback(isCorrect, currentQuestion, chosenKey, () => {
