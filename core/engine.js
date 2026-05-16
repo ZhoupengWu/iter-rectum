@@ -138,6 +138,8 @@ export class Card {
         this.color = color;
         this.textColor = textColor;
         this.passed = false;
+        /** @type {number} */
+        this.fontSize = 14;
     }
 
     /**
@@ -161,11 +163,12 @@ export class Card {
 
         // Text
         ctx.fillStyle = this.textColor;
-        ctx.font = 'bold 14px Arial';
+        const fontSize = this.fontSize;
+        ctx.font = `bold ${fontSize}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        this._wrapText(ctx, this.text, this.x + this.width / 2, this.y, this.width - 20, 18);
+        this._wrapText(ctx, this.text, this.x + this.width / 2, this.y, this.width - 15, fontSize * 1.2);
     }
 
     /**

@@ -1,2 +1,6 @@
 .codex
 test.js
+node_modules/
+eslint.config.js
+package.json
+package-lock.json

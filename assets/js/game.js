@@ -3,14 +3,14 @@ import { StickFigure, Card } from "../../core/engine.js";
 import { QuestionManager } from "../../core/components/question.js";
 
 /**
- * Maps the lane index to the Y-coordinate height for the stick figure and cards.
- * @type {Object<number, number>}
+ * Calculates the Y-coordinate height for the stick figure and cards based on lane and canvas height.
+ * @param {number} lane - The lane index (1, 2, or 3).
+ * @returns {number}
  */
-const positionFigure = {
-    1: 96,
-    2: 288,
-    3: 480
-};
+function getLaneY(lane) {
+    const laneHeight = road.height / 3;
+    return (laneHeight * (lane - 1)) + (laneHeight / 2);
+}
 
 /**
  * The current lane position of the stick figure (1, 2, or 3).
@@ -53,16 +53,12 @@ const game = /** @type {HTMLElement} */ (document.getElementById("game"));
  * @type {HTMLCanvasElement}
  */
 const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
-road.width = road.offsetWidth;
-road.height = road.offsetHeight;
 
 /**
  * Offscreen canvas used to pre-render the grass pattern.
  * @type {HTMLCanvasElement}
  */
-const grassTile = document.createElement("canvas");
-grassTile.width = road.width;
-grassTile.height = road.height;
+let grassTile = document.createElement("canvas");
 
 /**
  * The current horizontal scroll offset for the background animation.
@@ -88,11 +84,36 @@ let humanFigureCtx;
 const qManager = new QuestionManager("../json/questions.json");
 
 document.addEventListener("DOMContentLoaded", async () => {
-    setupGrassTile();
+    resizeCanvas();
     initFigure();
+    setupGrassTile();
     await qManager.init();
     startNewTurn();
+
+    window.addEventListener("resize", () => {
+        resizeCanvas();
+        setupGrassTile();
+        if (person) {
+            person.y = getLaneY(position);
+            // Scale person based on canvas height if needed
+            person.scale = (road.height / 360) * 1.0;
+        }
+    });
 });
+
+/**
+ * Resizes the canvases to match the container dimensions.
+ */
+function resizeCanvas() {
+    road.width = game.clientWidth;
+    road.height = game.clientHeight;
+
+    const humanFigure = document.querySelector("#game canvas:not(#road)");
+    if (humanFigure) {
+        /** @type {HTMLCanvasElement} */ (humanFigure).width = road.width;
+        /** @type {HTMLCanvasElement} */ (humanFigure).height = road.height;
+    }
+}
 
 /**
  * Initializes the stick figure and its canvas.
@@ -100,8 +121,8 @@ document.addEventListener("DOMContentLoaded", async () => {
  */
 function initFigure() {
     const humanFigure = document.createElement("canvas");
-    humanFigure.width = road.offsetWidth;
-    humanFigure.height = road.offsetHeight;
+    humanFigure.width = road.width;
+    humanFigure.height = road.height;
     humanFigure.style.position = "absolute";
     humanFigure.style.top = "0";
     humanFigure.style.left = "0";
@@ -109,33 +130,48 @@ function initFigure() {
     game.appendChild(humanFigure);
 
     humanFigureCtx = /** @type {CanvasRenderingContext2D} */ (humanFigure.getContext("2d"));
-    person = new StickFigure(96, positionFigure[position], 1.5, COLOURS.black, 2);
+    const initialScale = (road.height / 360) * 1.0;
+    person = new StickFigure(road.width * 0.1, getLaneY(position), initialScale, COLOURS.black, 2);
     person.draw(humanFigureCtx);
 
     setupControls();
 }
 
 /**
- * Sets up the keyboard controls for lane switching.
+ * Sets up the keyboard and touch controls for lane switching.
  * @returns {void}
  */
 function setupControls() {
+    const handleUp = () => {
+        if (!isRunning || position === 1) return;
+        position--;
+        person.y = getLaneY(position);
+    };
+
+    const handleDown = () => {
+        if (!isRunning || position === 3) return;
+        position++;
+        person.y = getLaneY(position);
+    };
+
     document.addEventListener("keydown", event => {
-        if (!isRunning) return;
-
-        const arrows = ["ArrowUp", "ArrowDown"];
-        if (arrows.includes(event.key)) event.preventDefault();
-
         if (event.key === "ArrowUp") {
-            if (position === 1) return;
-            position--;
-            person.y = positionFigure[position];
+            event.preventDefault();
+            handleUp();
         }
-
         if (event.key === "ArrowDown") {
-            if (position === 3) return;
-            position++;
-            person.y = positionFigure[position];
+            event.preventDefault();
+            handleDown();
+        }
+    });
+
+    game.addEventListener("mousedown", event => {
+        const rect = game.getBoundingClientRect();
+        const clickY = event.clientY - rect.top;
+        if (clickY < rect.height / 2) {
+            handleUp();
+        } else {
+            handleDown();
         }
     });
 }
@@ -161,16 +197,18 @@ function startNewTurn() {
  */
 function spawnCards(question) {
     cards = [];
-    const cardWidth = 200;
-    const cardHeight = 120;
+    const cardWidth = road.width * 0.25;
+    const cardHeight = road.height * 0.22;
     const startX = road.width + 100;
 
     // Create a card for each answer in its respective lane
     Object.keys(question.answers).forEach(key => {
         const lane = parseInt(key);
-        const y = positionFigure[lane];
+        const y = getLaneY(lane);
         const text = question.answers[key];
-        cards.push(new Card(startX, y, cardWidth, cardHeight, text, key));
+        const card = new Card(startX, y, cardWidth, cardHeight, text, key);
+        card.fontSize = Math.max(10, cardHeight * 0.15);
+        cards.push(card);
     });
 }
 
@@ -179,6 +217,9 @@ function spawnCards(question) {
  * @returns {void}
  */
 function setupGrassTile() {
+    grassTile = document.createElement("canvas");
+    grassTile.width = road.width;
+    grassTile.height = road.height;
     const tileCtx = /** @type {CanvasRenderingContext2D} */ (grassTile.getContext("2d"));
     const padding = 20;
 
@@ -188,22 +229,19 @@ function setupGrassTile() {
     tileCtx.strokeStyle = COLOURS.black;
     tileCtx.lineWidth = 1;
 
+    const lane1Boundary = road.height / 3;
+    const lane2Boundary = (road.height / 3) * 2;
+
     for (let i = 0; i < 200; i++) {
         const grassX = Math.random() * grassTile.width;
         const grassY = padding + Math.random() * (grassTile.height - (padding * 2));
         const safetyZone = 15;
 
-        if (Math.abs(grassY - 192) < safetyZone || Math.abs(grassY - 384) < safetyZone) {
+        if (Math.abs(grassY - lane1Boundary) < safetyZone || Math.abs(grassY - lane2Boundary) < safetyZone) {
             continue;
         }
 
         drawCluster(tileCtx, grassX, grassY);
-
-        if (grassX < 15) {
-            drawCluster(tileCtx, grassX + grassTile.width, grassY);
-        } else if (grassX > grassTile.width - 15) {
-            drawCluster(tileCtx, grassX - grassTile.width, grassY);
-        }
     }
 }
 
@@ -229,7 +267,7 @@ function gameLoop() {
 function renderBackground() {
     const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
 
-    scrollX -= 4; // Walking speed
+    scrollX -= (road.width / 1152) * 4; // Scale speed with width
     if (scrollX <= -grassTile.width) {
         scrollX = 0;
     }
@@ -241,7 +279,10 @@ function renderBackground() {
     ctx.lineWidth = 1;
 
     // Lane dividers
-    [192, 384].forEach(y => {
+    const lane1Boundary = road.height / 3;
+    const lane2Boundary = (road.height / 3) * 2;
+
+    [lane1Boundary, lane2Boundary].forEach(y => {
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(road.width, y);
@@ -255,8 +296,9 @@ function renderBackground() {
  */
 function updateAndDrawCards() {
     const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
+    const speed = (road.width / 1152) * 4;
     cards.forEach(card => {
-        card.x -= 4; // Move at the same speed as the background
+        card.x -= speed;
         card.draw(ctx);
     });
 }
@@ -286,20 +328,17 @@ function updateAndDrawFigure() {
 function checkCollisions() {
     const figureX = person.x;
     const figureLane = position;
-    const figureRightEdge = figureX + 25; // Approximate reach of the figure at scale 1.5
+    const figureRightEdge = figureX + (15 * (person.scale / 1.0));
 
     cards.forEach(card => {
-        // Trigger collision as soon as the left edge of the card touches the figure
         if (!card.passed && card.x <= figureRightEdge) {
             card.passed = true;
-            // If this card is in the player's current lane, it's the choice!
             if (parseInt(card.key) === figureLane) {
                 handleChoice(card.key);
             }
         }
     });
 
-    // If all cards have passed and no choice was made (shouldn't happen if lanes are full)
     if (cards.length > 0 && cards.every(c => (c.x + c.width) < 0)) {
         isRunning = false;
         startNewTurn();

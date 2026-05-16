@@ -13,6 +13,7 @@ header {
     display: flex;
     align-items: center;
     width: 100%;
+    padding: 0.5rem 0;
 }
 
 main {
@@ -20,6 +21,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem 0;
 }
 
 footer {
@@ -33,9 +35,10 @@ footer {
 .nav-link {
     color: #ffefcd !important;
     font-weight: bold;
-    margin: 0 1rem;
+    margin: 0.5rem 0.5rem;
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
+    font-size: 0.9rem;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -46,7 +49,8 @@ footer {
 .footer-link {
     color: #ffefcd;
     text-decoration: none;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
+    font-size: 0.8rem;
 }
 
 .footer-link:hover {
@@ -58,6 +62,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 #title-game {
@@ -65,9 +70,43 @@ footer {
     margin-bottom: 2rem;
     text-shadow: 6px 15px 6px #000000;
     text-align: center;
+    font-size: clamp(3rem, 15vw, 6rem);
 }
 
 #start-here {
     text-decoration: none;
-    font-size: 4rem;
+    font-size: clamp(2rem, 10vw, 4rem);
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-wrap: wrap;
+        padding: 0.5rem;
+    }
+
+    footer {
+        height: auto;
+        padding: 1.5rem 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    footer .container .d-flex {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-link {
+        margin: 0 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
 }

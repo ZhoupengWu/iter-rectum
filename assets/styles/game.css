@@ -38,9 +38,28 @@ body {
 #game {
     position: relative;
     background-color: #ffffff;
-    margin: 3rem 0 0 0;
-    width: 72rem;
-    height: 36rem;
+    margin: 2rem auto;
+    width: 95%;
+    max-width: 1152px;
+    aspect-ratio: 2 / 1;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    #score-value {
+        font-size: 1.5rem;
+    }
+    
+    #score-container {
+        min-width: 60px;
+        padding: 0.1rem 0.5rem;
+        border-width: 2px;
+    }
+    
+    .container {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
 }
 
 #game canvas {
