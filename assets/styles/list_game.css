@@ -1,9 +1,63 @@
 body {
+    background-color: #1A2238;
+    display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    color: #ffefcd;
     justify-content: flex-start;
     overflow-y: auto;
     height: auto;
-    min-height: 100vh;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link {
+    color: #ffefcd !important;
+    font-weight: bold;
+    margin: 0.5rem 0.5rem;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff !important;
+    border-bottom: 2px solid #ffefcd;
+}
+
+.footer-link {
+    color: #ffefcd;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+}
+
+.footer-link:hover {
+    color: #ffffff;
 }
 
 .container {
@@ -11,8 +65,17 @@ body {
     margin-bottom: 2rem;
 }
 
+header .container, footer .container {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 #title-game {
+    color: #ffefcd;
     margin-bottom: 3rem;
+    text-shadow: 6px 15px 6px #000000;
+    text-align: center;
+    font-size: clamp(3rem, 15vw, 6rem);
 }
 
 .card {
@@ -42,15 +105,46 @@ body {
 }
 
 @media (max-width: 768px) {
-    .container {
+    header nav {
+        flex-wrap: wrap;
+        padding: 0.5rem;
+    }
+
+    footer {
+        height: auto;
+        padding: 1.5rem 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    footer .container .d-flex {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-link {
+        margin: 0 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
+
+    main .container {
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
-    
+
     #title-game {
         margin-bottom: 1.5rem;
     }
-    
+
     .card-body {
         padding: 1.5rem !important;
     }

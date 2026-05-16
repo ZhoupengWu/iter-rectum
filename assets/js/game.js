@@ -166,6 +166,8 @@ function setupControls() {
     });
 
     game.addEventListener("mousedown", event => {
+        if (/** @type {HTMLElement} */ (event.target).closest && /** @type {HTMLElement} */ (event.target).closest('#mobile-controls')) return;
+
         const rect = game.getBoundingClientRect();
         const clickY = event.clientY - rect.top;
         if (clickY < rect.height / 2) {
@@ -174,6 +176,18 @@ function setupControls() {
             handleDown();
         }
     });
+
+    const btnUp = document.getElementById("btn-up");
+    if (btnUp) {
+        btnUp.addEventListener("touchstart", (e) => { e.preventDefault(); handleUp(); }, { passive: false });
+        btnUp.addEventListener("mousedown", (e) => { e.preventDefault(); handleUp(); });
+    }
+
+    const btnDown = document.getElementById("btn-down");
+    if (btnDown) {
+        btnDown.addEventListener("touchstart", (e) => { e.preventDefault(); handleDown(); }, { passive: false });
+        btnDown.addEventListener("mousedown", (e) => { e.preventDefault(); handleDown(); });
+    }
 }
 
 /**
