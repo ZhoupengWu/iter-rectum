@@ -330,9 +330,9 @@ export class QuestionManager {
                                 </p>
                             </div>
                         </div>
-                        <div class="modal-footer justify-content-center flex-nowrap">
-                            <a href="./list_game.html" class="btn btn-outline-primary btn-lg px-3 me-2 text-nowrap">TORNA ALLA LISTA</a>
-                            <button type="button" id="btn-restart" class="btn btn-success btn-lg px-3 text-nowrap">GIOCA ANCORA</button>
+                        <div class="modal-footer justify-content-center flex-wrap">
+                            <a href="./list_game.html" class="btn btn-outline-primary btn-lg px-3 m-1">TORNA ALLA LISTA</a>
+                            <button type="button" id="btn-restart" class="btn btn-success btn-lg px-3 m-1">GIOCA ANCORA</button>
                         </div>
                     </div>
                 </div>

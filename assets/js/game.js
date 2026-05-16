@@ -197,8 +197,9 @@ function startNewTurn() {
  */
 function spawnCards(question) {
     cards = [];
-    const cardWidth = road.width * 0.25;
-    const cardHeight = road.height * 0.22;
+    const isMobile = road.width < 768;
+    const cardWidth = isMobile ? road.width * 0.35 : road.width * 0.25;
+    const cardHeight = isMobile ? road.height * 0.28 : road.height * 0.22;
     const startX = road.width + 100;
 
     // Create a card for each answer in its respective lane
@@ -207,7 +208,7 @@ function spawnCards(question) {
         const y = getLaneY(lane);
         const text = question.answers[key];
         const card = new Card(startX, y, cardWidth, cardHeight, text, key);
-        card.fontSize = Math.max(10, cardHeight * 0.15);
+        card.fontSize = isMobile ? Math.max(9, cardHeight * 0.18) : Math.max(10, cardHeight * 0.15);
         cards.push(card);
     });
 }
@@ -232,7 +233,8 @@ function setupGrassTile() {
     const lane1Boundary = road.height / 3;
     const lane2Boundary = (road.height / 3) * 2;
 
-    for (let i = 0; i < 200; i++) {
+    const grassCount = Math.max(50, Math.floor((grassTile.width * grassTile.height) / 3300));
+    for (let i = 0; i < grassCount; i++) {
         const grassX = Math.random() * grassTile.width;
         const grassY = padding + Math.random() * (grassTile.height - (padding * 2));
         const safetyZone = 15;
