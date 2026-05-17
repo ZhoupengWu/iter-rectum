@@ -381,4 +381,50 @@ nav a:hover::after, nav a.active::after {
     .mobile-controls {
         display: flex;
     }
+
+    .custom-modal {
+        padding: 2rem;
+    }
+
+    .result-stats {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: rgba(14, 21, 32, 0.95);
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    nav {
+        gap: 0.75rem;
+    }
+
+    .custom-modal {
+        padding: 1.5rem 1rem;
+    }
+
+    .modal-question-text {
+        font-size: 1.4rem;
+    }
+
+    .result-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .result-score {
+        font-size: 3rem;
+    }
+
+    .btn-start {
+        padding: 0.8rem 2rem;
+    }
 }

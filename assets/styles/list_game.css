@@ -272,4 +272,35 @@ footer a:hover {
     .page-content {
         padding: 6rem 1.5rem 3rem;
     }
+
+    .game-card {
+        padding: 1.5rem;
+        flex: 1 1 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: rgba(14, 21, 32, 0.95);
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    nav {
+        gap: 0.75rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .game-card-title {
+        font-size: 1.5rem;
+    }
 }
