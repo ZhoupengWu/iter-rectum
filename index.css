@@ -8,11 +8,9 @@
 
 :root {
     --gold: #c9a84c;
-    --gold-light: #f0d080;
     --gold-dim: #7a6128;
     --cream: #ffefcd;
     --cream-dim: rgba(255, 239, 205, 0.7);
-    --bg: #1A2238;
     --bg-deep: #0e1520;
     --bg-surface: rgba(255, 255, 255, 0.04);
     --border: rgba(201, 168, 76, 0.25);
@@ -81,19 +79,11 @@ nav a::after {
     transition: transform 0.3s;
 }
 
-nav a:hover {
+nav a:hover, nav a.active {
     color: var(--cream);
 }
 
-nav a:hover::after {
-    transform: scaleX(1);
-}
-
-nav a.active {
-    color: var(--cream);
-}
-
-nav a.active::after {
+nav a:hover::after, nav a.active::after {
     transform: scaleX(1);
 }
 
