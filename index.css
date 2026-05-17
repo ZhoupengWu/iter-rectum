@@ -79,12 +79,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    html, body {
-        overflow: hidden;
-        height: 100vh;
-        height: 100dvh;
-    }
-
     header nav {
         flex-wrap: wrap;
         padding: 0.5rem;
