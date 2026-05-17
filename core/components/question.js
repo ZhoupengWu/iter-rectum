@@ -10,7 +10,7 @@
  */
 
 /**
- * Manages the question lifecycle, including fetching, randomizing, and displaying questions via a Bootstrap modal.
+ * Manages the question lifecycle, including fetching, randomizing, and displaying questions via custom modals.
  */
 export class QuestionManager {
     /**
@@ -26,8 +26,7 @@ export class QuestionManager {
         this.score = 0;
         this.maxScore = 0;
         this.correctCount = 0;
-        this.modalElement = null;
-        this.bsModal = null;
+        this.overlay = null;
         this.isProcessing = false;
 
         /** @type {Object<string, number>} */
@@ -39,7 +38,7 @@ export class QuestionManager {
     }
 
     /**
-     * Fetches questions and initializes the modal element.
+     * Fetches questions and initializes the modal system.
      * @returns {Promise<void>}
      */
     async init() {
@@ -52,7 +51,6 @@ export class QuestionManager {
             const data = await response.json();
             this.allQuestions = data.questions;
             this._prepareSession();
-            this._createModalElement();
             this._updateScoreDisplay();
         } catch (error) {
             console.error("QuestionManager initialization failed:", error);
@@ -87,53 +85,52 @@ export class QuestionManager {
     }
 
     /**
-     * Injects the Bootstrap modal HTML into the DOM.
+     * Creates and shows a custom modal.
      * @private
-     * @returns {void}
+     * @param {string} htmlContent - The inner HTML of the modal.
+     * @returns {HTMLElement}
      */
-    _createModalElement() {
-        const modalHtml = `
-            <div class="modal fade" id="questionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header bg-dark text-white text-center">
-                            <h5 class="modal-title w-100" id="questionModalLabel">Domanda <span id="q-current">1</span> di 10</h5>
-                        </div>
-                        <div class="modal-body text-center py-4">
-                            <div id="q-category" class="badge rounded-pill bg-primary mb-3"></div>
-                            <h3 id="q-text" class="mb-4"></h3>
-                            <div id="q-difficulty" class="badge bg-secondary mb-2 text-uppercase"></div>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" id="btn-start-question" class="btn btn-success btn-lg px-5">VAI!</button>
-                        </div>
-                    </div>
-                </div>
+    _showModal(htmlContent) {
+        if (this.overlay) {
+            this.overlay.remove();
+        }
+
+        this.overlay = document.createElement("div");
+        this.overlay.className = "custom-modal-overlay";
+        this.overlay.innerHTML = `
+            <div class="custom-modal">
+                ${htmlContent}
             </div>
         `;
-        const div = document.createElement("div");
-        div.innerHTML = modalHtml;
-        document.body.appendChild(div);
+        document.body.appendChild(this.overlay);
 
-        this.modalElement = document.getElementById("questionModal");
-        // @ts-ignore
-        this.bsModal = new bootstrap.Modal(this.modalElement);
+        // Force reflow for animation
+        void this.overlay.offsetWidth;
+        this.overlay.classList.add("active");
 
-        document.addEventListener("keydown", (event) => {
-            if (event.code === "Space" && !this.isProcessing) {
-                const startBtn = document.getElementById("btn-start-question");
-                const nextBtn = document.getElementById("btn-next-question");
+        return this.overlay;
+    }
 
-                if (startBtn && startBtn.offsetParent !== null) {
-                    event.preventDefault();
-                    startBtn.click();
-                }
-                else if (nextBtn && nextBtn.offsetParent !== null) {
-                    event.preventDefault();
-                    nextBtn.click();
-                }
+    /**
+     * Hides and removes the current modal.
+     * @private
+     * @param {Function} callback - Callback after modal is hidden.
+     * @returns {void}
+     */
+    _hideModal(callback) {
+        if (!this.overlay) {
+            callback();
+            return;
+        }
+
+        this.overlay.classList.remove("active");
+        setTimeout(() => {
+            if (this.overlay) {
+                this.overlay.remove();
+                this.overlay = null;
             }
-        });
+            callback();
+        }, 300);
     }
 
     /**
@@ -144,52 +141,47 @@ export class QuestionManager {
     showQuestion(onStartCallback) {
         if (this.currentIndex >= this.sessionQuestions.length) {
             this._onSessionEnd();
-
             return;
         }
 
         this.isProcessing = true;
         const question = this.sessionQuestions[this.currentIndex];
 
-        // Update UI
-        // @ts-ignore
-        document.getElementById("q-current").textContent = (
-            this.currentIndex + 1
-        ).toString();
-        // @ts-ignore
-        document.getElementById("q-text").textContent = question.question;
-        // @ts-ignore
-        document.getElementById("q-category").textContent = question.category;
-        // @ts-ignore
-        document.getElementById("q-difficulty").textContent = question.difficulty;
+        const modalHtml = `
+            <div class="custom-modal-header">
+                <h2 class="custom-modal-title">Domanda ${this.currentIndex + 1} di 10</h2>
+            </div>
+            <div class="custom-modal-body">
+                <div class="modal-badge">${question.category}</div>
+                <p class="modal-question-text">${question.question}</p>
+                <div class="modal-badge" style="margin-top: 1rem;">DIFFICOLTÀ: ${question.difficulty}</div>
+            </div>
+            <div class="custom-modal-footer">
+                <button type="button" id="btn-start-question" class="btn-start"><span>VAI!</span></button>
+            </div>
+        `;
 
-        const btn = document.getElementById("btn-start-question");
+        this._showModal(modalHtml);
+        this.isProcessing = false;
 
-        // Clean up previous listeners if any
-        // @ts-ignore
-        const newBtn = btn.cloneNode(true);
-        // @ts-ignore
-        btn.parentNode.replaceChild(newBtn, btn);
-
-        // @ts-ignore
-        this.modalElement.addEventListener('shown.bs.modal', () => {
-            this.isProcessing = false;
-        }, { once: true });
-
-        newBtn.addEventListener("click", () => {
+        const startBtn = /** @type {HTMLElement} */ (document.getElementById("btn-start-question"));
+        startBtn.addEventListener("click", () => {
             if (this.isProcessing) return;
-
             this.isProcessing = true;
-
-            // @ts-ignore
-            this.modalElement.addEventListener('hidden.bs.modal', () => {
+            this._hideModal(() => {
                 onStartCallback(question);
-            }, { once: true });
-
-            this.bsModal.hide();
+            });
         }, { once: true });
 
-        this.bsModal.show();
+        // Space key listener
+        const spaceHandler = (/** @type {{ code: string; preventDefault: () => void; }} */ e) => {
+            if (e.code === "Space") {
+                e.preventDefault();
+                startBtn.click();
+                document.removeEventListener("keydown", spaceHandler);
+            }
+        };
+        document.addEventListener("keydown", spaceHandler);
     }
 
     /**
@@ -207,93 +199,66 @@ export class QuestionManager {
         if (isCorrect) {
             this.score += points;
             this.correctCount++;
-        }
-        else {
-            this.score -= points;
+        } else {
+            this.score = Math.max(0, this.score - points);
         }
 
         this._updateScoreDisplay();
 
-        const title = isCorrect ? "CORRETTO! 🎉" : "SBAGLIATO! ❌";
-        const headerClass = isCorrect ? "bg-success" : "bg-danger";
+        const status = isCorrect ? "CORRETTO!" : "SBAGLIATO!";
+        const statusClass = isCorrect ? "correct" : "incorrect";
         const pointsText = isCorrect ? `+${points} punti` : `-${points} punti`;
 
-        const explanation = question.explanations[chosenAnswerKey];
-        const correctAnswerText = question.answers[question.correct_answer];
-
         const feedbackHtml = `
-            <div class="modal fade" id="feedbackModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header ${headerClass} text-white d-flex justify-content-between align-items-center">
-                            <h5 class="modal-title mb-0">${title}</h5>
-                            <span class="badge bg-white text-dark fs-6">${pointsText}</span>
-                        </div>
-                        <div class="modal-body py-4">
-                            <div class="mb-3">
-                                <strong>La tua scelta:</strong><br>
-                                <p class="mb-2 italic">${question.answers[chosenAnswerKey]}</p>
-                                <div class="p-3 bg-light rounded border">
-                                    ${explanation}
-                                </div>
-                            </div>
-                            ${!isCorrect ? `
-                            <div class="mb-0">
-                                <strong>La risposta corretta era:</strong><br>
-                                <p class="text-success fw-bold">${correctAnswerText}</p>
-                            </div>
-                            ` : ""
-                            }
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" id="btn-next-question" class="btn btn-primary btn-lg px-5">
-                                ${this.currentIndex === 9 ? "FINISCI" : "PROSSIMA"}
-                            </button>
-                        </div>
+            <div class="custom-modal-header">
+                <div class="feedback-status ${statusClass}">${status}</div>
+                <div class="modal-badge">${pointsText}</div>
+            </div>
+            <div class="custom-modal-body">
+                <div class="feedback-details">
+                    <strong>La tua scelta:</strong>
+                    <p class="feedback-text">${question.answers[chosenAnswerKey]}</p>
+                    <div style="margin-top: 1rem;">
+                        <strong>Spiegazione:</strong>
+                        <p class="feedback-text">${question.explanations[chosenAnswerKey]}</p>
                     </div>
                 </div>
+                ${!isCorrect ? `
+                <div class="feedback-details" style="border-color: var(--gold-dim);">
+                    <strong>La risposta corretta era:</strong>
+                    <p class="feedback-text" style="color: var(--gold);">${question.answers[question.correct_answer]}</p>
+                </div>
+                ` : ""}
+            </div>
+            <div class="custom-modal-footer">
+                <button type="button" id="btn-next-question" class="btn-start">
+                    <span>${this.currentIndex === 9 ? "FINISCI" : "PROSSIMA"}</span>
+                </button>
             </div>
         `;
 
-        const existing = document.getElementById("feedbackModal");
+        this._showModal(feedbackHtml);
+        this.isProcessing = false;
 
-        if (existing) {
-            // @ts-ignore
-            const oldInstance = bootstrap.Modal.getInstance(existing);
-            if (oldInstance) oldInstance.dispose();
-            // @ts-ignore
-            existing.parentElement.remove();
-        }
-
-        const div = document.createElement("div");
-        div.innerHTML = feedbackHtml;
-        document.body.appendChild(div);
-
-        const feedbackEl = document.getElementById("feedbackModal");
-        // @ts-ignore
-        const bsFeedbackModal = new bootstrap.Modal(feedbackEl);
-
-        // @ts-ignore
-        feedbackEl.addEventListener('shown.bs.modal', () => {
-            this.isProcessing = false;
-        }, { once: true });
-
-        // @ts-ignore
-        document.getElementById("btn-next-question").addEventListener("click", () => {
+        const nextBtn = /** @type {HTMLElement} */ (document.getElementById("btn-next-question"));
+        nextBtn.addEventListener("click", () => {
             if (this.isProcessing) return;
-
             this.isProcessing = true;
-
-            // @ts-ignore
-            feedbackEl.addEventListener('hidden.bs.modal', () => {
+            this._hideModal(() => {
                 this.currentIndex++;
                 onNext();
-            }, { once: true });
-
-            bsFeedbackModal.hide();
+            });
         }, { once: true });
 
-        bsFeedbackModal.show();
+        // Space key listener
+        const spaceHandler = (/** @type {{ code: string; preventDefault: () => void; }} */ e) => {
+            if (e.code === "Space") {
+                e.preventDefault();
+                nextBtn.click();
+                document.removeEventListener("keydown", spaceHandler);
+            }
+        };
+        document.addEventListener("keydown", spaceHandler);
     }
 
     /**
@@ -303,87 +268,58 @@ export class QuestionManager {
      */
     _onSessionEnd() {
         this.isProcessing = true;
-        const accuracy = Math.round((this.score / this.maxScore) * 100);
+        const accuracy = Math.round((this.correctCount / this.sessionQuestions.length) * 100);
+
         const resultHtml = `
-            <div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary text-white text-center">
-                            <h5 class="modal-title w-100">SESSIONE COMPLETATA! 🏁</h5>
-                        </div>
-                        <div class="modal-body text-center py-5">
-                            <h2 class="mb-4">Il tuo punteggio finale è:</h2>
-                            <div class="display-1 fw-bold mb-4 text-primary">${this.score}</div>
-                            <div class="row mt-4">
-                                <div class="col-6 border-end">
-                                    <div class="h4 mb-0">${this.score}/${this.maxScore}</div>
-                                    <small class="text-muted">Punti ottenuti</small>
-                                </div>
-                                <div class="col-6">
-                                    <div class="h4 mb-0">${accuracy}%</div>
-                                    <small class="text-muted">Accuratezza</small>
-                                </div>
-                            </div>
-                            <div class="mt-5">
-                                <p class="lead fw-bold text-dark">
-                                    ${this._getResultMessage(accuracy)}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-center flex-wrap">
-                            <a href="./list_game.html" class="btn btn-outline-primary btn-lg px-3 m-1">TORNA ALLA LISTA</a>
-                            <button type="button" id="btn-restart" class="btn btn-success btn-lg px-3 m-1">GIOCA ANCORA</button>
-                        </div>
+            <div class="custom-modal-header">
+                <h2 class="custom-modal-title">SESSIONE COMPLETATA!</h2>
+            </div>
+            <div class="custom-modal-body">
+                <div class="result-score">${this.score}</div>
+                <div class="result-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">${this.score}/${this.maxScore}</span>
+                        <span class="stat-label">Punti</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${accuracy}%</span>
+                        <span class="stat-label">Precisione</span>
                     </div>
                 </div>
+                <p class="feedback-text" style="font-size: 1.2rem; margin-top: 2rem;">
+                    ${this._getResultMessage(accuracy)}
+                </p>
+            </div>
+            <div class="custom-modal-footer" style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="./list_game.html" class="btn-start" style="padding: 1rem 1.5rem;"><span>LISTA GIOCHI</span></a>
+                <button type="button" id="btn-restart" class="btn-start" style="padding: 1rem 1.5rem;"><span>GIOCA ANCORA</span></button>
             </div>
         `;
 
-        const div = document.createElement("div");
-        div.innerHTML = resultHtml;
-        document.body.appendChild(div);
-
-        const resultEl = document.getElementById("resultModal");
-        // @ts-ignore
-        const bsResultModal = new bootstrap.Modal(resultEl);
-
-        // @ts-ignore
-        resultEl.addEventListener('shown.bs.modal', () => {
-            this.isProcessing = false;
-        }, { once: true });
+        this._showModal(resultHtml);
+        this.isProcessing = false;
 
         // @ts-ignore
         document.getElementById("btn-restart").addEventListener("click", () => {
             if (this.isProcessing) return;
-
             this.isProcessing = true;
-
-            // @ts-ignore
-            resultEl.addEventListener('hidden.bs.modal', () => {
+            this._hideModal(() => {
                 location.reload();
-            }, { once: true });
-
-            bsResultModal.hide();
+            });
         }, { once: true });
-
-        bsResultModal.show();
     }
 
     /**
      * Returns a personalized message based on the final score.
      * @private
-     * @param {number} percentage - The score percentage.
+     * @param {number} percentage - The accuracy percentage.
      * @returns {string}
      */
     _getResultMessage(percentage) {
         if (percentage >= 100) return "Perfetto! Sei un vero esperto nella prevenzione del cyberbullismo.";
-
         if (percentage >= 80) return "Ottimo lavoro! Sai come proteggerti e come promuovere il rispetto online.";
-
         if (percentage >= 50) return "Buon risultato, ma ripassa i termini e le leggi contro il cyberbullismo.";
-
         if (percentage >= 0) return "Continua a informarti: conoscere il cyberbullismo è il primo passo per fermarlo!";
-
-        return "Attenzione: le tue risposte indicano una scarsa consapevolezza dei rischi online. Ripassa subito i materiali per evitare comportamenti dannosi!";
+        return "Attenzione: le tue risposte indicano una scarsa consapevolezza dei rischi online.";
     }
 }

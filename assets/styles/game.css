@@ -1,86 +1,64 @@
-body {
+.game-page-content {
+    flex: 1;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    padding: 6rem 1rem 2rem;
+    width: 100%;
 }
 
-.container {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.text-center {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.page-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif;
+    color: var(--cream);
+    text-shadow: 0 0 30px rgba(201, 168, 76, 0.15), 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+#game-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1152px;
+    margin: 1rem auto;
 }
 
 #score-container {
     position: absolute;
-    bottom: 100%;
+    top: -3rem; /* Above the game container */
     right: 0;
-    margin-bottom: 10px;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 0.2rem 1rem;
-    border-radius: 0.5rem;
-    border: 3px solid #0d6efd;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    min-width: 80px;
+    z-index: 10;
+    background: var(--bg-surface);
+    padding: 0.25rem 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    min-width: 100px;
     text-align: center;
 }
 
 #score-value {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #0d6efd;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
     line-height: 1;
-}
-
-#title-game {
-    margin-bottom: 0;
 }
 
 #game {
     position: relative;
-    background-color: #ffffff;
-    margin: 2rem auto;
-    width: 95%;
-    max-width: 1152px;
+    background-color: #0e1520;
+    width: 100%;
     aspect-ratio: 2 / 1;
     height: auto;
-}
-
-#mobile-controls {
-    display: none;
-    width: 100%;
-    max-width: 1152px;
-    margin: 0 auto;
-}
-
-#mobile-controls button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-@media (max-width: 768px) {
-    #score-value {
-        font-size: 1.5rem;
-    }
-    
-    #score-container {
-        min-width: 60px;
-        padding: 0.1rem 0.5rem;
-        border-width: 2px;
-    }
-    
-    .container {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    #mobile-controls {
-        display: flex;
-    }
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
 }
 
 #game canvas {
@@ -89,4 +67,54 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.mobile-controls {
+    display: none;
+    width: 100%;
+    max-width: 1152px;
+    margin: 1rem auto;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.btn-control {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: rgba(26, 34, 56, 0.8);
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.btn-control:active {
+    background: var(--gold);
+    color: var(--bg-deep);
+}
+
+@media (max-width: 768px) {
+    .game-page-content {
+        padding-top: 5rem;
+    }
+    
+    #score-value {
+        font-size: 1.5rem;
+    }
+    
+    #score-container {
+        min-width: 80px;
+        padding: 0.2rem 1rem;
+        top: -2.5rem;
+    }
+    
+    .mobile-controls {
+        display: flex;
+    }
 }

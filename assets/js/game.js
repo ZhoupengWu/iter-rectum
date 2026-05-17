@@ -291,8 +291,9 @@ function renderBackground() {
     ctx.drawImage(grassTile, scrollX, 0);
     ctx.drawImage(grassTile, scrollX + grassTile.width, 0);
 
-    ctx.strokeStyle = COLOURS.black;
+    ctx.strokeStyle = COLOURS.gold;
     ctx.lineWidth = 1;
+    ctx.globalAlpha = 0.2;
 
     // Lane dividers
     const lane1Boundary = road.height / 3;
@@ -304,6 +305,7 @@ function renderBackground() {
         ctx.lineTo(road.width, y);
         ctx.stroke();
     });
+    ctx.globalAlpha = 1.0;
 }
 
 /**

@@ -45,10 +45,10 @@ export class StickFigure {
      * @param {number} x - The horizontal center position of the figure.
      * @param {number} y - The vertical center position (around the waist/arms area).
      * @param {number} [scale=1] - Scale factor for the figure's size.
-     * @param {string | CanvasGradient | CanvasPattern} [color='black'] - The color of the figure.
+     * @param {string | CanvasGradient | CanvasPattern} [color='#ffefcd'] - The color of the figure.
      * @param {number} [width=2] - The thickness of the lines used for the figure.
      */
-    constructor(x, y, scale = 1, color = 'black', width = 2) {
+    constructor(x, y, scale = 1, color = '#ffefcd', width = 2) {
         this.x = x;
         this.y = y;
         this.scale = scale;
@@ -68,6 +68,10 @@ export class StickFigure {
     draw(ctx) {
         const headRadius = 10 * this.scale;
         const headY = this.y - 20 * this.scale;
+
+        // Glow effect for the figure
+        ctx.shadowBlur = 10 * this.scale;
+        ctx.shadowColor = 'rgba(201, 168, 76, 0.3)';
 
         // Head
         const head = new Circle(this.x, headY, headRadius, this.color);
@@ -111,6 +115,8 @@ export class StickFigure {
         // Eye
         const eye = new Circle(this.x + 4 * this.scale, headY - 2 * this.scale, 1.5 * this.scale, this.color, true);
         eye.draw(ctx);
+
+        ctx.shadowBlur = 0;
     }
 }
 
@@ -128,7 +134,7 @@ export class Card {
      * @param {string | CanvasGradient | CanvasPattern} color - Background color.
      * @param {string | CanvasGradient | CanvasPattern} textColor - Text color.
      */
-    constructor(x, y, width, height, text, key, color = 'white', textColor = 'black') {
+    constructor(x, y, width, height, text, key, color = '#0e1520', textColor = '#ffefcd') {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -149,26 +155,26 @@ export class Card {
      */
     draw(ctx) {
         // Shadow effect
-        ctx.fillStyle = 'rgba(0,0,0,0.2)';
-        ctx.fillRect(this.x + 4, this.y - this.height / 2 + 4, this.width, this.height);
+        ctx.fillStyle = 'rgba(0,0,0,0.4)';
+        ctx.fillRect(this.x + 6, this.y - this.height / 2 + 6, this.width, this.height);
 
         // Card body
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y - this.height / 2, this.width, this.height);
 
         // Border
-        ctx.strokeStyle = '#333';
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#c9a84c';
+        ctx.lineWidth = 1.5;
         ctx.strokeRect(this.x, this.y - this.height / 2, this.width, this.height);
 
         // Text
         ctx.fillStyle = this.textColor;
         const fontSize = this.fontSize;
-        ctx.font = `bold ${fontSize}px Arial`;
+        ctx.font = `${fontSize}px 'Crimson Text', serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        this._wrapText(ctx, this.text, this.x + this.width / 2, this.y, this.width - 15, fontSize * 1.2);
+        this._wrapText(ctx, this.text, this.x + this.width / 2, this.y, this.width - 20, fontSize * 1.3);
     }
 
     /**
