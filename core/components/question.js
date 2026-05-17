@@ -25,7 +25,6 @@ export class QuestionManager {
         this.currentIndex = 0;
         this.score = 0;
         this.maxScore = 0;
-        this.correctCount = 0;
         this.overlay = null;
         this.isProcessing = false;
 
@@ -80,7 +79,6 @@ export class QuestionManager {
         this.sessionQuestions = shuffled.slice(0, 10);
         this.currentIndex = 0;
         this.score = 0;
-        this.correctCount = 0;
         this.maxScore = this.sessionQuestions.reduce((acc, q) => acc + this.difficultyPoints[q.difficulty], 0);
     }
 
@@ -152,9 +150,11 @@ export class QuestionManager {
                 <h2 class="custom-modal-title">Domanda ${this.currentIndex + 1} di 10</h2>
             </div>
             <div class="custom-modal-body">
-                <div class="modal-badge">${question.category}</div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; justify-content: center;">
+                    <div class="modal-badge">${question.category}</div>
+                    <div class="modal-badge">DIFFICOLTÀ: ${question.difficulty}</div>
+                </div>
                 <p class="modal-question-text">${question.question}</p>
-                <div class="modal-badge" style="margin-top: 1rem;">DIFFICOLTÀ: ${question.difficulty}</div>
             </div>
             <div class="custom-modal-footer">
                 <button type="button" id="btn-start-question" class="btn-start"><span>VAI!</span></button>
@@ -198,9 +198,8 @@ export class QuestionManager {
 
         if (isCorrect) {
             this.score += points;
-            this.correctCount++;
         } else {
-            this.score = Math.max(0, this.score - points);
+            this.score -= points;
         }
 
         this._updateScoreDisplay();
@@ -268,7 +267,7 @@ export class QuestionManager {
      */
     _onSessionEnd() {
         this.isProcessing = true;
-        const accuracy = Math.round((this.correctCount / this.sessionQuestions.length) * 100);
+        const accuracy = Math.round((this.score / this.maxScore) * 100);
 
         const resultHtml = `
             <div class="custom-modal-header">
@@ -278,21 +277,21 @@ export class QuestionManager {
                 <div class="result-score">${this.score}</div>
                 <div class="result-stats">
                     <div class="stat-item">
-                        <span class="stat-value">${this.score}/${this.maxScore}</span>
-                        <span class="stat-label">Punti</span>
+                        <span class="stat-value">${this.score} / ${this.maxScore}</span>
+                        <span class="stat-label">Punteggio Totale</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">${accuracy}%</span>
-                        <span class="stat-label">Precisione</span>
+                        <span class="stat-label">Grado di Successo</span>
                     </div>
                 </div>
-                <p class="feedback-text" style="font-size: 1.2rem; margin-top: 2rem;">
+                <p class="feedback-text" style="font-size: 1.1rem; margin-top: 2rem; text-align: center; font-style: normal;">
                     ${this._getResultMessage(accuracy)}
                 </p>
             </div>
-            <div class="custom-modal-footer" style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="./list_game.html" class="btn-start" style="padding: 1rem 1.5rem;"><span>LISTA GIOCHI</span></a>
-                <button type="button" id="btn-restart" class="btn-start" style="padding: 1rem 1.5rem;"><span>GIOCA ANCORA</span></button>
+            <div class="custom-modal-footer" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="./list_game.html" class="btn-start" style="padding: 0.8rem 1.5rem; font-size: 0.75rem;"><span>LISTA GIOCHI</span></a>
+                <button type="button" id="btn-restart" class="btn-start" style="padding: 0.8rem 1.5rem; font-size: 0.75rem;"><span>GIOCA ANCORA</span></button>
             </div>
         `;
 

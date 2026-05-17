@@ -1,3 +1,91 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --gold-dim: #7a6128;
+    --cream: #ffefcd;
+    --cream-dim: rgba(255, 239, 205, 0.7);
+    --bg: #1A2238;
+    --bg-deep: #0e1520;
+    --bg-surface: rgba(255, 255, 255, 0.04);
+    --border: rgba(201, 168, 76, 0.25);
+    --font-ui: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: linear-gradient(160deg, #0e1520 0%, #1A2238 40%, #1e2a45 100%);
+    color: var(--cream);
+    font-family: 'Crimson Text', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(14, 21, 32, 0.95), transparent);
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    color: var(--cream-dim);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--cream);
+}
+
+nav a:hover::after, nav a.active::after {
+    transform: scaleX(1);
+}
+
 .page-content {
     flex: 1;
     display: flex;
@@ -25,6 +113,13 @@
     font-family: 'Cinzel', serif;
     color: var(--cream);
     text-shadow: 0 0 40px rgba(201, 168, 76, 0.1), 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-rule {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
 }
 
 .games-grid {
@@ -80,6 +175,45 @@
     background: var(--bg-surface);
 }
 
+.btn-start {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold-dim);
+    padding: 1rem 3rem;
+    display: inline-block;
+    transition: color 0.4s;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-start::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-start:hover {
+    color: var(--bg-deep);
+}
+
+.btn-start:hover::before {
+    transform: translateX(0);
+}
+
+.btn-start span {
+    position: relative;
+    z-index: 1;
+}
+
 .game-card--disabled .btn-start {
     cursor: not-allowed;
     border-color: var(--border);
@@ -90,6 +224,55 @@
     display: none;
 }
 
-.game-card--disabled .btn-start:hover {
+footer {
+    border-top: 1px solid var(--border);
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+footer a {
+    font-size: 0.85rem;
     color: var(--cream-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255, 239, 205, 0.7);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.25rem;
+    }
+
+    nav {
+        gap: 1.25rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .page-content {
+        padding: 6rem 1.5rem 3rem;
+    }
 }
