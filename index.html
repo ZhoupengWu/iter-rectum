@@ -3,52 +3,131 @@
 <head>
     <title>Iter Rectum</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- My CSS -->
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <header>
-        <nav class="container d-flex justify-content-center">
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="#">Tutorial</a>
-            <a class="nav-link" href="./assets/pages/list_game.html">Giochi</a>
-            <a class="nav-link" href="#">Classifica</a>
+        <a href="index.html" class="nav-logo">IR</a>
+        <nav>
+            <a href="./index.html" class="active">Home</a>
+            <a href="#">Tutorial</a>
+            <a href="./assets/pages/list_game.html">Giochi</a>
+            <a href="#">Classifica</a>
         </nav>
     </header>
 
-    <main>
-        <div class="container container-center">
-            <h1 id="title-game" class="display-1">ITER RECTUM</h1>
-            <button type="button" id="start-here" class="btn btn-link">Start here</button>
+    <section class="hero">
+        <div class="ornament ornament-tl">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4 L4 40 M4 4 L40 4" stroke="#c9a84c" stroke-width="1"/>
+                <path d="M4 4 L20 20" stroke="#c9a84c" stroke-width="0.5"/>
+                <circle cx="4" cy="4" r="2" fill="#c9a84c"/>
+                <circle cx="20" cy="20" r="1" fill="#c9a84c" opacity="0.5"/>
+            </svg>
         </div>
-    </main>
+        <div class="ornament ornament-tr">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4 L4 40 M4 4 L40 4" stroke="#c9a84c" stroke-width="1"/>
+                <path d="M4 4 L20 20" stroke="#c9a84c" stroke-width="0.5"/>
+                <circle cx="4" cy="4" r="2" fill="#c9a84c"/>
+                <circle cx="20" cy="20" r="1" fill="#c9a84c" opacity="0.5"/>
+            </svg>
+        </div>
+        <div class="ornament ornament-bl">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4 L4 40 M4 4 L40 4" stroke="#c9a84c" stroke-width="1"/>
+                <path d="M4 4 L20 20" stroke="#c9a84c" stroke-width="0.5"/>
+                <circle cx="4" cy="4" r="2" fill="#c9a84c"/>
+            </svg>
+        </div>
+        <div class="ornament ornament-br">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4 L4 40 M4 4 L40 4" stroke="#c9a84c" stroke-width="1"/>
+                <path d="M4 4 L20 20" stroke="#c9a84c" stroke-width="0.5"/>
+                <circle cx="4" cy="4" r="2" fill="#c9a84c"/>
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow">Una sfida antica</p>
+            <div class="hero-rule hero-rule--anim-1"></div>
+            <h1>ITER<br>RECTUM</h1>
+            <div class="hero-rule hero-rule--anim-2"></div>
+            <p class="hero-sub">Rectam viam inveni. Proba consilia tua.</p>
+            <div class="hero-cta">
+                <button type="button" id="start-here" class="btn-start"><span>Inizia ora</span></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <div class="divider-diamond"></div>
+    </div>
+
+    <section>
+        <div class="about">
+            <div>
+                <p class="about-label">L'esperienza</p>
+                <h2>Trova la retta via</h2>
+                <p class="about-text">
+                    Iter Rectum è un'esperienza interattiva progettata per mettere alla prova prontezza e capacità decisionale. Naviga l'incertezza e dimostra quanto vali in questa sfida.
+                </p>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-dot"></div>
+                        <span>Decisioni sotto pressione</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-dot"></div>
+                        <span>Sfide a tempo reale</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-dot"></div>
+                        <span>Classifica globale dei migliori</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <svg class="labyrinth-svg" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="240" height="240" rx="2" stroke="#c9a84c" stroke-width="1" stroke-opacity="0.5"/>
+                    <rect x="30" y="30" width="200" height="200" rx="1" stroke="#c9a84c" stroke-width="0.8" stroke-opacity="0.4"/>
+                    <rect x="50" y="50" width="160" height="160" rx="1" stroke="#c9a84c" stroke-width="0.7" stroke-opacity="0.3"/>
+                    <rect x="70" y="70" width="120" height="120" rx="1" stroke="#c9a84c" stroke-width="0.6" stroke-opacity="0.25"/>
+                    <rect x="90" y="90" width="80" height="80" rx="1" stroke="#c9a84c" stroke-width="0.5" stroke-opacity="0.2"/>
+                    <line x1="10" y1="130" x2="30" y2="130" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="130" y1="10" x2="130" y2="30" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="30" y1="80" x2="50" y2="80" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="180" y1="30" x2="180" y2="50" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="50" y1="170" x2="70" y2="170" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="90" y1="50" x2="90" y2="70" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="70" y1="110" x2="90" y2="110" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="150" y1="70" x2="150" y2="90" stroke="#1A2238" stroke-width="2.5"/>
+                    <line x1="90" y1="130" x2="110" y2="130" stroke="#1A2238" stroke-width="2.5"/>
+                    <circle cx="130" cy="130" r="5" fill="#c9a84c" opacity="0.7"/>
+                    <circle cx="130" cy="130" r="10" stroke="#c9a84c" stroke-width="0.5" stroke-opacity="0.3"/>
+                    <circle cx="10" cy="10" r="2" fill="#c9a84c" opacity="0.4"/>
+                    <circle cx="250" cy="10" r="2" fill="#c9a84c" opacity="0.4"/>
+                    <circle cx="10" cy="250" r="2" fill="#c9a84c" opacity="0.4"/>
+                    <circle cx="250" cy="250" r="2" fill="#c9a84c" opacity="0.4"/>
+                </svg>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-                <a href="#" class="footer-link">Contatti</a>
-                <a href="#" class="footer-link">Privacy Policy</a>
-            </div>
-            <p class="mb-0">© 2026 Iter Rectum. Tutti i diritti riservati.</p>
+        <div class="footer-links">
+            <a href="#">Contatti</a>
+            <a href="#">Privacy Policy</a>
         </div>
+        <p class="footer-copy">© 2026 Iter Rectum. Tutti i diritti riservati.</p>
     </footer>
 
     <script src="./index.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
 </body>
 </html>
