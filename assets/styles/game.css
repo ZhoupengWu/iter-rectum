@@ -25,6 +25,7 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    overscroll-behavior: none;
 }
 
 header {
@@ -145,6 +146,7 @@ nav a:hover::after, nav a.active::after {
     border: 1px solid var(--border);
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     overflow: hidden;
+    touch-action: none;
 }
 
 #game canvas {

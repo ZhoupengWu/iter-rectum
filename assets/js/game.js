@@ -91,12 +91,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     startNewTurn();
 
     window.addEventListener("resize", () => {
-        resizeCanvas();
-        setupGrassTile();
-        if (person) {
-            person.y = getLaneY(position);
-            // Scale person based on canvas height if needed
-            person.scale = (road.height / 360) * 1.0;
+        const newWidth = game.clientWidth;
+        const newHeight = game.clientHeight;
+        
+        if (newWidth !== road.width || newHeight !== road.height) {
+            resizeCanvas();
+            setupGrassTile();
+            if (person) {
+                person.y = getLaneY(position);
+                person.scale = (road.height / 360) * 1.0;
+            }
         }
     });
 });
@@ -188,6 +192,13 @@ function setupControls() {
         btnDown.addEventListener("touchstart", (e) => { e.preventDefault(); handleDown(); }, { passive: false });
         btnDown.addEventListener("mousedown", (e) => { e.preventDefault(); handleDown(); });
     }
+
+    // Prevent scrolling and pull-to-refresh on the game area
+    game.addEventListener("touchmove", (e) => {
+        if (isRunning) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 }
 
 /**
