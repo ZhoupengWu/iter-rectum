@@ -159,6 +159,78 @@ nav a:hover::after, nav a.active::after {
     margin-bottom: 4rem;
 }
 
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.how-to-play {
+    margin-bottom: 6rem;
+    padding: 3rem;
+    background: rgba(201, 168, 76, 0.03);
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step-number {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: var(--bg-deep);
+    position: relative;
+    z-index: 2;
+}
+
+.step-connector {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-top: 25px;
+    display: block;
+}
+
+.step-content h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+}
+
+.step-content p {
+    font-size: 1rem;
+    color: var(--cream-dim);
+    line-height: 1.5;
+}
+
 .tutorial-card {
     background: var(--bg-surface);
     border: 1px solid var(--border);
@@ -334,6 +406,20 @@ footer a:hover {
 
     .tutorial-container {
         padding-top: 6rem;
+    }
+
+    .how-to-play {
+        padding: 2rem 1.5rem;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .step-connector {
+        display: none;
     }
 
     .tutorial-section {

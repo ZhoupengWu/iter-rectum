@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    /** @type {NodeListOf<HTMLDivElement>} */
-    const cards = document.querySelectorAll('.tutorial-card');
+    /** @type {NodeListOf<HTMLElement>} */
+    const animElements = document.querySelectorAll('.tutorial-card, .how-to-play, .step');
 
     const observerOptions = {
         threshold: 0.1,
@@ -15,17 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.style.opacity = '1';
                     // @ts-ignore
                     entry.target.style.transform = 'translateY(0)';
-                }, index * 150);
+                }, index * 100);
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(card);
+    animElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
     });
 
     const heroElements = /** @type {HTMLElement[]} */ ([

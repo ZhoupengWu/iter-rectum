@@ -23,14 +23,14 @@
 
     <main class="tutorial-container">
         <section class="tutorial-hero">
-            <div class="ornament ornament-tl">
+            <div class="ornament ornament-tl" aria-hidden="true">
                 <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 4 L4 40 M4 4 L40 4" stroke="#c9a84c" stroke-width="1"/>
                     <path d="M4 4 L20 20" stroke="#c9a84c" stroke-width="0.5"/>
                     <circle cx="4" cy="4" r="2" fill="#c9a84c"/>
                 </svg>
             </div>
-            <div class="ornament ornament-tr">
+            <div class="ornament ornament-tr" aria-hidden="true">
                 <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 4 L4 40 M4 4 L40 4" stroke="#c9a84c" stroke-width="1"/>
                     <path d="M4 4 L20 20" stroke="#c9a84c" stroke-width="0.5"/>
@@ -43,29 +43,58 @@
             <p class="hero-sub">Preparati per il tuo viaggio nel mondo digitale.</p>
         </section>
 
-        <section class="tutorial-section">
+        <section class="how-to-play">
+            <h2 class="section-title">Guida Rapida</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">I</div>
+                    <div class="step-content">
+                        <h4>Osserva</h4>
+                        <p>Analizza la situazione che ti viene presentata sullo schermo.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">II</div>
+                    <div class="step-content">
+                        <h4>Scegli</h4>
+                        <p>Spostati sulla corsia che contiene la risposta corretta.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">III</div>
+                    <div class="step-content">
+                        <h4>Impara</h4>
+                        <p>Leggi il feedback per capire meglio l'argomento trattato.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-section" aria-label="Approfondimenti del Tutorial">
             <div class="tutorial-card">
-                <div class="card-icon">
+                <div class="card-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
                 </div>
                 <h3>La Missione</h3>
-                <p>Iter Rectum è un viaggio attraverso le sfide della rete. La tua missione è navigare tra le insidie del cyberbullismo e della privacy, imparando a distinguere la "recta via" dai pericoli digitali.</p>
+                <p>Iter Rectum è un viaggio attraverso le sfide della rete. La tua missione è navigare tra le insidie del cyberbullismo e della privacy, scegliendo la via della saggezza.</p>
             </div>
 
             <div class="tutorial-card">
-                <div class="card-icon">
+                <div class="card-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M15 6l-6 6 6 6"/>
                     </svg>
                 </div>
                 <h3>Comandi</h3>
-                <p>Usa le <strong>frecce direzionali</strong> o i tasti <strong>W, A, S, D</strong> per muovere il tuo personaggio. Se giochi da mobile, troverai dei pulsanti dedicati sullo schermo.</p>
+                <p>Usa le <strong>frecce direzionali</strong> per muoverti tra le 3 corsie. Da mobile, tocca i <strong>pulsanti direzionali</strong> che appaiono ai lati dello schermo.</p>
             </div>
 
             <div class="tutorial-card">
-                <div class="card-icon">
+                <div class="card-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
                         <line x1="12" y1="9" x2="12" y2="13"/>
@@ -73,7 +102,39 @@
                     </svg>
                 </div>
                 <h3>Le Scelte</h3>
-                <p>Incontrerai dei portali con diverse risposte. Attraversa quello che ritieni corretto per proseguire. Ogni scelta svelerà una spiegazione approfondita per aiutarti a capire meglio l'argomento.</p>
+                <p>Lungo il percorso troverai tre opzioni. Ogni risposta svelerà una spiegazione approfondita per aiutarti a capire meglio come muoverti in sicurezza.</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h3>Punteggio</h3>
+                <p>Rispondere correttamente aumenta il tuo punteggio. La velocità e la precisione ti porteranno in cima alla classifica dei saggi digitali.</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 21v-8.28M12 8V3m0 0l-3 3m3-3l3 3"/>
+                    </svg>
+                </div>
+                <h3>Progressione</h3>
+                <p>Ogni livello affronta temi diversi: dai social network alla protezione dei dati personali. Supera le sfide per sbloccare nuovi contenuti.</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                </div>
+                <h3>Feedback</h3>
+                <p>Non temere l'errore: ogni risposta sbagliata è un'opportunità per imparare. Leggi attentamente i consigli per non sbagliare la prossima volta.</p>
             </div>
         </section>
 
