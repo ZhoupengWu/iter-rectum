@@ -231,12 +231,48 @@ nav a:hover::after, nav a.active::after {
     line-height: 1.5;
 }
 
+/* Scroll Reveal and Initial Animations */
+.tutorial-card, 
+.how-to-play, 
+.step,
+.hero-eyebrow, 
+.page-title, 
+.hero-rule, 
+.hero-sub {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.tutorial-card, 
+.how-to-play, 
+.step {
+    transform: translateY(30px);
+}
+
+.hero-eyebrow, 
+.page-title, 
+.hero-rule, 
+.hero-sub {
+    transform: translateY(20px);
+}
+
+.tutorial-card.visible, 
+.how-to-play.visible, 
+.step.visible,
+.hero-eyebrow.visible, 
+.page-title.visible, 
+.hero-rule.visible, 
+.hero-sub.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .tutorial-card {
     background: var(--bg-surface);
     border: 1px solid var(--border);
     padding: 2.5rem;
     text-align: center;
-    transition: all 0.3s ease;
+    /* transition moved to animation block above */
     display: flex;
     flex-direction: column;
     align-items: center;

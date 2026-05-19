@@ -11,22 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
                 setTimeout(() => {
-                    // @ts-ignore
-                    entry.target.style.opacity = '1';
-                    // @ts-ignore
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }, index * 100);
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    animElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(el);
-    });
+    animElements.forEach(el => observer.observe(el));
 
     const heroElements = /** @type {HTMLElement[]} */ ([
         document.querySelector('.hero-eyebrow'),
@@ -37,13 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     heroElements.forEach((el, index) => {
         if (el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-
             setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
+                el.classList.add('visible');
             }, 200 + (index * 200));
         }
     });
