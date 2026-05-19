@@ -203,9 +203,13 @@ h1 {
     margin-top: 3rem;
     opacity: 0;
     animation: fadeUp 0.9s 1s forwards;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
-.btn-start {
+.btn-start, .btn-tutorial {
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
     letter-spacing: 0.3em;
@@ -222,7 +226,7 @@ h1 {
     cursor: pointer;
 }
 
-.btn-start::before {
+.btn-start::before, .btn-tutorial::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -231,17 +235,30 @@ h1 {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-start:hover {
+.btn-start:hover, .btn-tutorial:hover {
     color: var(--bg-deep);
 }
 
-.btn-start:hover::before {
+.btn-start:hover::before, .btn-tutorial:hover::before {
     transform: translateX(0);
 }
 
-.btn-start span {
+.btn-start span, .btn-tutorial span {
     position: relative;
     z-index: 1;
+}
+
+.btn-tutorial {
+    border-color: var(--cream-dim);
+    color: var(--cream-dim);
+}
+
+.btn-tutorial::before {
+    background: var(--cream-dim);
+}
+
+.btn-tutorial:hover {
+    color: var(--bg-deep);
 }
 
 .section-divider {
