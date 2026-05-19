@@ -212,7 +212,7 @@ function startNewTurn() {
 function spawnCards(question) {
     cards = [];
     const isMobile = road.width < 768;
-    const cardWidth = isMobile ? road.width * 0.35 : road.width * 0.25;
+    const cardWidth = isMobile ? road.width * 0.40 : road.width * 0.26;
     const cardHeight = isMobile ? road.height * 0.28 : road.height * 0.22;
     const startX = road.width + 100;
 
@@ -222,7 +222,7 @@ function spawnCards(question) {
         const y = getLaneY(lane);
         const text = question.answers[key];
         const card = new Card(startX, y, cardWidth, cardHeight, text, key);
-        card.fontSize = isMobile ? Math.max(9, cardHeight * 0.18) : Math.max(10, cardHeight * 0.15);
+        card.fontSize = isMobile ? Math.max(9, cardHeight * 0.20) : Math.max(10, cardHeight * 0.16);
         cards.push(card);
     });
 }
@@ -291,9 +291,8 @@ function renderBackground() {
     ctx.drawImage(grassTile, scrollX, 0);
     ctx.drawImage(grassTile, scrollX + grassTile.width, 0);
 
-    ctx.strokeStyle = COLOURS.gold;
+    ctx.strokeStyle = COLOURS.black;
     ctx.lineWidth = 1;
-    ctx.globalAlpha = 0.2;
 
     // Lane dividers
     const lane1Boundary = road.height / 3;
@@ -305,7 +304,6 @@ function renderBackground() {
         ctx.lineTo(road.width, y);
         ctx.stroke();
     });
-    ctx.globalAlpha = 1.0;
 }
 
 /**

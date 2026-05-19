@@ -152,7 +152,7 @@ export class QuestionManager {
             <div class="custom-modal-body">
                 <div style="display: flex; gap: 1rem; margin-bottom: 1rem; justify-content: center;">
                     <div class="modal-badge">${question.category}</div>
-                    <div class="modal-badge">DIFFICOLTÀ: ${question.difficulty}</div>
+                    <div class="modal-badge">${question.difficulty}</div>
                 </div>
                 <p class="modal-question-text">${question.question}</p>
             </div>
