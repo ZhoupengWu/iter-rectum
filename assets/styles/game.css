@@ -365,6 +365,16 @@ nav a:hover::after, nav a.active::after {
     z-index: 1;
 }
 
+@media (max-width: 1024px) {
+    #game-wrapper {
+        margin: 2rem auto;
+    }
+
+    .game-page-content {
+        padding-top: 5rem;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding: 1rem 1.25rem;
@@ -436,5 +446,22 @@ nav a:hover::after, nav a.active::after {
 
     .btn-start {
         padding: 0.8rem 2rem;
+    }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 0.5rem 1.25rem;
+    }
+
+    .game-page-content {
+        padding-top: 3.5rem;
+    }
+
+    #game-wrapper {
+        margin: 1rem auto;
+    }
+
+    .page-title {
+        font-size: 2rem;
     }
 }

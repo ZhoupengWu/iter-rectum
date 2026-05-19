@@ -254,6 +254,21 @@ footer a:hover {
     letter-spacing: 0.05em;
 }
 
+@media (max-width: 1024px) {
+    .page-content {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .games-grid {
+        gap: 2rem;
+    }
+
+    .game-card {
+        padding: 2rem;
+        flex: 1 1 300px;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding: 1rem 1.25rem;
@@ -302,5 +317,18 @@ footer a:hover {
 
     .game-card-title {
         font-size: 1.5rem;
+    }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 0.5rem 1.25rem;
+    }
+
+    .page-content {
+        padding-top: 4rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
     }
 }

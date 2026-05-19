@@ -398,6 +398,18 @@ footer a:hover {
     }
 }
 
+@media (max-width: 1024px) {
+    .about {
+        gap: 3rem;
+        padding: 6rem 2rem;
+    }
+    
+    .labyrinth-svg {
+        width: 220px;
+        height: 220px;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding: 1rem 1.25rem;
@@ -447,5 +459,19 @@ footer a:hover {
 
     nav {
         gap: 0.75rem;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 0.5rem 1.25rem;
+    }
+    
+    .hero {
+        padding-top: 4rem;
+    }
+    
+    h1 {
+        font-size: clamp(2rem, 8vw, 4rem);
     }
 }
