@@ -12,23 +12,17 @@ function getLaneY(lane) {
     return (laneHeight * (lane - 1)) + (laneHeight / 2);
 }
 
-// ─── SCENE SETUP ─────────────────────────────────────────────────────────────
-const scene    = new THREE.Scene();
-scene.background = new THREE.Color(0x1a2238);
-scene.fog = new THREE.Fog(0x1a2238, 30, 60);
+/**
+ * The current lane position of the stick figure (1, 2, or 3).
+ * @type {number}
+ */
+let position = 1;
 
-// ── ISOMETRIC-STYLE CAMERA ────────────────────────────────────────────────────
-// OrthographicCamera gives the true isometric look (no perspective distortion)
-const aspect   = window.innerWidth / window.innerHeight;
-const viewSize = 8;
-const camera   = new THREE.OrthographicCamera(
-    -viewSize * aspect / 2,
-     viewSize * aspect / 2,
-     viewSize / 2,
-    -viewSize / 2,
-    0.1,
-    200
-);
+/**
+ * The current phase of the walking animation.
+ * @type {number}
+ */
+let phase = 0;
 
 /**
  * Flag indicating if the game is currently running (walking).
@@ -48,13 +42,11 @@ let currentQuestion = null;
  */
 let cards = [];
 
-// ── RENDERER ─────────────────────────────────────────────────────────────────
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
-document.getElementById("game").appendChild(renderer.domElement);
+/**
+ * The main game container element.
+ * @type {HTMLElement}
+ */
+const game = /** @type {HTMLElement} */ (document.getElementById("game"));
 
 /**
  * The background canvas element representing the road/field.
