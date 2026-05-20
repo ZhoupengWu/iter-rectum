@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Iter Rectum - Gameplay 3D</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/game3d.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="nav-logo">IR</a>
+        <nav>
+            <a href="../../index.html">Home</a>
+            <a href="./tutorial.html">Tutorial</a>
+            <a href="./list_game.html" class="active">Giochi</a>
+            <a href="#">Classifica</a>
+        </nav>
+    </header>
+
+    <main class="game-page-content">
+        <div class="title-bar">
+            <h1 class="page-title">ITER RECTUM <span class="badge-3d">3D</span></h1>
+            <div id="score-container">
+                <span class="score-label">PUNTEGGIO</span>
+                <div id="score-value">0</div>
+            </div>
+        </div>
+
+        <div id="game-wrapper">
+            <canvas id="game3d-canvas"></canvas>
+
+            <div id="lane-indicators">
+                <div class="lane-dot" id="lane-1"></div>
+                <div class="lane-dot" id="lane-2" data-active="true"></div>
+                <div class="lane-dot" id="lane-3"></div>
+            </div>
+
+            <div id="loading-screen">
+                <div class="loading-content">
+                    <div class="loading-logo">IR</div>
+                    <div class="loading-bar-wrap"><div id="loading-bar"></div></div>
+                    <p class="loading-text">Inizializzazione scena 3D…</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-controls">
+            <button id="btn-up" class="btn-control" aria-label="Corsia superiore">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 1 0 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                </svg>
+            </button>
+            <button id="btn-down" class="btn-control" aria-label="Corsia inferiore">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                </svg>
+            </button>
+        </div>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-box">
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="../js/game3d.js"></script>
+</body>
+</html>
