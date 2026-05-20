@@ -1,0 +1,334 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gold: #c9a84c;
+    --gold-dim: #7a6128;
+    --cream: #ffefcd;
+    --cream-dim: rgba(255, 239, 205, 0.7);
+    --bg-deep: #0e1520;
+    --bg-surface: rgba(255, 255, 255, 0.04);
+    --border: rgba(201, 168, 76, 0.25);
+}
+
+body {
+    background: linear-gradient(160deg, #0e1520 0%, #1A2238 40%, #1e2a45 100%);
+    color: var(--cream);
+    font-family: 'Crimson Text', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(14, 21, 32, 0.95), transparent);
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    color: var(--cream-dim);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--cream);
+}
+
+nav a:hover::after, nav a.active::after {
+    transform: scaleX(1);
+}
+
+.page-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-section {
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin: 1rem 0;
+    line-height: 1.1;
+    letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif;
+    color: var(--cream);
+    text-shadow: 0 0 40px rgba(201, 168, 76, 0.1), 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-rule {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
+}
+
+.games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    flex: 1 1 350px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201, 168, 76, 0.6);
+    background: rgba(201, 168, 76, 0.05);
+}
+
+.game-card-title {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Cinzel', serif;
+}
+
+.game-card-desc {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--cream-dim);
+    margin-bottom: 2.5rem;
+    flex-grow: 1;
+}
+
+.game-card--disabled {
+    opacity: 0.7;
+    filter: grayscale(0.8);
+}
+
+.game-card--disabled:hover {
+    transform: none;
+    border-color: var(--border);
+    background: var(--bg-surface);
+}
+
+.btn-start {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold-dim);
+    padding: 1rem 3rem;
+    display: inline-block;
+    transition: color 0.4s;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-start::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-start:hover {
+    color: var(--bg-deep);
+}
+
+.btn-start:hover::before {
+    transform: translateX(0);
+}
+
+.btn-start span {
+    position: relative;
+    z-index: 1;
+}
+
+.game-card--disabled .btn-start {
+    cursor: not-allowed;
+    border-color: var(--border);
+    color: var(--cream-dim);
+}
+
+.game-card--disabled .btn-start::before {
+    display: none;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+footer a {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255, 239, 205, 0.7);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+    .page-content {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .games-grid {
+        gap: 2rem;
+    }
+
+    .game-card {
+        padding: 2rem;
+        flex: 1 1 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.25rem;
+    }
+
+    nav {
+        gap: 1.25rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .page-content {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .game-card {
+        padding: 1.5rem;
+        flex: 1 1 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: rgba(14, 21, 32, 0.95);
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    nav {
+        gap: 0.75rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .game-card-title {
+        font-size: 1.5rem;
+    }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 0.5rem 1.25rem;
+    }
+
+    .page-content {
+        padding-top: 4rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+}

@@ -1,10 +1,16 @@
-import * as THREE from "three";
-import { StickFigure3D } from "../../core/engine.js";
+import { COLOURS } from "../../core/models/colours.js";
+import { StickFigure, Card } from "../../core/engine.js";
+import { QuestionManager } from "../../core/components/question.js";
 
-// ─── LANE CONFIG ─────────────────────────────────────────────────────────────
-// Three lanes along world Z axis (isometric lateral view → lanes spread in Z)
-const LANE_Z = { 1: 2, 2: 0, 3: -2 };
-let currentLane = 2; // start in middle lane
+/**
+ * Calculates the Y-coordinate height for the stick figure and cards based on lane and canvas height.
+ * @param {number} lane - The lane index (1, 2, or 3).
+ * @returns {number}
+ */
+function getLaneY(lane) {
+    const laneHeight = road.height / 3;
+    return (laneHeight * (lane - 1)) + (laneHeight / 2);
+}
 
 // ─── SCENE SETUP ─────────────────────────────────────────────────────────────
 const scene    = new THREE.Scene();
@@ -24,9 +30,23 @@ const camera   = new THREE.OrthographicCamera(
     200
 );
 
-// Classic isometric angle: 45° horizontal, ~35.26° vertical
-camera.position.set(14, 10, 14);
-camera.lookAt(0, 1, 0);
+/**
+ * Flag indicating if the game is currently running (walking).
+ * @type {boolean}
+ */
+let isRunning = false;
+
+/**
+ * Current question being played in the current turn.
+ * @type {import("../../core/components/question.js").Question | null}
+ */
+let currentQuestion = null;
+
+/**
+ * Array of card objects currently rendered on the road.
+ * @type {Card[]}
+ */
+let cards = [];
 
 // ── RENDERER ─────────────────────────────────────────────────────────────────
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -36,154 +56,375 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
 document.getElementById("game").appendChild(renderer.domElement);
 
-// ─── LIGHTING ────────────────────────────────────────────────────────────────
-const ambient = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambient);
+/**
+ * The background canvas element representing the road/field.
+ * @type {HTMLCanvasElement}
+ */
+const road = /** @type {HTMLCanvasElement} */ (document.getElementById("road"));
 
-const sun = new THREE.DirectionalLight(0xfff5e0, 1.4);
-sun.position.set(10, 20, 10);
-sun.castShadow = true;
-sun.shadow.mapSize.set(2048, 2048);
-sun.shadow.camera.near = 0.1;
-sun.shadow.camera.far  = 80;
-sun.shadow.camera.left = -20;
-sun.shadow.camera.right = 20;
-sun.shadow.camera.top  = 20;
-sun.shadow.camera.bottom = -20;
-scene.add(sun);
+/**
+ * Offscreen canvas used to pre-render the grass pattern.
+ * @type {HTMLCanvasElement}
+ */
+let grassTile = document.createElement("canvas");
 
-// Soft fill from the opposite side
-const fill = new THREE.DirectionalLight(0x9ab0ff, 0.4);
-fill.position.set(-8, 6, -8);
-scene.add(fill);
+/**
+ * The current horizontal scroll offset for the background animation.
+ * @type {number}
+ */
+let scrollX = 0;
 
-// ─── GROUND / LANES ──────────────────────────────────────────────────────────
-buildWorld();
+/**
+ * The stick figure instance.
+ * @type {StickFigure}
+ */
+let person;
 
-function buildWorld() {
-    // Main grassy plane
-    const groundGeo = new THREE.PlaneGeometry(60, 8);
-    const groundMat = new THREE.MeshToonMaterial({ color: 0x059036 });
-    const ground    = new THREE.Mesh(groundGeo, groundMat);
-    ground.rotation.x = -Math.PI / 2;
-    ground.receiveShadow = true;
-    scene.add(ground);
+/**
+ * Canvas context for the human figure.
+ * @type {CanvasRenderingContext2D}
+ */
+let humanFigureCtx;
 
-    // Lane divider lines (thin flat boxes)
-    const divMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
-    [-1, 1].forEach(z => {
-        const divGeo = new THREE.BoxGeometry(60, 0.02, 0.06);
-        const div    = new THREE.Mesh(divGeo, divMat);
-        div.position.set(0, 0.01, z);
-        scene.add(div);
+/**
+ * Question manager instance.
+ */
+const qManager = new QuestionManager("../json/questions.json");
+
+document.addEventListener("DOMContentLoaded", async () => {
+    resizeCanvas();
+    initFigure();
+    setupGrassTile();
+    await qManager.init();
+    startNewTurn();
+
+    window.addEventListener("resize", () => {
+        const newWidth = game.clientWidth;
+        const newHeight = game.clientHeight;
+
+        if (newWidth !== road.width || newHeight !== road.height) {
+            resizeCanvas();
+            setupGrassTile();
+            if (person) {
+                person.y = getLaneY(position);
+                person.scale = (road.height / 360) * 1.0;
+            }
+        }
     });
-
-    // Sawtooth fence on the left side (decorative, replaces the 2D triangles)
-    const fenceMat = new THREE.MeshToonMaterial({ color: 0x8B4513 });
-    for (let i = -28; i < 30; i += 1) {
-        const toothGeo = new THREE.ConeGeometry(0.15, 0.4, 4);
-        const tooth    = new THREE.Mesh(toothGeo, fenceMat);
-        tooth.position.set(i, 0.2, 4.2);
-        tooth.rotation.y = Math.PI / 4;
-        scene.add(tooth);
-    }
-
-    // Grass tufts scattered in lanes (small cylinders)
-    const grassMat = new THREE.MeshToonMaterial({ color: 0x04722b });
-    for (let i = 0; i < 120; i++) {
-        const gx = (Math.random() - 0.5) * 56;
-        const gz = (Math.random() - 0.5) * 7;
-
-        // Avoid lane divider safety zone
-        if (Math.abs(Math.abs(gz) - 1) < 0.25) continue;
-
-        const h      = 0.05 + Math.random() * 0.12;
-        const tGeo   = new THREE.CylinderGeometry(0.02, 0.04, h, 4);
-        const tuft   = new THREE.Mesh(tGeo, grassMat);
-        tuft.position.set(gx, h / 2, gz);
-        scene.add(tuft);
-    }
-
-    // Infinite road scroll: moving ground stripes (visual feedback for movement)
-    // We'll handle this in the animation loop via stripe groups
-}
-
-// ─── MOVING ROAD STRIPES ─────────────────────────────────────────────────────
-// Thin white dashes that scroll left → gives illusion of the figure walking
-const stripeGroup = new THREE.Group();
-scene.add(stripeGroup);
-const STRIPE_SPACING = 3;
-const STRIPE_COUNT   = 20;
-const stripeMat      = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.25, transparent: true });
-
-for (let i = 0; i < STRIPE_COUNT; i++) {
-    const sGeo   = new THREE.BoxGeometry(1.2, 0.015, 0.06);
-    const stripe = new THREE.Mesh(sGeo, stripeMat);
-    stripe.position.set(i * STRIPE_SPACING - 30, 0.02, 0); // center lane
-    stripeGroup.add(stripe);
-}
-
-// ─── STICK FIGURE ────────────────────────────────────────────────────────────
-const person = new StickFigure3D(0, 0, LANE_Z[currentLane], 1.2, 0x111111);
-person.addTo(scene);
-
-// ─── LANE SWITCHING ──────────────────────────────────────────────────────────
-let targetZ    = LANE_Z[currentLane];
-let isMoving   = false;
-
-document.addEventListener("keydown", e => {
-    const arrows = ["ArrowUp", "ArrowDown"];
-    if (arrows.includes(e.key)) e.preventDefault();
-
-    if (e.key === "ArrowUp"   && currentLane > 1) { currentLane--; applyLane(); }
-    if (e.key === "ArrowDown" && currentLane < 3) { currentLane++; applyLane(); }
 });
 
-function applyLane() {
-    targetZ  = LANE_Z[currentLane];
-    isMoving = true;
+/**
+ * Resizes the canvases to match the container dimensions.
+ */
+function resizeCanvas() {
+    road.width = game.clientWidth;
+    road.height = game.clientHeight;
+
+    const humanFigure = document.querySelector("#game canvas:not(#road)");
+    if (humanFigure) {
+        /** @type {HTMLCanvasElement} */ (humanFigure).width = road.width;
+        /** @type {HTMLCanvasElement} */ (humanFigure).height = road.height;
+    }
 }
 
-// ─── CLOCK & ANIMATION LOOP ──────────────────────────────────────────────────
-const clock = new THREE.Clock();
+/**
+ * Initializes the stick figure and its canvas.
+ * @returns {void}
+ */
+function initFigure() {
+    const humanFigure = document.createElement("canvas");
+    humanFigure.width = road.width;
+    humanFigure.height = road.height;
+    humanFigure.style.position = "absolute";
+    humanFigure.style.top = "0";
+    humanFigure.style.left = "0";
+    humanFigure.style.pointerEvents = "none";
+    game.appendChild(humanFigure);
 
-function animate() {
-    requestAnimationFrame(animate);
+    humanFigureCtx = /** @type {CanvasRenderingContext2D} */ (humanFigure.getContext("2d"));
+    const initialScale = (road.height / 360) * 1.0;
+    person = new StickFigure(road.width * 0.1, getLaneY(position), initialScale, COLOURS.black, 2);
+    person.draw(humanFigureCtx);
 
-    const delta = clock.getDelta();
+    setupControls();
+}
 
-    // Walk animation
-    person.walk(delta);
+/**
+ * Sets up the keyboard and touch controls for lane switching.
+ * @returns {void}
+ */
+function setupControls() {
+    const handleUp = () => {
+        if (!isRunning || position === 1) return;
+        position--;
+        person.y = getLaneY(position);
+    };
 
-    // Smooth lane transition (lerp on Z)
-    const currentZ = person.group.position.z;
-    if (Math.abs(currentZ - targetZ) > 0.01) {
-        person.group.position.z += (targetZ - currentZ) * 0.18;
-    } else {
-        person.group.position.z = targetZ;
-        isMoving = false;
-    }
+    const handleDown = () => {
+        if (!isRunning || position === 3) return;
+        position++;
+        person.y = getLaneY(position);
+    };
 
-    // Tilt figure slightly when changing lane
-    const leanTarget = isMoving ? (targetZ > currentZ ? -0.15 : 0.15) : 0;
-    person.group.rotation.x += (leanTarget - person.group.rotation.x) * 0.1;
-
-    // Scroll stripes to simulate forward movement
-    stripeGroup.children.forEach(stripe => {
-        stripe.position.x -= delta * 4;
-        if (stripe.position.x < -30) stripe.position.x += STRIPE_COUNT * STRIPE_SPACING;
+    document.addEventListener("keydown", event => {
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+            handleUp();
+        }
+        if (event.key === "ArrowDown") {
+            event.preventDefault();
+            handleDown();
+        }
     });
 
-    renderer.render(scene, camera);
+    game.addEventListener("mousedown", event => {
+        if (/** @type {HTMLElement} */ (event.target).closest && /** @type {HTMLElement} */ (event.target).closest('#mobile-controls')) return;
+
+        const rect = game.getBoundingClientRect();
+        const clickY = event.clientY - rect.top;
+        if (clickY < rect.height / 2) {
+            handleUp();
+        } else {
+            handleDown();
+        }
+    });
+
+    const btnUp = document.getElementById("btn-up");
+    if (btnUp) {
+        btnUp.addEventListener("touchstart", (e) => { e.preventDefault(); handleUp(); }, { passive: false });
+        btnUp.addEventListener("mousedown", (e) => { e.preventDefault(); handleUp(); });
+    }
+
+    const btnDown = document.getElementById("btn-down");
+    if (btnDown) {
+        btnDown.addEventListener("touchstart", (e) => { e.preventDefault(); handleDown(); }, { passive: false });
+        btnDown.addEventListener("mousedown", (e) => { e.preventDefault(); handleDown(); });
+    }
+
+    // Prevent scrolling and pull-to-refresh on the game area
+    game.addEventListener("touchmove", (e) => {
+        if (isRunning) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 }
 
-animate();
+/**
+ * Starts a new turn by showing the question modal.
+ * @returns {void}
+ */
+function startNewTurn() {
+    isRunning = false;
+    qManager.showQuestion((/** @type {import("../../core/components/question.js").Question} */ question) => {
+        currentQuestion = question;
+        spawnCards(question);
+        isRunning = true;
+        requestAnimationFrame(gameLoop);
+    });
+}
 
-// ─── RESIZE HANDLER ──────────────────────────────────────────────────────────
-window.addEventListener("resize", () => {
-    const a = window.innerWidth / window.innerHeight;
-    camera.left   = -viewSize * a / 2;
-    camera.right  =  viewSize * a / 2;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+/**
+ * Spawns answer cards on the road based on the current question.
+ * @param {import("../../core/components/question.js").Question} question
+ * @returns {void}
+ */
+function spawnCards(question) {
+    cards = [];
+    const isMobile = road.width < 768;
+    const cardWidth = isMobile ? road.width * 0.40 : road.width * 0.26;
+    const cardHeight = isMobile ? road.height * 0.28 : road.height * 0.22;
+    const startX = road.width + 100;
+
+    // Create a card for each answer in its respective lane
+    Object.keys(question.answers).forEach(key => {
+        const lane = parseInt(key);
+        const y = getLaneY(lane);
+        const text = question.answers[key];
+        const card = new Card(startX, y, cardWidth, cardHeight, text, key);
+        card.fontSize = isMobile ? Math.max(9, cardHeight * 0.20) : Math.max(10, cardHeight * 0.16);
+        cards.push(card);
+    });
+}
+
+/**
+ * Pre-renders the grass pattern onto the offscreen grassTile canvas.
+ * @returns {void}
+ */
+function setupGrassTile() {
+    grassTile = document.createElement("canvas");
+    grassTile.width = road.width;
+    grassTile.height = road.height;
+    const tileCtx = /** @type {CanvasRenderingContext2D} */ (grassTile.getContext("2d"));
+    const padding = 20;
+
+    tileCtx.fillStyle = COLOURS.green;
+    tileCtx.fillRect(0, 0, grassTile.width, grassTile.height);
+
+    tileCtx.strokeStyle = COLOURS.black;
+    tileCtx.lineWidth = 1;
+
+    const lane1Boundary = road.height / 3;
+    const lane2Boundary = (road.height / 3) * 2;
+
+    const grassCount = Math.max(50, Math.floor((grassTile.width * grassTile.height) / 3300));
+    for (let i = 0; i < grassCount; i++) {
+        const grassX = Math.random() * grassTile.width;
+        const grassY = padding + Math.random() * (grassTile.height - (padding * 2));
+        const safetyZone = 15;
+
+        if (Math.abs(grassY - lane1Boundary) < safetyZone || Math.abs(grassY - lane2Boundary) < safetyZone) {
+            continue;
+        }
+
+        drawCluster(tileCtx, grassX, grassY);
+    }
+}
+
+/**
+ * Main game loop for rendering and logic.
+ * @returns {void}
+ */
+function gameLoop() {
+    if (!isRunning) return;
+
+    renderBackground();
+    updateAndDrawCards();
+    updateAndDrawFigure();
+    checkCollisions();
+
+    requestAnimationFrame(gameLoop);
+}
+
+/**
+ * Renders the moving background.
+ * @returns {void}
+ */
+function renderBackground() {
+    const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
+
+    scrollX -= (road.width / 1152) * 4; // Scale speed with width
+    if (scrollX <= -grassTile.width) {
+        scrollX = 0;
+    }
+
+    ctx.drawImage(grassTile, scrollX, 0);
+    ctx.drawImage(grassTile, scrollX + grassTile.width, 0);
+
+    ctx.strokeStyle = COLOURS.black;
+    ctx.lineWidth = 1;
+
+    // Lane dividers
+    const lane1Boundary = road.height / 3;
+    const lane2Boundary = (road.height / 3) * 2;
+
+    [lane1Boundary, lane2Boundary].forEach(y => {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(road.width, y);
+        ctx.stroke();
+    });
+}
+
+/**
+ * Updates card positions and draws them on the road canvas.
+ * @returns {void}
+ */
+function updateAndDrawCards() {
+    const ctx = /** @type {CanvasRenderingContext2D} */ (road.getContext("2d"));
+    const speed = (road.width / 1152) * 4;
+    cards.forEach(card => {
+        card.x -= speed;
+        card.draw(ctx);
+    });
+}
+
+/**
+ * Updates the stick figure's animation phase and draws it.
+ * @returns {void}
+ */
+function updateAndDrawFigure() {
+    humanFigureCtx.clearRect(0, 0, road.width, road.height);
+
+    phase += 0.15;
+    const amplitude = 0.7;
+
+    person.leftLegAngle = Math.sin(phase) * amplitude;
+    person.rightLegAngle = Math.sin(phase + Math.PI) * amplitude;
+    person.leftArmAngle = Math.sin(phase + Math.PI) * (amplitude * 0.8);
+    person.rightArmAngle = Math.sin(phase) * (amplitude * 0.8);
+
+    person.draw(humanFigureCtx);
+}
+
+/**
+ * Checks for collision between the figure and cards.
+ * @returns {void}
+ */
+function checkCollisions() {
+    const figureX = person.x;
+    const figureLane = position;
+    const figureRightEdge = figureX + (15 * (person.scale / 1.0));
+
+    cards.forEach(card => {
+        if (!card.passed && card.x <= figureRightEdge) {
+            card.passed = true;
+            if (parseInt(card.key) === figureLane) {
+                handleChoice(card.key);
+            }
+        }
+    });
+
+    if (cards.length > 0 && cards.every(c => (c.x + c.width) < 0)) {
+        isRunning = false;
+        startNewTurn();
+    }
+}
+
+/**
+ * Handles the player's answer choice.
+ * @param {string} chosenKey
+ * @returns {void}
+ */
+function handleChoice(chosenKey) {
+    if (!isRunning) return;
+
+    isRunning = false;
+
+    if (!currentQuestion) {
+        console.error("Gameplay Error: 'handleChoice' called but no active 'currentQuestion' found.");
+        // Attempt to recover by restarting the turn
+        startNewTurn();
+
+        return;
+    }
+
+    if (!currentQuestion.answers[chosenKey]) {
+        console.error(`Gameplay Error: Chosen key '${chosenKey}' does not exist in the current question.`);
+        isRunning = true;
+
+        return;
+    }
+
+    const isCorrect = chosenKey === currentQuestion.correct_answer;
+
+    qManager.showFeedback(isCorrect, currentQuestion, chosenKey, () => {
+        startNewTurn();
+    });
+}
+
+/**
+ * Draws a small cluster of lines at a given coordinate to represent grass.
+ * @param {CanvasRenderingContext2D} ctx - The canvas rendering context.
+ * @param {number} x - The base X coordinate of the cluster.
+ * @param {number} y - The base Y coordinate of the cluster.
+ * @returns {void}
+ */
+function drawCluster(ctx, x, y) {
+    for (let j = 0; j < 5; j++) {
+        const rx = x + (Math.random() - 0.5) * 10;
+        ctx.beginPath();
+        ctx.moveTo(rx, y);
+        ctx.lineTo(rx + (Math.random() - 0.5) * 4, y - 5 - Math.random() * 5);
+        ctx.stroke();
+    }
+}

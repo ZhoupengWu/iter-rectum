@@ -1,0 +1,3404 @@
+{
+  "questions": [
+    {
+      "id": "IR_000001",
+      "category": "Definizioni",
+      "difficulty": "facile",
+      "question": "Qual è la differenza principale tra bullismo e cyberbullismo?",
+      "answers": {
+        "1": "Non c'è differenza, sono la stessa identica cosa",
+        "2": "Il bullismo fisico è meno grave di quello online",
+        "3": "Il cyberbullismo avviene online e può essere anonimo"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Sebbene la matrice psicologica sia simile, i mezzi e la velocità di diffusione cambiano radicalmente.",
+        "2": "Entrambe le forme sono gravi e possono avere conseguenze devastanti.",
+        "3": "Il cyberbullismo sfrutta la rete, permettendo al bullo di colpire h24, spesso nascondendosi dietro l'anonimato."
+      }
+    },
+    {
+      "id": "IR_000002",
+      "category": "Comportamento Social",
+      "difficulty": "medio",
+      "question": "Vedi un commento d'odio molto pesante sotto il post di un tuo compagno. Cosa fai?",
+      "answers": {
+        "1": "Segnalo il commento alla piattaforma e scrivo in privato all'amico",
+        "2": "Rispondo al bullo insultandolo a mia volta per difendere l'amico",
+        "3": "Ignoro il commento per non essere coinvolto nella discussione"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "La segnalazione ufficiale e il supporto emotivo privato sono le armi più efficaci.",
+        "2": "Rispondere con altri insulti alimenta il 'flaming' e non risolve il problema.",
+        "3": "L'indifferenza aiuta il bullo a sentirsi legittimato; agire senza esporsi troppo è meglio."
+      }
+    },
+    {
+      "id": "IR_000003",
+      "category": "Terminologia",
+      "difficulty": "difficile",
+      "question": "Cosa si intende per 'Doxing'?",
+      "answers": {
+        "1": "L'atto di escludere qualcuno da un gruppo WhatsApp",
+        "2": "Il furto di un account social tramite phishing",
+        "3": "La pubblicazione online di dati privati (indirizzo, numero) senza consenso"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Questo comportamento è definito 'Esclusione'.",
+        "2": "Il furto di account è un crimine informatico diverso, sebbene spesso correlato.",
+        "3": "Il doxing è una violazione grave della privacy usata per intimidire o esporre qualcuno alla gogna pubblica."
+      }
+    },
+    {
+      "id": "IR_000004",
+      "category": "Privacy",
+      "difficulty": "facile",
+      "question": "Un tuo amico ti chiede la password di Instagram per 'vedere chi ti scrive'. Cosa fai?",
+      "answers": {
+        "1": "Gliela do, è un mio amico e mi fido di lui",
+        "2": "Gliela do solo se lui mi dà la sua in cambio",
+        "3": "Non la do a nessuno: le password sono personali e segrete"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Anche se è un amico, i rapporti possono cambiare; la sicurezza del tuo account è tua responsabilità.",
+        "2": "Lo scambio di password aumenta il rischio per entrambi, non è una soluzione sicura.",
+        "3": "La sicurezza informatica inizia dal non condividere mai le proprie credenziali d'accesso."
+      }
+    },
+    {
+      "id": "IR_000005",
+      "category": "Aspetti Legali",
+      "difficulty": "medio",
+      "question": "In Italia, esiste una legge specifica per contrastare il cyberbullismo?",
+      "answers": {
+        "1": "No, si usano solo le leggi generiche sulla diffamazione",
+        "2": "Sì, la Legge 71 del 29 maggio 2017",
+        "3": "Sì, ma si applica solo agli adulti sopra i 18 anni"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Sebbene esistano altri reati, l'Italia si è dotata di una legge specifica nel 2017.",
+        "2": "La Legge 71/2017 è focalizzata sulla prevenzione e tutela dei minori vittima di cyberbullismo.",
+        "3": "La legge è pensata proprio per la tutela dei minori."
+      }
+    },
+    {
+      "id": "IR_000006",
+      "category": "Terminologia",
+      "difficulty": "difficile",
+      "question": "Cos'è il 'Flaming'?",
+      "answers": {
+        "1": "Mettere 'like' a tutti i post di una persona per molestarla",
+        "2": "Inviare messaggi violenti e volgari in forum o chat pubbliche",
+        "3": "Diffondere foto modificate di qualcuno per ridicolizzarlo"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Questo può essere un segnale di stalking, ma non è flaming.",
+        "2": "Il flaming consiste nel generare discussioni cariche d'odio e insulti per incendiare il clima online.",
+        "3": "Questo rientra nella categoria della 'Denigrazione'."
+      }
+    },
+    {
+      "id": "IR_000007",
+      "category": "Scenari",
+      "difficulty": "medio",
+      "question": "Ricevi uno screenshot di una chat privata dove un compagno viene preso in giro. Cosa dovresti fare?",
+      "answers": {
+        "1": "Inoltrarlo ai tuoi amici per ridere un po' anche tu",
+        "2": "Salvarlo per usarlo come ricatto in futuro",
+        "3": "Cancellarlo e non partecipare alla diffusione"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "La condivisione di contenuti offensivi ti rende complice dell'atto di cyberbullismo.",
+        "2": "Il ricatto è un reato grave e peggiora drasticamente la situazione legale.",
+        "3": "Interrompere la catena di diffusione è il primo passo per fermare la denigrazione."
+      }
+    },
+    {
+      "id": "IR_000008",
+      "category": "Privacy",
+      "difficulty": "facile",
+      "question": "Quale di queste azioni protegge meglio la tua privacy online?",
+      "answers": {
+        "1": "Usare l'autenticazione a due fattori (2FA)",
+        "2": "Avere il profilo pubblico così tutti possono seguirti",
+        "3": "Usare la propria data di nascita come password"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "La 2FA aggiunge un livello di sicurezza fondamentale contro il furto di identità.",
+        "2": "Il profilo pubblico espone i tuoi dati a sconosciuti e potenziali malintenzionati.",
+        "3": "Le password basate su dati personali sono le più facili da indovinare per un hacker (o un bullo)."
+      }
+    },
+    {
+      "id": "IR_000009",
+      "category": "Empatia",
+      "difficulty": "medio",
+      "question": "Perché molte vittime di cyberbullismo non chiedono aiuto?",
+      "answers": {
+        "1": "Perché pensano che agli adulti non importi nulla",
+        "2": "Perché in fondo si divertono a essere al centro dell'attenzione",
+        "3": "Per paura di ritorsioni o che gli venga tolto lo smartphone"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Molti adulti sono pronti ad aiutare, ma la vittima spesso non lo sa.",
+        "2": "Il cyberbullismo causa sofferenza reale, mai divertimento per la vittima.",
+        "3": "La paura di perdere l'accesso alla propria vita sociale digitale è uno dei freni principali."
+      }
+    },
+    {
+      "id": "IR_000010",
+      "category": "Terminologia",
+      "difficulty": "difficile",
+      "question": "Cosa definisce l' 'Outing e Trickery'?",
+      "answers": {
+        "1": "Creare un profilo falso per spiare un ex partner",
+        "2": "Indurre qualcuno a rivelare segreti per poi pubblicarli online",
+        "3": "Uscire da un gruppo social in segno di protesta"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Questo è un comportamento tipico del 'Cyberstalking'.",
+        "2": "Si basa sull'inganno (trickery) per ottenere confidenze da tradire poi pubblicamente (outing).",
+        "3": "Uscire da un gruppo non ha un nome specifico nel contesto del bullismo."
+      }
+    },
+    {
+      "id": "IR_000011",
+      "category": "Comportamento Social",
+      "difficulty": "facile",
+      "question": "Prima di pubblicare la foto di un tuo amico, cosa dovresti fare?",
+      "answers": {
+        "1": "Taggare lo così riceve subito la notifica",
+        "2": "Mettere dei filtri per farlo sembrare più bello",
+        "3": "Chiedere il suo consenso esplicito"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Taggare non equivale a chiedere il permesso; la foto potrebbe non piacergli.",
+        "2": "Il consenso riguarda il contenuto, non solo l'estetica della foto.",
+        "3": "Rispettare l'immagine altrui è alla base della convivenza civile online."
+      }
+    },
+    {
+      "id": "IR_000012",
+      "category": "Definizioni",
+      "difficulty": "medio",
+      "question": "Cosa si intende per 'Cyberstalking'?",
+      "answers": {
+        "1": "Guardare le storie di qualcuno senza mettere like",
+        "2": "Inviare ripetutamente minacce o molestie che creano ansia e paura",
+        "3": "Commentare ogni post di un influencer famoso"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Guardare le storie è un comportamento normale sui social, non è stalking.",
+        "2": "È una persecuzione digitale che lede la libertà e la serenità della persona colpita.",
+        "3": "L'interazione con i personaggi pubblici è comune e non costituisce reato."
+      }
+    },
+    {
+      "id": "IR_000013",
+      "category": "Aspetti Legali",
+      "difficulty": "difficile",
+      "question": "A quale età in Italia un minore può richiedere l'oscuramento dei propri dati personali?",
+      "answers": {
+        "1": "A 14 anni",
+        "2": "A 18 anni",
+        "3": "A 12 anni"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "La Legge 71/2017 permette ai maggiori di 14 anni di agire direttamente per tutelare i propri dati.",
+        "2": "A 18 anni si ha la piena capacità, ma la legge prevede tutele prima.",
+        "3": "A 12 anni è necessaria l'intermediazione dei genitori o tutori."
+      }
+    },
+    {
+      "id": "IR_000014",
+      "category": "Terminologia",
+      "difficulty": "medio",
+      "question": "Cos'è l' 'Impersonation'?",
+      "answers": {
+        "1": "Nascondere la propria identità dietro un nickname inventato",
+        "2": "Farsi un selfie imitando un personaggio famoso",
+        "3": "Creare un profilo falso a nome di un'altra persona per danneggiarla"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "L'uso di nickname è lecito, purché non serva a compiere atti illeciti.",
+        "2": "Questa è satira o divertimento, non cyberbullismo.",
+        "3": "Sostituirsi a qualcuno online è un reato e può distruggere la reputazione della vittima."
+      }
+    },
+    {
+      "id": "IR_000015",
+      "category": "Scenari",
+      "difficulty": "facile",
+      "question": "Un compagno di classe viene sistematicamente rimosso dai gruppi di classe. È cyberbullismo?",
+      "answers": {
+        "1": "No, è solo un modo per decidere con chi stare",
+        "2": "Sì, si chiama 'Esclusione' ed è una forma di violenza",
+        "3": "No, perché non ci sono insulti diretti"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Decidere con chi stare non deve tradursi nell'isolare deliberatamente qualcuno.",
+        "2": "L'esclusione sociale intenzionale mira a isolare la vittima, causandole sofferenza.",
+        "3": "Il silenzio e l'esclusione possono ferire quanto le parole."
+      }
+    },
+    {
+      "id": "IR_000016",
+      "category": "Salute Mentale",
+      "difficulty": "medio",
+      "question": "Quale può essere una conseguenza psicologica del cyberbullismo?",
+      "answers": {
+        "1": "Aumento dell'autostima e della forza di carattere",
+        "2": "Maggiore popolarità tra i coetanei",
+        "3": "Isolamento, ansia e calo del rendimento scolastico"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Il cyberbullismo non 'fortifica', ma danneggia la salute mentale.",
+        "2": "La vittima viene solitamente isolata, non resa popolare in senso positivo.",
+        "3": "Le conseguenze possono essere profonde e richiedere supporto psicologico professionale."
+      }
+    },
+    {
+      "id": "IR_000017",
+      "category": "Privacy",
+      "difficulty": "difficile",
+      "question": "Se invii una foto 'privata' a una persona di cui ti fidi, chi ne diventa il proprietario?",
+      "answers": {
+        "1": "Resta sempre tua e puoi chiederne la cancellazione legale",
+        "2": "Ne perdi il controllo: la piattaforma e il ricevente possono salvarla",
+        "3": "La legge impedisce a chiunque di salvarla senza il tuo OK"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Legalmente potresti avere diritti, ma tecnicamente è quasi impossibile recuperarla.",
+        "2": "Una volta inviato, un contenuto digitale può essere replicato all'infinito in pochi secondi.",
+        "3": "Esistono leggi, ma non bloccano tecnicamente l'azione di salvataggio (screenshot)."
+      }
+    },
+    {
+      "id": "IR_000018",
+      "category": "Comportamento Social",
+      "difficulty": "facile",
+      "question": "Cosa significa essere un 'Bystander' (spettatore) attivo?",
+      "answers": {
+        "1": "Non ridere alle offese e supportare la vittima",
+        "2": "Guardare i video dei bulli per aumentare le visualizzazioni",
+        "3": "Fare foto ai bulli mentre agiscono per ricattarli"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Il silenzio della maggioranza è ciò che dà forza al bullo; rompere il silenzio è fondamentale.",
+        "2": "Questo aiuta il bullo a sentirsi un leader.",
+        "3": "L'azione corretta è denunciare alle autorità, non agire illegalmente a propria volta."
+      }
+    },
+    {
+      "id": "IR_000019",
+      "category": "Terminologia",
+      "difficulty": "medio",
+      "question": "Cos'è il 'Denigration'?",
+      "answers": {
+        "1": "Inviare messaggi minatori via email",
+        "2": "Rubare l'identità di qualcuno per fare acquisti online",
+        "3": "Sparlare di qualcuno online per danneggiare la sua reputazione"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Questo rientra nelle molestie (harassment).",
+        "2": "Questa è una frode finanziaria, un reato diverso.",
+        "3": "Consiste nel diffondere pettegolezzi crudeli o falsità per distruggere l'immagine di una persona."
+      }
+    },
+    {
+      "id": "IR_000020",
+      "category": "Scenari",
+      "difficulty": "medio",
+      "question": "Sei in un gruppo e tutti iniziano a insultare un prof. Cosa dovresti fare?",
+      "answers": {
+        "1": "Partecipare, tanto è solo un gioco e i prof non vedono",
+        "2": "Dissociarsi e suggerire di smettere, o uscire dal gruppo",
+        "3": "Fare uno screenshot e mandarlo al preside in forma anonima"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "L'odio online non è mai un gioco e può avere conseguenze disciplinari gravi.",
+        "2": "Prendere le distanze dimostra maturità e interrompe la dinamica di branco.",
+        "3": "Può essere utile, ma prima è meglio provare a fermare il comportamento all'interno del gruppo."
+      }
+    },
+    {
+      "id": "IR_000021",
+      "category": "Aspetti Legali",
+      "difficulty": "facile",
+      "question": "Il cyberbullismo è un reato?",
+      "answers": {
+        "1": "No, è solo maleducazione digitale",
+        "2": "Solo se la vittima finisce in ospedale",
+        "3": "Sì, può configurare vari reati come diffamazione o minacce"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "È molto più di maleducazione; le leggi puniscono questi comportamenti.",
+        "2": "Il danno psicologico è punito dalla legge tanto quanto quello fisico.",
+        "3": "A seconda dell'atto, si può incorrere in gravi sanzioni penali e civili."
+      }
+    },
+    {
+      "id": "IR_000022",
+      "category": "Privacy",
+      "difficulty": "medio",
+      "question": "Cosa dovresti controllare nelle impostazioni di un nuovo social?",
+      "answers": {
+        "1": "Le impostazioni di privacy e chi può vedere i tuoi post",
+        "2": "I filtri per le foto e le canzoni di tendenza",
+        "3": "Come guadagnare follower velocemente"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Configurare correttamente chi vede i tuoi contenuti è la prima difesa contro i bulli.",
+        "2": "Sono funzioni divertenti, ma non proteggono la tua identità.",
+        "3": "Cercare follower a ogni costo spesso porta a esporre troppo della propria vita privata."
+      }
+    },
+    {
+      "id": "IR_000023",
+      "category": "Terminologia",
+      "difficulty": "difficile",
+      "question": "Cosa si intende per 'Happy Slapping'?",
+      "answers": {
+        "1": "Un gioco online in cui bisogna colpire dei bersagli mobili",
+        "2": "Schiaffeggiare qualcuno mentre un complice riprende video per pubblicarli",
+        "3": "Inviarsi emoji divertenti per fare pace dopo un litigio"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Esistono giochi simili, ma il termine è nato per descrivere atti di bullismo reale.",
+        "2": "È una pratica violenta in cui l'aggressione fisica viene amplificata dalla diffusione online.",
+        "3": "Non ha nulla a che fare con la violenza digitale."
+      }
+    },
+    {
+      "id": "IR_000024",
+      "category": "Empatia",
+      "difficulty": "medio",
+      "question": "Se un tuo amico ti confessa di essere vittima di cyberbullismo, qual è la cosa più importante da fare?",
+      "answers": {
+        "1": "Ascoltarlo senza giudicare e incoraggiarlo a parlare con un adulto",
+        "2": "Dirgli di non farci caso e di cancellare l'app",
+        "3": "Andare a picchiare il bullo per fargliela pagare"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Il supporto emotivo e la ricerca di aiuto qualificato sono i passi corretti.",
+        "2": "Minimizzare il problema (gaslighting) fa sentire la vittima ancora più sola.",
+        "3": "La violenza fisica genera solo altra violenza e problemi legali per te."
+      }
+    },
+    {
+      "id": "IR_000025",
+      "category": "Comportamento Social",
+      "difficulty": "facile",
+      "question": "Perché è pericoloso rispondere ai 'troll'?",
+      "answers": {
+        "1": "Perché potrebbero rubarti l'account se rispondi",
+        "2": "Perché i troll sono solitamente dei bot automatici",
+        "3": "Perché cercano provocazione e la tua risposta li gratifica"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Rispondere non causa il furto di account, ma espone i tuoi nervi scoperti.",
+        "2": "Alcuni lo sono, ma molti sono persone reali che cercano conflitto.",
+        "3": "Il motto 'Don't feed the troll' suggerisce che l'indifferenza è l'arma migliore contro chi provoca per noia."
+      }
+    },
+    {
+      "id": "IR_000026",
+      "category": "Scenari",
+      "difficulty": "difficile",
+      "question": "Scopri che qualcuno ha creato un profilo falso usando le tue foto. Cosa fai per prima cosa?",
+      "answers": {
+        "1": "Chiudo tutti i miei profili social per la vergogna",
+        "2": "Segnalo il profilo alla piattaforma e raccolgo le prove (screenshot)",
+        "3": "Scrivo al profilo insultandolo pesantemente"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Non devi vergognarti tu: sei la vittima di un furto d'identità.",
+        "2": "Le prove sono fondamentali se deciderai di sporgere denuncia alla Polizia Postale.",
+        "3": "Insultare il fake non serve a nulla e potrebbe essere usato contro di te."
+      }
+    },
+    {
+      "id": "IR_000027",
+      "category": "Definizioni",
+      "difficulty": "medio",
+      "question": "Qual è una caratteristica del cyberbullismo che lo rende diverso dal bullismo tradizionale?",
+      "answers": {
+        "1": "L'impossibilità per la vittima di trovare un luogo sicuro (casa)",
+        "2": "Il fatto che non ci siano mai conseguenze fisiche",
+        "3": "Che avviene solo durante l'orario scolastico"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Mentre il bullismo finisce fuori da scuola, quello online ti segue ovunque tramite lo smartphone.",
+        "2": "Lo stress psicologico può portare a gravi sintomi fisici (insonnia, disturbi alimentari).",
+        "3": "Il cyberbullismo è attivo 24 ore su 24, 7 giorni su 7."
+      }
+    },
+    {
+      "id": "IR_000028",
+      "category": "Aspetti Legali",
+      "difficulty": "medio",
+      "question": "Chi è il 'Referente per il cyberbullismo' a scuola?",
+      "answers": {
+        "1": "Un docente incaricato di coordinare le iniziative di prevenzione",
+        "2": "Il rappresentante d'istituto degli studenti",
+        "3": "Un poliziotto che sta fisicamente in segreteria"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Ogni scuola deve avere per legge un docente di riferimento per questi temi.",
+        "2": "Gli studenti possono aiutare, ma il referente è una figura istituzionale del corpo docente.",
+        "3": "La polizia interviene su chiamata, non risiede a scuola."
+      }
+    },
+    {
+      "id": "IR_000029",
+      "category": "Privacy",
+      "difficulty": "facile",
+      "question": "Cosa significa 'Oversharing'?",
+      "answers": {
+        "1": "Avere troppi amici su Facebook",
+        "2": "Scaricare troppi file pesanti dalla rete",
+        "3": "Condividere troppe informazioni personali online"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Il numero di amici non definisce l'oversharing, ma il contenuto dei post sì.",
+        "2": "Questo riguarda il consumo di dati, non la privacy.",
+        "3": "Pubblicare ogni dettaglio della propria vita dà ai bulli materiale per colpirti."
+      }
+    },
+    {
+      "id": "IR_000030",
+      "category": "Terminologia",
+      "difficulty": "medio",
+      "question": "Cos'è il 'Catfishing'?",
+      "answers": {
+        "1": "Un gioco di pesca virtuale molto popolare",
+        "2": "Inviare foto di gatti per disturbare una conversazione",
+        "3": "Creare una falsa identità online per raggirare o adescare qualcuno"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Non ha nulla a che fare con la pesca reale o virtuale.",
+        "2": "Questo sarebbe solo spam, non catfishing.",
+        "3": "Il catfishing spesso mira a instaurare finte relazioni per poi ricattare la vittima."
+      }
+    },
+    {
+      "id": "IR_000031",
+      "category": "Comportamento Social",
+      "difficulty": "facile",
+      "question": "Perché le parole scritte online possono ferire più di quelle dette a voce?",
+      "answers": {
+        "1": "Perché rimangono scritte e possono essere rilette infinite volte",
+        "2": "Perché pesano di più in termini di kilobyte",
+        "3": "Non è vero, le parole a voce sono sempre più gravi"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "La permanenza del testo scritto amplifica il trauma psicologico della vittima.",
+        "2": "La dimensione del file non ha alcuna relazione con il peso emotivo.",
+        "3": "Dipende dai casi, ma la diffusione e permanenza online sono aggravanti uniche."
+      }
+    },
+    {
+      "id": "IR_000032",
+      "category": "Scenari",
+      "difficulty": "medio",
+      "question": "Vedi una tua foto modificata per ridicolizzarti che gira su una chat. Qual è la reazione migliore?",
+      "answers": {
+        "1": "Cancellare l'account e non uscire più di casa",
+        "2": "Salvare la prova, bloccare gli autori e avvisare un adulto",
+        "3": "Riderci sopra e scriverne una peggiore sull'autore"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "L'isolamento è ciò che il bullo vuole ottenere; non dargliela vinta.",
+        "2": "Affrontare il problema con l'aiuto di adulti permette di fermare la diffusione legalmente.",
+        "3": "Reagire con altra violenza non ferma la denigrazione, la alimenta."
+      }
+    },
+    {
+      "id": "IR_000033",
+      "category": "Definizioni",
+      "difficulty": "medio",
+      "question": "Cosa si intende per 'Netiquette'?",
+      "answers": {
+        "1": "L'insieme di regole di buona educazione da seguire online",
+        "2": "Un software per proteggere la rete dai virus",
+        "3": "Il prezzo da pagare per avere una connessione veloce"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Rispettare la netiquette aiuta a prevenire conflitti e malintesi digitali.",
+        "2": "Quello è un antivirus o un firewall.",
+        "3": "La netiquette è gratuita, si basa sul rispetto reciproco."
+      }
+    },
+    {
+      "id": "IR_000034",
+      "category": "Salute Mentale",
+      "difficulty": "facile",
+      "question": "Cosa dovrebbe fare un ragazzo che si sente oppresso dai social?",
+      "answers": {
+        "1": "Passare ancora più tempo online per non sentirsi escluso",
+        "2": "Comprare un nuovo telefono più potente",
+        "3": "Fare un periodo di 'digital detox' e parlare con qualcuno"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "L'uso compulsivo peggiora l'ansia e il senso di inadeguatezza.",
+        "2": "Il problema non è lo strumento, ma il modo in cui viene usato e le dinamiche sociali.",
+        "3": "Prendere le distanze dal mondo digitale aiuta a rimettere le cose nella giusta prospettiva."
+      }
+    },
+    {
+      "id": "IR_000035",
+      "category": "Aspetti Legali",
+      "difficulty": "difficile",
+      "question": "Cos'è l'Ammonimento del Questore?",
+      "answers": {
+        "1": "Una multa che i genitori devono pagare subito",
+        "2": "Un richiamo formale per cyberbulli tra i 14 e i 18 anni",
+        "3": "L'arresto immediato del bullo"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Possono esserci sanzioni civili, ma l'ammonimento è un atto amministrativo specifico.",
+        "2": "È una misura 'dissuasiva' per far capire al minore la gravità delle sue azioni senza passare subito al penale.",
+        "3": "L'arresto è una misura estrema per reati molto diversi e più gravi."
+      }
+    },
+    {
+      "id": "IR_000036",
+      "category": "Terminologia",
+      "difficulty": "facile",
+      "question": "Cosa sono gli 'Haters'?",
+      "answers": {
+        "1": "Esperti di informatica che riparano i computer",
+        "2": "Utenti che non mettono mai like a nessuno",
+        "3": "Persone che diffondono odio e critiche distruttive online"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Quelli sono tecnici o programmatori.",
+        "2": "Non mettere like non è un atto d'odio, è solo disinteresse.",
+        "3": "Gli haters colpiscono spesso senza un motivo reale, solo per sfogare frustrazione."
+      }
+    },
+    {
+      "id": "IR_000037",
+      "category": "Scenari",
+      "difficulty": "medio",
+      "question": "Un tuo compagno pubblica un video in cui balla e tutti ridono nei commenti. Tu cosa scrivi?",
+      "answers": {
+        "1": "Scrivo 'Sfigato' perché effettivamente il video è brutto",
+        "2": "Nulla, oppure un commento positivo per bilanciare l'odio",
+        "3": "Una battuta divertente, tanto ridono tutti"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "L'insulto diretto è cyberbullismo, a prescindere dalla qualità del contenuto pubblicato.",
+        "2": "Il supporto positivo può cambiare drasticamente la giornata di chi subisce derisione.",
+        "3": "Anche una battuta 'innocente' si somma alla massa di derisione, diventando bullismo."
+      }
+    },
+    {
+      "id": "IR_000038",
+      "category": "Privacy",
+      "difficulty": "medio",
+      "question": "Qual è il rischio di usare il Wi-Fi pubblico senza protezione?",
+      "answers": {
+        "1": "Che la connessione sia troppo lenta",
+        "2": "Che ti scada l'abbonamento del telefono",
+        "3": "Che malintenzionati intercettino i tuoi dati o le tue chat"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "La lentezza è il problema minore in termini di sicurezza.",
+        "2": "Il Wi-Fi non consuma il credito telefonico, ma può costarti la privacy.",
+        "3": "Le reti pubbliche sono insicure; i bulli esperti potrebbero rubare informazioni personali."
+      }
+    },
+    {
+      "id": "IR_000039",
+      "category": "Empatia",
+      "difficulty": "facile",
+      "question": "L'anonimato online giustifica la cattiveria?",
+      "answers": {
+        "1": "Sì, se non si sa chi sono posso dire quello che voglio",
+        "2": "No, dietro ogni schermo c'è una persona reale che soffre",
+        "3": "Dipende se la persona che insulto è famosa o no"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "L'anonimato non ti rende invisibile alla legge, né giustifica l'immoralità.",
+        "2": "La deumanizzazione digitale è la causa principale del cyberbullismo; ricordiamoci l'umanità.",
+        "3": "I personaggi famosi sono esseri umani con sentimenti, non bersagli mobili."
+      }
+    },
+    {
+      "id": "IR_000040",
+      "category": "Definizioni",
+      "difficulty": "difficile",
+      "question": "In cosa consiste l' 'Esclusione Digitale' come forma di bullismo?",
+      "answers": {
+        "1": "Essere deliberatamente lasciati fuori da gruppi, chat o attività online",
+        "2": "Non avere i soldi per comprare l'ultimo iPhone",
+        "3": "Vivere in una zona dove non arriva il segnale internet"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Essere l'unico della classe fuori dal gruppo WhatsApp è una forma potente di isolamento sociale.",
+        "2": "Questo è un problema socio-economico (digital divide), non bullismo.",
+        "3": "Questo è un limite tecnologico, non un'azione di bullismo."
+      }
+    },
+    {
+      "id": "IR_000041",
+      "category": "Comportamento Social",
+      "difficulty": "medio",
+      "question": "Ricevi un link sospetto da un amico che non ti scrive da tempo. Cosa fai?",
+      "answers": {
+        "1": "Lo inoltro a tutti i miei contatti per vedere cos'è",
+        "2": "Clicco subito, sono curioso!",
+        "3": "Non clicco e chiedo conferma all'amico su un altro canale"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Inoltrandolo diventi un diffusore di potenziali minacce informatiche.",
+        "2": "I link sospetti spesso contengono virus o phishing per rubare account.",
+        "3": "L'account del tuo amico potrebbe essere stato violato (hackerato) per diffondere spam."
+      }
+    },
+    {
+      "id": "IR_000042",
+      "category": "Scenari",
+      "difficulty": "facile",
+      "question": "Un tuo amico ha creato un 'meme' cattivo su una compagna. Te lo manda. Cosa fai?",
+      "answers": {
+        "1": "Gli dico chiaramente che non fa ridere e che è offensivo",
+        "2": "Rido e gli mando un'altra idea per un meme",
+        "3": "Lo salvo per mostrarlo a tutti a scuola"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "A volte gli amici hanno solo bisogno di qualcuno che li richiami alla realtà e all'empatia.",
+        "2": "Incoraggiare queste azioni ti rende complice della denigrazione.",
+        "3": "Diffondere il contenuto amplifica il danno alla vittima."
+      }
+    },
+    {
+      "id": "IR_000043",
+      "category": "Terminologia",
+      "difficulty": "medio",
+      "question": "Cos'è il 'Grooming'?",
+      "answers": {
+        "1": "Una tecnica per migliorare l'aspetto dei propri profili social",
+        "2": "L'adescamento di minori online da parte di adulti malintenzionati",
+        "3": "La pulizia periodica dei file inutili dallo smartphone"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Non ha nulla a che fare con l'estetica dei social.",
+        "2": "È un comportamento pericolosissimo dove l'adulto manipola il minore per scopi sessuali o economici.",
+        "3": "Quella è manutenzione del dispositivo."
+      }
+    },
+    {
+      "id": "IR_000044",
+      "category": "Privacy",
+      "difficulty": "medio",
+      "question": "Perché non dovresti mai pubblicare foto del tuo biglietto aereo o della tua posizione in tempo reale?",
+      "answers": {
+        "1": "Perché riveli dove sei (e che casa tua è vuota) a chiunque",
+        "2": "Perché è da vantarsi e gli amici si ingelosiscono",
+        "3": "Perché la compagnia aerea potrebbe annullarti il volo"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Fornire la posizione esatta espone te e i tuoi beni a rischi reali (furti, stalking).",
+        "2": "Questo è un problema di etichetta, non di sicurezza.",
+        "3": "Difficile, ma i codici a barre sulle foto possono essere usati per rubare i tuoi dati di viaggio."
+      }
+    },
+    {
+      "id": "IR_000045",
+      "category": "Empatia",
+      "difficulty": "medio",
+      "question": "Cosa prova solitamente un cyberbullo?",
+      "answers": {
+        "1": "Una grande gioia e soddisfazione perenne",
+        "2": "Pura intelligenza e superiorità tattica",
+        "3": "Un senso di onnipotenza e mancanza di empatia verso la vittima"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Spesso il bullo nasconde insicurezze e rabbia che sfoga sugli altri.",
+        "2": "Il bullismo non è segno di intelligenza, ma di povertà emotiva.",
+        "3": "Lo schermo crea un distacco che impedisce al bullo di vedere il dolore che causa."
+      }
+    },
+    {
+      "id": "IR_000046",
+      "category": "Aspetti Legali",
+      "difficulty": "difficile",
+      "question": "In Italia, se un cyberbullo ha meno di 14 anni, chi risponde dei danni?",
+      "answers": {
+        "1": "Nessuno, sotto i 14 anni si è impunibili",
+        "2": "I genitori o i tutori legali (responsabilità civile)",
+        "3": "La scuola, a prescindere da dove sia avvenuto il fatto"
+      },
+      "correct_answer": "2",
+      "explanations": {
+        "1": "Non si è punibili penalmente, ma il danno va risarcito.",
+        "2": "I genitori hanno il dovere di educare e vigilare (culpa in educando e in vigilando).",
+        "3": "La scuola risponde solo se il fatto avviene sotto la sua diretta sorveglianza."
+      }
+    },
+    {
+      "id": "IR_000047",
+      "category": "Salute Mentale",
+      "difficulty": "facile",
+      "question": "Cosa indica il termine 'FOMO'?",
+      "answers": {
+        "1": "La paura di essere tagliati fuori dalle esperienze sociali online",
+        "2": "Un nuovo modello di cuffie wireless",
+        "3": "L'obbligo di mettere like a tutti i post"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Fear Of Missing Out: è l'ansia che spinge a controllare continuamente lo smartphone.",
+        "2": "Non è un prodotto tecnologico, ma una condizione psicologica.",
+        "3": "Non esiste alcun obbligo, è una pressione sociale percepita."
+      }
+    },
+    {
+      "id": "IR_000048",
+      "category": "Scenari",
+      "difficulty": "medio",
+      "question": "Ricevi un'offesa pesante in una partita online (gaming). Cosa fai?",
+      "answers": {
+        "1": "Uso il microfono per urlare contro l'altro giocatore",
+        "2": "Cerco di scoprire dove abita per affrontarlo",
+        "3": "Uso la funzione 'Mute' (silenzia) e segnalo l'utente"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Urlare peggiora solo l'esperienza di gioco per tutti e ti mette al livello del bullo.",
+        "2": "Questo è un comportamento da stalker e molto pericoloso.",
+        "3": "Gli strumenti di 'mute' e 'report' sono fatti apposta per mantenere l'ambiente di gioco sano."
+      }
+    },
+    {
+      "id": "IR_000049",
+      "category": "Definizioni",
+      "difficulty": "facile",
+      "question": "Quale di questi NON è cyberbullismo?",
+      "answers": {
+        "1": "Inviare 50 messaggi di insulti in un'ora",
+        "2": "Escludere qualcuno dal gruppo classe per una settimana",
+        "3": "Discutere animatamente ma civilmente su un'opinione diversa"
+      },
+      "correct_answer": "3",
+      "explanations": {
+        "1": "Questo è molestia (harassment) continuata.",
+        "2": "L'esclusione intenzionale è una forma di bullismo.",
+        "3": "Il confronto di idee, se rispettoso, è la base della democrazia digitale."
+      }
+    },
+    {
+      "id": "IR_000050",
+      "category": "Terminologia",
+      "difficulty": "difficile",
+      "question": "Cos'è il 'Phishing'?",
+      "answers": {
+        "1": "Tentare di rubare dati sensibili fingendosi un ente affidabile",
+        "2": "L'abitudine di pubblicare troppe foto di cibo (foodie)",
+        "3": "Un tipo di attacco che rallenta la connessione internet"
+      },
+      "correct_answer": "1",
+      "explanations": {
+        "1": "Spesso i cyberbulli usano il phishing per entrare negli account delle vittime e rubare foto private.",
+        "2": "Quello non è pericoloso, è solo una tendenza social.",
+        "3": "Questo si chiama solitamente attacco DDoS."
+      }
+    },
+    {
+        "id": "IR_000051",
+        "category": "Gaming",
+        "difficulty": "medio",
+        "question": "In un gioco online, un utente ti promette 'monete gratis' se gli dai i tuoi dati di accesso. Cosa sta facendo?",
+        "answers": {
+            "1": "Un regalo generoso per aiutarti a salire di livello",
+            "2": "Un tentativo di 'Account Takeover' tramite inganno",
+            "3": "Una promozione ufficiale della casa produttrice"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Nessuno regala nulla online in cambio di password; è una trappola classica.",
+            "2": "Cercano di rubare il tuo account per rivenderlo o usare i tuoi dati personali.",
+            "3": "Le aziende ufficiali non chiedono mai la password ai giocatori."
+        }
+    },
+    {
+        "id": "IR_000052",
+        "category": "Social Media",
+        "difficulty": "facile",
+        "question": "Su TikTok, vedi un video che incita a fare una 'challenge' pericolosa contro un compagno. Cosa fai?",
+        "answers": {
+            "1": "La faccio anche io per diventare virale",
+            "2": "Metto like ma non partecipo alla sfida",
+            "3": "Segnalo il video e non condivido il contenuto"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Le challenge pericolose o offensive possono avere conseguenze legali e fisiche reali.",
+            "2": "Il like aiuta l'algoritmo a diffondere il video a più persone, peggiorando la situazione.",
+            "3": "Interrompere la diffusione e avvisare la piattaforma è l'unico modo per fermare l'odio virale."
+        }
+    },
+    {
+        "id": "IR_000053",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Perché confrontare costantemente la propria vita con quella degli influencer può essere dannoso?",
+        "answers": {
+            "1": "Perché crea un senso di inadeguatezza basato su realtà filtrate e finte",
+            "2": "Perché ti fa spendere troppi soldi in vestiti nuovi",
+            "3": "Perché gli influencer sono persone più intelligenti di noi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Sui social vediamo solo il 'meglio' (spesso falso) degli altri, il che distorce la nostra autostima.",
+            "2": "Questo è un problema di consumismo, ma il danno psicologico è più profondo.",
+            "3": "Il successo social non è indice di intelligenza, ma di capacità di marketing."
+        }
+    },
+    {
+        "id": "IR_000054",
+        "category": "Terminologia",
+        "difficulty": "difficile",
+        "question": "Cos'è la 'Sextortion'?",
+        "answers": {
+            "1": "L'invio di messaggi d'amore non richiesti",
+            "2": "Un virus che blocca lo smartphone se non paghi",
+            "3": "Il ricatto basato sulla minaccia di diffondere immagini intime della vittima"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Questo può essere molestia, ma la sextortion è un ricatto specifico.",
+            "2": "Quello si chiama 'Ransomware'.",
+            "3": "È un reato gravissimo che richiede l'intervento immediato delle autorità (Polizia Postale)."
+        }
+    },
+    {
+        "id": "IR_000055",
+        "category": "Privacy",
+        "difficulty": "facile",
+        "question": "È sicuro usare la geolocalizzazione precisa in ogni post?",
+        "answers": {
+            "1": "No, permette a chiunque di sapere esattamente dove ti trovi in ogni momento",
+            "2": "Sì, così i tuoi amici sanno sempre dove raggiungerti",
+            "3": "Sì, perché serve ai satelliti per funzionare meglio"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Rivelare la propria posizione esatta espone a rischi di stalking e sicurezza fisica.",
+            "2": "Per i veri amici basta un messaggio privato, non serve dirlo a tutto il web.",
+            "3": "I satelliti funzionano a prescindere dai tuoi post social."
+        }
+    },
+    {
+        "id": "IR_000056",
+        "category": "Gaming",
+        "difficulty": "medio",
+        "question": "In una chat vocale di gioco, un adulto ti chiede informazioni sulla tua scuola. Come reagisci?",
+        "answers": {
+            "1": "Glielo dico, magari abita vicino e possiamo incontrarci",
+            "2": "Non rispondo e abbandono la conversazione/gruppo",
+            "3": "Gli do il nome di una scuola a caso per scherzare"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questo è un segnale tipico di adescamento (grooming); non dare mai dati reali.",
+            "2": "Mantenere l'anonimato sui dati sensibili è la regola d'oro del gaming sicuro.",
+            "3": "Anche scherzare può portare l'altro a insistere; meglio chiudere ogni contatto."
+        }
+    },
+    {
+        "id": "IR_000057",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Qual è la pena massima prevista per il reato di diffamazione aggravata online?",
+        "answers": {
+            "1": "Solo una multa simbolica di pochi euro",
+            "2": "Fino a tre anni di reclusione o una multa consistente",
+            "3": "L'obbligo di cancellare l'account social per sempre"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La legge italiana è molto severa con chi distrugge la reputazione altrui online.",
+            "2": "La natura 'pubblica' di internet aggrava il reato perché l'offesa raggiunge migliaia di persone.",
+            "3": "Questa può essere una conseguenza accessoria, ma la pena principale è penale/pecuniaria."
+        }
+    },
+    {
+        "id": "IR_000058",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un tuo compagno ti chiede di aiutarlo a 'bombardare' di messaggi un altro studente. Cosa fai?",
+        "answers": {
+            "1": "Mi rifiuto e cerco di fargli capire che è un atto di bullismo",
+            "2": "Lo aiuto, tanto sono solo messaggi e non pugni",
+            "3": "Gli dico che lo farò, ma poi non mando nulla"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Essere un vero amico significa anche fermare gli altri quando stanno per sbagliare.",
+            "2": "Le molestie ripetute (harassment) causano danni psicologici profondi, a volte peggiori dei pugni.",
+            "3": "Meglio essere chiari e prendere una posizione netta contro la violenza."
+        }
+    },
+    {
+        "id": "IR_000059",
+        "category": "Terminologia",
+        "difficulty": "facile",
+        "question": "Cosa si intende per 'Cyber-passivity'?",
+        "answers": {
+            "1": "Quando internet non funziona e non puoi connetterti",
+            "2": "Quando il computer va in modalità risparmio energetico",
+            "3": "L'indifferenza di chi vede atti di bullismo online e non interviene"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Questo è un guasto tecnico, non un comportamento sociale.",
+            "2": "È una funzione hardware, non c'entra con il cyberbullismo.",
+            "3": "La passività degli spettatori è ciò che permette al bullismo di proliferare."
+        }
+    },
+    {
+        "id": "IR_000060",
+        "category": "Social Media",
+        "difficulty": "medio",
+        "question": "Cosa sono i 'Deepfake'?",
+        "answers": {
+            "1": "Video o audio manipolati dall'AI per far sembrare che qualcuno dica o faccia cose mai avvenute",
+            "2": "Profili social di persone che non pubblicano mai nulla",
+            "3": "Sconti incredibili su siti di e-commerce famosi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Sono strumenti potentissimi usati spesso per creare materiale pornografico falso o denigratorio.",
+            "2": "Quelli sono solitamente chiamati 'ghost users'.",
+            "3": "Queste sono spesso truffe (scam), non deepfake."
+        }
+    },
+    {
+        "id": "IR_000061",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Il 'Diritto all'Oblio' cosa permette di fare?",
+        "answers": {
+            "1": "Dimenticare le proprie password senza essere puniti",
+            "2": "Richiedere la rimozione di link a contenuti personali non più pertinenti dai motori di ricerca",
+            "3": "Smettere di pagare le tasse se non si usa internet"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Dimenticare le password è un problema tecnico, non un diritto legale.",
+            "2": "È fondamentale per chi vuole rifarsi una vita dopo che contenuti dannosi del passato sono finiti online.",
+            "3": "Non esiste alcuna correlazione tra uso del web e obblighi fiscali."
+        }
+    },
+    {
+        "id": "IR_000062",
+        "category": "Comportamento Social",
+        "difficulty": "facile",
+        "question": "Perché è importante 'pensare prima di cliccare'?",
+        "answers": {
+            "1": "Perché il mouse si potrebbe rompere se clicchi troppo veloce",
+            "2": "Perché le azioni online sono permanenti e hanno conseguenze reali",
+            "3": "Perché cliccare velocemente consuma più batteria"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "I mouse moderni sono molto resistenti, il problema è il contenuto del clic.",
+            "2": "Ogni post, commento o condivisione lascia una traccia indelebile (digital footprint).",
+            "3": "Il consumo energetico di un clic è irrilevante rispetto al rischio sociale."
+        }
+    },
+    {
+        "id": "IR_000063",
+        "category": "Definizioni",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Cyberbaiting'?",
+        "answers": {
+            "1": "Mettere esche virtuali per catturare i bulli",
+            "2": "Infastidire un insegnante online per indurlo a reagire e poi filmarlo",
+            "3": "Comprare oggetti nei videogiochi per sembrare più forti"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questa sarebbe una forma di vigilanza, ma il termine indica un abuso.",
+            "2": "È una forma di bullismo rivolta verso gli adulti per screditarli pubblicamente.",
+            "3": "Questo si chiama 'Pay to win'."
+        }
+    },
+    {
+        "id": "IR_000064",
+        "category": "Salute Mentale",
+        "difficulty": "difficile",
+        "question": "Qual è il legame tra 'Likes' e Dopamina?",
+        "answers": {
+            "1": "I like non hanno alcun effetto chimico sul cervello",
+            "2": "Ricevere approvazione social rilascia dopamina, creando una sorta di dipendenza",
+            "3": "La dopamina serve a far caricare i post più velocemente"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Molti studi dimostrano che le notifiche attivano i centri del piacere nel cervello.",
+            "2": "Questo meccanismo spinge a cercare continua approvazione, rendendo fragili di fronte alle critiche.",
+            "3": "La dopamina è un neurotrasmettitore umano, non un componente software."
+        }
+    },
+    {
+        "id": "IR_000065",
+        "category": "Aspetti Legali",
+        "difficulty": "facile",
+        "question": "A chi ci si può rivolgere per segnalare un reato informatico in Italia?",
+        "answers": {
+            "1": "Alla Polizia Postale",
+            "2": "Al proprio operatore telefonico",
+            "3": "Al negozio dove si è comprato il computer"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È il corpo specializzato della Polizia di Stato per i crimini online e il cyberbullismo.",
+            "2": "L'operatore può bloccare la linea, ma non indagare sui reati.",
+            "3": "Il negoziante si occupa solo di assistenza hardware."
+        }
+    },
+    {
+        "id": "IR_000066",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un conoscente pubblica una tua vecchia foto d'infanzia imbarazzante senza chiederti nulla. Come reagisci?",
+        "answers": {
+            "1": "Gli scrivo in privato chiedendo gentilmente di rimuoverla perché mi mette a disagio",
+            "2": "Segnalo subito il suo intero profilo per farlo chiudere",
+            "3": "Pubblico a mia volta una sua foto ancora più brutta"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La comunicazione diretta è spesso il modo più veloce per risolvere malintesi tra amici.",
+            "2": "La segnalazione va fatta se l'altro si rifiuta o se l'intento è chiaramente malevolo.",
+            "3": "Rispondere al fuoco con il fuoco trasforma un piccolo incidente in una guerra digitale."
+        }
+    },
+    {
+        "id": "IR_000067",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Vishing'?",
+        "answers": {
+            "1": "Un tipo di phishing fatto tramite chiamate vocali o messaggi vocali",
+            "2": "La passione per i videogiochi vintage",
+            "3": "L'abitudine di guardare troppi video online"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Voice + Phishing: il bullo ti chiama fingendosi qualcun altro per rubarti dati a voce.",
+            "2": "Quello è il retrogaming.",
+            "3": "Questo si chiama binge-watching, se fatto con serie TV o contenuti simili."
+        }
+    },
+    {
+        "id": "IR_000068",
+        "category": "Social Media",
+        "difficulty": "facile",
+        "question": "Cosa significa 'Bloccare' un utente?",
+        "answers": {
+            "1": "Impedirgli di vedere i tuoi contenuti e di contattarti",
+            "2": "Far sì che il suo telefono smetta di funzionare",
+            "3": "Segnalarlo automaticamente alla polizia"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È lo strumento di difesa più immediato contro molestatori e bulli.",
+            "2": "Il blocco agisce solo sulla tua visibilità, non sul dispositivo altrui.",
+            "3": "Il blocco è un'azione privata; la segnalazione alle autorità è un passo successivo e distinto."
+        }
+    },
+    {
+        "id": "IR_000069",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "Perché è rischioso fare il 'Log-in con Facebook/Google' su siti sconosciuti?",
+        "answers": {
+            "1": "Perché il sito potrebbe avere accesso ad alcuni tuoi dati personali del profilo social",
+            "2": "Perché consuma più giga del log-in normale",
+            "3": "Perché Facebook ti chiederà dei soldi per ogni accesso"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Condividi il tuo 'identificativo digitale', dando potenzialmente troppe info a sconosciuti.",
+            "2": "Il consumo di dati è quasi identico.",
+            "3": "Questi servizi sono gratuiti in termini di denaro, ma si pagano con i propri dati."
+        }
+    },
+    {
+        "id": "IR_000070",
+        "category": "Gaming",
+        "difficulty": "difficile",
+        "question": "Cos'è uno 'Swatting'?",
+        "answers": {
+            "1": "Un attacco hacker che spegne i server di gioco",
+            "2": "Una mossa speciale in un gioco di combattimento",
+            "3": "Fare una falsa denuncia per mandare la polizia a casa di uno streamer durante una diretta"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Questo è un attacco informatico, non swatting.",
+            "2": "Non è un termine tecnico di gameplay.",
+            "3": "È una pratica criminale estremamente pericolosa che ha causato vittime reali."
+        }
+    },
+    {
+        "id": "IR_000071",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Cosa si intende per 'Deumanizzazione' online?",
+        "answers": {
+            "1": "Usare avatar di animali al posto delle proprie foto",
+            "2": "Considerare gli altri utenti come profili astratti e non come persone reali",
+            "3": "Trasformarsi in robot tramite la chirurgia plastica"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "L'uso di avatar è una scelta estetica comune e non necessariamente dannosa.",
+            "2": "È la causa principale per cui le persone scrivono insulti che non direbbero mai a voce.",
+            "3": "Questa è fantascienza (transumanesimo), non c'entra con la psicologia social."
+        }
+    },
+    {
+        "id": "IR_000072",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "È legale creare un 'Meme' usando la faccia di un compagno senza il suo permesso?",
+        "answers": {
+            "1": "Sì, se fa ridere la legge lo permette come satira",
+            "2": "Sì, se lo mando solo in una chat privata tra pochi amici",
+            "3": "No, è una violazione del diritto d'immagine e può essere diffamazione"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "La satira riguarda personaggi pubblici, non privati cittadini (o minori).",
+            "2": "Anche nelle chat private la diffusione può essere sanzionata se lede la dignità.",
+            "3": "L'uso non autorizzato dell'immagine altrui per scopi di derisione è punibile legalmente."
+        }
+    },
+    {
+        "id": "IR_000073",
+        "category": "Social Media",
+        "difficulty": "facile",
+        "question": "Qual è lo scopo principale degli algoritmi dei social media?",
+        "answers": {
+            "1": "Aiutarti a trovare nuovi amici con opinioni diverse dalle tue",
+            "2": "Tenerti sulla piattaforma il più a lungo possibile mostrandoti ciò che ti piace",
+            "3": "Cancellare automaticamente tutti i commenti negativi"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Gli algoritmi spesso creano 'bolle' (echo chambers) mostrandoti solo chi la pensa come te.",
+            "2": "Questo può portarti a vedere contenuti sempre più estremi o a isolarti in una bolla digitale.",
+            "3": "Purtroppo la moderazione automatica non è ancora così efficace."
+        }
+    },
+    {
+        "id": "IR_000074",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Ghosting'?",
+        "answers": {
+            "1": "Interrompere improvvisamente ogni comunicazione online con qualcuno senza spiegazioni",
+            "2": "Usare un filtro per sembrare trasparenti nelle foto",
+            "3": "Rubare l'account di una persona defunta"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È una forma di violenza psicologica passiva che lascia l'altra persona in uno stato di ansia.",
+            "2": "Questa è una funzione di editing fotografico.",
+            "3": "Questo è un reato di furto di identità post-mortem, molto raro."
+        }
+    },
+    {
+        "id": "IR_000075",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Cosa sono i 'Metadati' di una foto?",
+        "answers": {
+            "1": "I filtri applicati prima della pubblicazione",
+            "2": "Informazioni nascoste nel file come ora, data e coordinate GPS dello scatto",
+            "3": "I commenti che le persone scrivono sotto la foto"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "I filtri modificano l'immagine, non i dati tecnici del file.",
+            "2": "Mandare una foto 'originale' a uno sconosciuto può rivelargli dove abiti esattamente.",
+            "3": "Quelli sono dati pubblici del social, non metadati del file immagine."
+        }
+    },
+    {
+        "id": "IR_000076",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un sito ti chiede di compilare un test per scoprire 'che personaggio sei'. Ti chiede accesso ai contatti. Cosa fai?",
+        "answers": {
+            "1": "Accetto, voglio assolutamente sapere se sono Iron Man",
+            "2": "Rifiuto: è un modo per raccogliere email per spam o phishing",
+            "3": "Accetto, tanto non ho nulla da nascondere"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Il test è solo un'esca per rubare i dati tuoi e dei tuoi amici.",
+            "2": "La tua lista contatti è un dato prezioso che va protetto per rispettare anche la privacy altrui.",
+            "3": "Tutti hanno qualcosa da nascondere (password, conversazioni, vita privata)."
+        }
+    },
+    {
+        "id": "IR_000077",
+        "category": "Salute Mentale",
+        "difficulty": "facile",
+        "question": "Cosa significa 'Cyber-condriaco'?",
+        "answers": {
+            "1": "Cercare ossessivamente sintomi di malattie online e spaventarsi",
+            "2": "Avere paura che il computer prenda un virus",
+            "3": "Essere allergici alle onde del Wi-Fi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La cattiva informazione medica online può generare ansie infondate e pericolose.",
+            "2": "Questa è una sana preoccupazione per la sicurezza informatica.",
+            "3": "Non ci sono prove scientifiche solide su questa condizione nel contesto del web."
+        }
+    },
+    {
+        "id": "IR_000078",
+        "category": "Gaming",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Griefing'?",
+        "answers": {
+            "1": "Giocare così bene da far piangere gli avversari",
+            "2": "Collaborare con gli altri per vincere una partita",
+            "3": "Rovinare intenzionalmente l'esperienza di gioco degli altri (es. distruggendo le loro basi)"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Essere forti non è bullismo, se si rispetta l'avversario.",
+            "2": "Questo è gioco di squadra (teamwork).",
+            "3": "È una forma di cyberbullismo specifica dei mondi virtuali condivisi."
+        }
+    },
+    {
+        "id": "IR_000079",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "In una causa per cyberbullismo, uno screenshot può essere usato come prova?",
+        "answers": {
+            "1": "Sì, ma deve essere autenticato o accompagnato da altri dati tecnici",
+            "2": "No, gli screenshot si possono falsificare troppo facilmente",
+            "3": "Sì, basta farlo e la polizia arresterà subito il colpevole"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Le prove digitali sono valide, ma vanno raccolte correttamente per non essere contestate.",
+            "2": "Si possono falsificare, per questo servono perizie informatiche per confermarli.",
+            "3": "Il processo legale è lungo e richiede verifiche accurate, non c'è nulla di automatico."
+        }
+    },
+    {
+        "id": "IR_000080",
+        "category": "Benessere Digitale",
+        "difficulty": "facile",
+        "question": "Cosa dovresti fare se senti che i commenti online ti rendono triste o arrabbiato?",
+        "answers": {
+            "1": "Spegnere lo smartphone e fare un'attività offline",
+            "2": "Continuare a leggere finché non ti passa",
+            "3": "Rispondere a tutti finché non chiedono scusa"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Distaccarsi fisicamente dal dispositivo aiuta il cervello a uscire dal loop emotivo negativo.",
+            "2": "Questo aumenta solo il livello di stress e malessere.",
+            "3": "È quasi impossibile convincere un bullo a chiedere scusa tramite una discussione online."
+        }
+    },
+    {
+        "id": "IR_000081",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è un 'Bot' nel contesto dei social media?",
+        "answers": {
+            "1": "Un utente molto intelligente che risponde a tutto",
+            "2": "Un account gestito da un software che compie azioni automatiche",
+            "3": "Un moderatore umano che controlla i contenuti"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Spesso i bot sono ripetitivi e non realmente intelligenti.",
+            "2": "Possono essere usati per diffondere fake news o per attaccare in massa un profilo (bot-attack).",
+            "3": "I moderatori sono persone, i bot sono programmi."
+        }
+    },
+    {
+        "id": "IR_000082",
+        "category": "Privacy",
+        "difficulty": "facile",
+        "question": "Cosa dovresti fare prima di vendere il tuo vecchio smartphone?",
+        "answers": {
+            "1": "Cancellare solo le foto più brutte",
+            "2": "Pulire lo schermo con un panno umido",
+            "3": "Fare un backup e un ripristino dei dati di fabbrica (formattazione)"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Tutti i tuoi dati (password, chat, conti) restano sul telefono se non li cancelli correttamente.",
+            "2": "La pulizia esterna è inutile se i tuoi dati restano all'interno.",
+            "3": "Proteggere i propri dati prima di cedere un dispositivo è un passo fondamentale di sicurezza."
+        }
+    },
+    {
+        "id": "IR_000083",
+        "category": "Social Media",
+        "difficulty": "medio",
+        "question": "Cosa si intende per 'Shadowban'?",
+        "answers": {
+            "1": "Quando la piattaforma rende i tuoi post invisibili agli altri senza avvisarti",
+            "2": "Un ban che dura solo durante le ore notturne",
+            "3": "Quando ti viene chiesto di cambiare la foto profilo"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È una misura punitiva discreta usata contro chi viola le regole della community.",
+            "2": "I ban non dipendono dall'orario del giorno.",
+            "3": "Questa è una richiesta di moderazione, non uno shadowban."
+        }
+    },
+    {
+        "id": "IR_000084",
+        "category": "Definizioni",
+        "difficulty": "difficile",
+        "question": "Cos'è la 'Polarizzazione' online?",
+        "answers": {
+            "1": "L'uso di occhiali da sole per guardare lo schermo",
+            "2": "La tendenza a schierarsi su posizioni estreme a causa del confronto online costante",
+            "3": "Quando la batteria del telefono si carica troppo velocemente"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questa è ottica, non c'entra con i social.",
+            "2": "L'assenza di sfumature nelle discussioni online alimenta l'odio e il bullismo verso chi la pensa diversamente.",
+            "3": "Questo è un parametro elettrico, non sociale."
+        }
+    },
+    {
+        "id": "IR_000085",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Qualcuno ti manda un file PDF intitolato 'Compiti_Domani.pdf' ma non lo conosci. Cosa fai?",
+        "answers": {
+            "1": "Lo apro subito, non voglio prendere un brutto voto",
+            "2": "Lo inoltro al gruppo classe per chiedere se qualcuno lo conosce",
+            "3": "Non lo apro e lo cancello: potrebbe essere un malware (virus)"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "È uno dei modi più comuni per infettare computer e rubare password.",
+            "2": "Inoltrandolo rischi di infettare anche i tuoi compagni.",
+            "3": "La prudenza con i file provenienti da sconosciuti è la base della sicurezza informatica."
+        }
+    },
+    {
+        "id": "IR_000086",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Perché non dovresti mai postare quando sei molto arrabbiato?",
+        "answers": {
+            "1": "Perché potresti scrivere cose offensive di cui ti pentirai e che non potrai cancellare del tutto",
+            "2": "Perché lo smartphone potrebbe surriscaldarsi",
+            "3": "Perché i tuoi follower potrebbero annoiarsi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Le emozioni forti ci fanno perdere lucidità; un post impulsivo può rovinarti la reputazione in secondi.",
+            "2": "Lo stato emotivo dell'utente non influisce sulla temperatura dell'hardware.",
+            "3": "La rabbia attira attenzione, ma di solito è attenzione negativa e tossica."
+        }
+    },
+    {
+        "id": "IR_000087",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Il 'Revenge Porn' è punibile in Italia?",
+        "answers": {
+            "1": "Sì, è un reato penale punito con la reclusione da 1 a 6 anni",
+            "2": "No, se le foto sono state inviate volontariamente all'inizio",
+            "3": "Solo con una multa amministrativa"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È una violazione gravissima della dignità umana e della privacy, punita severamente dal Codice Penale.",
+            "2": "Il consenso all'invio non implica mai il consenso alla diffusione pubblica.",
+            "3": "La gravità del fatto richiede sanzioni penali, non solo pecuniarie."
+        }
+    },
+    {
+        "id": "IR_000088",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è lo 'Slut-shaming'?",
+        "answers": {
+            "1": "Deridere o umiliare qualcuno (specialmente donne) per i suoi comportamenti sessuali o il modo di vestire",
+            "2": "Un nuovo stile di danza nato su TikTok",
+            "3": "L'abitudine di mangiare troppo cibo spazzatura online"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È una forma di cyberbullismo basata su pregiudizi di genere estremamente tossica.",
+            "2": "Non ha nulla a che fare con la danza.",
+            "3": "Quello è il mukbang, un genere di video coreano."
+        }
+    },
+    {
+        "id": "IR_000089",
+        "category": "Gaming",
+        "difficulty": "facile",
+        "question": "Un giocatore continua a scriverti 'Sei un nabbo' in ogni partita. È cyberbullismo?",
+        "answers": {
+            "1": "No, è solo gergo dei videogiochi",
+            "2": "Sì, se lo fa in modo insistente per umiliarti e farti smettere di giocare",
+            "3": "Solo se lo scrive in maiuscolo"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Il termine in sé è gergo, ma l'uso che se ne fa può diventare molesto.",
+            "2": "La ripetitività e l'intento di ferire trasformano una parola comune in bullismo.",
+            "3": "Il maiuscolo indica urlo, ma il bullismo non dipende dal font."
+        }
+    },
+    {
+        "id": "IR_000090",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "Cos'è la 'Privacy di Gruppo' su WhatsApp?",
+        "answers": {
+            "1": "L'impostazione che decide chi può aggiungerti ai gruppi senza il tuo invito",
+            "2": "Il fatto che nessuno possa leggere i messaggi del gruppo",
+            "3": "Una funzione che cancella i messaggi dopo che sono stati letti"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Attivarla evita di finire in gruppi indesiderati dove potresti subire bullismo o spam.",
+            "2": "Questa è la crittografia end-to-end, un'altra funzione.",
+            "3": "Questi sono i messaggi effimeri."
+        }
+    },
+    {
+        "id": "IR_000091",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Cosa si intende per 'Economia dell'Attenzione'?",
+        "answers": {
+            "1": "Risparmiare soldi spegnendo internet",
+            "2": "Il modo in cui le app sono progettate per catturare e vendere il nostro tempo",
+            "3": "Pagare qualcuno per guardare i tuoi video"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Non c'entra con il risparmio monetario diretto.",
+            "2": "Comprendere questo aiuta a capire perché è così difficile staccarsi dai social.",
+            "3": "Questo succede in alcuni mercati pubblicitari, ma non è il concetto principale."
+        }
+    },
+    {
+        "id": "IR_000092",
+        "category": "Social Media",
+        "difficulty": "difficile",
+        "question": "Cos'è una 'Echo Chamber' (camera dell'eco)?",
+        "answers": {
+            "1": "Una stanza con un'ottima acustica per registrare podcast",
+            "2": "Un ambiente digitale dove incontri solo persone che confermano le tue idee",
+            "3": "Un tipo di filtro che raddoppia la tua voce nei video"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questa è una camera anecoica o uno studio di registrazione.",
+            "2": "Riduce il senso critico e aumenta l'intolleranza verso chi la pensa diversamente.",
+            "3": "Questo è un effetto sonoro."
+        }
+    },
+    {
+        "id": "IR_000093",
+        "category": "Scenari",
+        "difficulty": "facile",
+        "question": "Un'app gratuita ti chiede l'accesso a microfono, fotocamera e contatti per un semplice gioco di carte. Cosa fai?",
+        "answers": {
+            "1": "Accetto, servirà sicuramente per qualche funzione speciale",
+            "2": "Rifiuto i permessi che non sembrano necessari al funzionamento del gioco",
+            "3": "Disinstallo subito lo smartphone"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Molte app abusano dei permessi per spiare gli utenti o raccogliere dati.",
+            "2": "Limitare i permessi è fondamentale per mantenere il controllo sulla propria privacy.",
+            "3": "Un po' estremo, basta gestire correttamente le impostazioni dell'app."
+        }
+    },
+    {
+        "id": "IR_000094",
+        "category": "Terminologia",
+        "difficulty": "difficile",
+        "question": "Cos'è il 'Cyber-jihadismo'?",
+        "answers": {
+            "1": "L'uso di internet per diffondere ideologie estremiste e reclutare persone",
+            "2": "Un nuovo stile di arti marziali praticato online",
+            "3": "La traduzione di 'internet' in alcune lingue orientali"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È una forma di radicalizzazione online monitorata attentamente dalle autorità.",
+            "2": "Non esiste nulla di simile.",
+            "3": "La terminologia tecnica è solitamente universale o basata sull'inglese."
+        }
+    },
+    {
+        "id": "IR_000095",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Si può essere 'bulli per noia'?",
+        "answers": {
+            "1": "No, se sei un bullo sei cattivo di natura",
+            "2": "Sì, molte persone insultano online solo per passare il tempo, senza pensare alle conseguenze",
+            "3": "Sì, ed è giustificabile se non c'è nient'altro da fare"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Spesso il bullismo nasce da mancanza di consapevolezza, non da malvagità innata.",
+            "2": "La noia non giustifica il danno arrecato, ma spiega perché molti lo facciano con leggerezza.",
+            "3": "Nulla giustifica la violenza, nemmeno la noia più profonda."
+        }
+    },
+    {
+        "id": "IR_000096",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "Un commento offensivo postato 5 anni fa può ancora causarti problemi?",
+        "answers": {
+            "1": "No, dopo un anno internet cancella tutto da solo",
+            "2": "Sì, se non è stato rimosso può essere trovato da futuri datori di lavoro o università",
+            "3": "Solo se il commento ha ricevuto più di 100 like"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Internet ha una memoria lunghissima e i contenuti raramente scompaiono da soli.",
+            "2": "La tua reputazione digitale ti segue nel tempo; è importante curarla fin da subito.",
+            "3": "Anche un commento con zero like resta visibile e rintracciabile."
+        }
+    },
+    {
+        "id": "IR_000097",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "Cosa si intende per 'Social Media Fatigue'?",
+        "answers": {
+            "1": "La stanchezza fisica alle dita per aver scrollato troppo",
+            "2": "L'esaurimento mentale causato dall'eccesso di informazioni e interazioni social",
+            "3": "Quando il server del social è troppo lento"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Può succedere, ma il termine indica un fenomeno psicologico.",
+            "2": "Porta a stress, ansia e al desiderio di isolarsi completamente dal mondo digitale.",
+            "3": "Questo riguarda le prestazioni tecniche del servizio."
+        }
+    },
+    {
+        "id": "IR_000098",
+        "category": "Terminologia",
+        "difficulty": "facile",
+        "question": "Chi sono i 'Digital Natives' (nativi digitali)?",
+        "answers": {
+            "1": "Le persone nate e cresciute nell'era delle tecnologie digitali",
+            "2": "Gli ingegneri che hanno inventato internet",
+            "3": "Gli abitanti di una piccola isola dove si producono microchip"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Hanno una naturale confidenza con la tecnologia, ma non necessariamente una maggiore consapevolezza dei rischi.",
+            "2": "Quelli sono i padri fondatori del web.",
+            "3": "Questa è una pura invenzione di fantasia."
+        }
+    },
+    {
+        "id": "IR_000099",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Cos'è la 'Profilazione'?",
+        "answers": {
+            "1": "Mettere una bella cornice intorno alla propria foto profilo",
+            "2": "Scegliere il profilo migliore per scattarsi un selfie",
+            "3": "La raccolta e analisi dei dati degli utenti per predirne comportamenti e preferenze"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Questa è decorazione grafica.",
+            "2": "Questa è vanità fotografica.",
+            "3": "Viene usata per la pubblicità mirata, ma anche per manipolare opinioni e comportamenti."
+        }
+    },
+    {
+        "id": "IR_000100",
+        "category": "Benessere Digitale",
+        "difficulty": "facile",
+        "question": "Qual è il miglior modo per concludere questa partita e la tua giornata digitale?",
+        "answers": {
+            "1": "Fare un'ultima ora di scroll infinito su Instagram",
+            "2": "Mettere via lo schermo e dedicarsi a un hobby reale o al riposo",
+            "3": "Controllare se qualcuno ha risposto ai tuoi commenti per l'ultima volta"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Lo scroll notturno rovina il sonno a causa della luce blu e dell'iperstimolazione.",
+            "2": "Mantenere l'equilibrio tra vita online e offline è il segreto per una salute mentale forte.",
+            "3": "Questo crea uno stato di allerta che impedisce il relax necessario prima di dormire."
+        }
+    },
+    {
+        "id": "IR_000101",
+        "category": "Social Media",
+        "difficulty": "medio",
+        "question": "In un gruppo classe viene creato un sondaggio per votare 'il più brutto della scuola'. Cosa rappresenta?",
+        "answers": {
+            "1": "Un modo divertente per conoscersi meglio",
+            "2": "Una forma di cyberbullismo basata sull'umiliazione pubblica",
+            "3": "Una semplice statistica senza valore reale"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Nessuna forma di derisione estetica può essere considerata divertente per chi la subisce.",
+            "2": "I sondaggi denigratori mirano a colpire l'autostima della vittima davanti a tutti i pari.",
+            "3": "Sebbene sia digitale, il valore emotivo e il danno sociale sono reali e pesanti."
+        }
+    },
+    {
+        "id": "IR_000102",
+        "category": "Terminologia",
+        "difficulty": "difficile",
+        "question": "Cos'è lo 'Sharenting'?",
+        "answers": {
+            "1": "Quando i genitori condividono troppe foto e dati dei figli online senza il loro consenso",
+            "2": "Dividere l'abbonamento di Netflix con gli amici",
+            "3": "Un tipo di noleggio condiviso di dispositivi elettronici"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Può esporre i minori a rischi di grooming o creare loro imbarazzo sociale nel futuro.",
+            "2": "Questo si chiama account sharing.",
+            "3": "Nessuna relazione con il noleggio; riguarda la privacy familiare digitale."
+        }
+    },
+    {
+        "id": "IR_000103",
+        "category": "Gaming",
+        "difficulty": "medio",
+        "question": "Cos'è lo 'Stream Sniping'?",
+        "answers": {
+            "1": "Usare un fucile di precisione molto potente nel gioco",
+            "2": "Entrare nella partita di uno streamer guardando la sua diretta per colpirlo a tradimento",
+            "3": "Migliorare la qualità della propria connessione internet"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Riguarda l'arma del gioco, non il comportamento verso lo streamer.",
+            "2": "È considerato un comportamento antisportivo e, se ripetuto, una forma di molestia.",
+            "3": "Questo riguarda l'hardware o l'infrastruttura di rete."
+        }
+    },
+    {
+        "id": "IR_000104",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Victim Blaming'?",
+        "answers": {
+            "1": "Incolpare la vittima per il bullismo subito (es. 'se l'è cercata')",
+            "2": "Chiedere alla vittima di perdonare subito il bullo",
+            "3": "Premiare la vittima con dei regali per consolarla"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Sposta la colpa dall'aggressore alla vittima, raddoppiando il trauma psicologico.",
+            "2": "Questo può essere sbagliato, ma non è victim blaming.",
+            "3": "Questo è un tentativo di riparazione o supporto, l'esatto opposto."
+        }
+    },
+    {
+        "id": "IR_000105",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Cos'è lo 'Smishing'?",
+        "answers": {
+            "1": "Un tipo di phishing che avviene tramite SMS",
+            "2": "L'abitudine di sorridere sempre nelle foto (da 'smile')",
+            "3": "Un virus che rompe lo schermo dello smartphone"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "SMS + Phishing: ricevi un link falso via messaggio per rubarti dati bancari o social.",
+            "2": "Non ha nulla a che fare con le espressioni facciali.",
+            "3": "Un software non può rompere fisicamente l'hardware dello schermo."
+        }
+    },
+    {
+        "id": "IR_000106",
+        "category": "Salute Mentale",
+        "difficulty": "facile",
+        "question": "Perché le 'spunte blu' di lettura possono causare ansia?",
+        "answers": {
+            "1": "Perché consumano molta più batteria del telefono",
+            "2": "Perché il colore blu è irritante per la vista",
+            "3": "Perché creano la pressione di dover rispondere subito per non sembrare scortesi"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Le icone grafiche hanno un impatto energetico nullo.",
+            "2": "Il blu è solitamente considerato un colore rilassante, non è questo il problema.",
+            "3": "Questa 'ansia da risposta' è spesso sfruttata dai bulli per controllare la vittima."
+        }
+    },
+    {
+        "id": "IR_000107",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Usi un'app di domande anonime (tipo NGL) e ricevi un insulto pesante. Cosa fai?",
+        "answers": {
+            "1": "Rispondo pubblicamente per far vedere che non ho paura",
+            "2": "Cancello l'app e segnalo il contenuto offensivo se possibile",
+            "3": "Cerco di indovinare chi è stato e lo insulto a scuola"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Rispondere dà visibilità all'insulto e gratifica il bullo anonimo.",
+            "2": "L'anonimato delle app spesso incentiva comportamenti tossici; meglio proteggersi eliminandole.",
+            "3": "Senza prove certe rischi di aggredire una persona innocente e diventare tu il bullo."
+        }
+    },
+    {
+        "id": "IR_000108",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Cosa si intende per 'Responsabilità Civile' dei genitori di un bullo?",
+        "answers": {
+            "1": "L'obbligo dei genitori di andare in prigione al posto del figlio",
+            "2": "Il dovere di pagare un risarcimento economico per i danni causati dal figlio",
+            "3": "L'obbligo di frequentare un corso di informatica"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La responsabilità penale è personale e non si trasferisce ai genitori.",
+            "2": "Se un minore causa danni, i genitori sono tenuti a risarcire economicamente la vittima.",
+            "3": "Potrebbe essere utile, ma non è un obbligo di legge legato al risarcimento."
+        }
+    },
+    {
+        "id": "IR_000109",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Body Shaming'?",
+        "answers": {
+            "1": "Andare in palestra per mostrare i muscoli sui social",
+            "2": "Un nuovo stile di abbigliamento sportivo",
+            "3": "Deridere qualcuno per il suo aspetto fisico (peso, altezza, difetti)"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Questo è fitness o narcisismo, non body shaming.",
+            "2": "Nessuna relazione con la moda.",
+            "3": "È una delle forme più comuni e dolorose di bullismo online."
+        }
+    },
+    {
+        "id": "IR_000110",
+        "category": "Social Media",
+        "difficulty": "facile",
+        "question": "A cosa servono i 'Filtri dei commenti' su Instagram e TikTok?",
+        "answers": {
+            "1": "A nascondere automaticamente commenti che contengono parole offensive",
+            "2": "A rendere le scritte dei commenti più colorate",
+            "3": "A tradurre i commenti in altre lingue"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È uno strumento di autodifesa che riduce l'esposizione all'odio online.",
+            "2": "I commenti hanno font standard, non si colorano con i filtri anti-odio.",
+            "3": "Esistono traduttori, ma non è la funzione principale dei filtri moderatori."
+        }
+    },
+    {
+        "id": "IR_000111",
+        "category": "Definizioni",
+        "difficulty": "medio",
+        "question": "Qual è la differenza tra una 'Critica' e un 'Hate Speech' (incitamento all'odio)?",
+        "answers": {
+            "1": "La critica attacca l'idea; l'hate speech attacca la persona e la sua identità",
+            "2": "L'hate speech è scritto in maiuscolo, la critica in minuscolo",
+            "3": "Non c'è differenza, tutto ciò che è negativo è odio"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Si può dissentire con rispetto; l'odio invece mira a deumanizzare l'altro.",
+            "2": "La formattazione del testo non definisce la natura legale del contenuto.",
+            "3": "Confondere critica e odio impedisce un dibattito sano e democratico."
+        }
+    },
+    {
+        "id": "IR_000112",
+        "category": "Gaming",
+        "difficulty": "medio",
+        "question": "In un clan di gioco, un membro viene insultato perché 'non sa giocare bene'. Cosa dovrebbero fare gli altri?",
+        "answers": {
+            "1": "Cacciarlo subito per non perdere le partite",
+            "2": "Prendere le sue difese e ricordare che è solo un gioco",
+            "3": "Ridere insieme al bullo per non essere presi di mira a propria volta"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questo asseconda la logica del bullo e isola la vittima.",
+            "2": "La solidarietà del gruppo rompe la forza del bullo e crea un ambiente sano.",
+            "3": "Questo ti rende un complice passivo e alimenta la tossicità del clan."
+        }
+    },
+    {
+        "id": "IR_000113",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Cosa sono i 'Cookie' di terze parti?",
+        "answers": {
+            "1": "Piccoli file che tracciano la tua navigazione tra diversi siti per profilarti",
+            "2": "Biscotti digitali che si vincono giocando online",
+            "3": "Virus che mangiano i file salvati sul desktop"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Servono per conoscerti meglio e venderti pubblicità (o influenzare i tuoi post).",
+            "2": "Magari! Ma purtroppo non si mangiano.",
+            "3": "Non sono virus, sono strumenti di tracciamento leciti ma invasivi."
+        }
+    },
+    {
+        "id": "IR_000114",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "Cos'è la 'Dismorfia da Filtro'?",
+        "answers": {
+            "1": "Quando non si riesce più ad accettare il proprio volto reale senza filtri social",
+            "2": "Un problema tecnico che deforma le foto caricate",
+            "3": "La paura di usare troppi effetti nei video"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "I filtri creano standard estetici irraggiungibili, portando a depressione e ansia.",
+            "2": "Non è un bug del software, ma un impatto psicologico sull'utente.",
+            "3": "Al contrario, è l'uso eccessivo e dipendente a creare il problema."
+        }
+    },
+    {
+        "id": "IR_000115",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "È reato condividere una chat privata di WhatsApp in un gruppo pubblico senza il consenso degli autori?",
+        "answers": {
+            "1": "No, se la chat è sul mio telefono posso farne ciò che voglio",
+            "2": "Sì, viola il diritto alla segretezza della corrispondenza e la privacy",
+            "3": "Solo se nella chat ci sono parolacce"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Essere parte di una conversazione non ti dà il diritto di renderla pubblica.",
+            "2": "La legge tutela la privacy delle comunicazioni tra persone, anche se digitali.",
+            "3": "Il contenuto non conta; è l'atto di diffondere una comunicazione privata a essere illecito."
+        }
+    },
+    {
+        "id": "IR_000116",
+        "category": "Terminologia",
+        "difficulty": "facile",
+        "question": "Cosa significa 'Defolloware' (unfollow) qualcuno dopo un litigio?",
+        "answers": {
+            "1": "Smettere di seguire i suoi aggiornamenti",
+            "2": "Cancellare tutti i messaggi ricevuti da quella persona",
+            "3": "Segnalare il suo profilo alla polizia"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È un segnale sociale di rottura, ma è un tuo diritto decidere chi seguire.",
+            "2": "Il defollow non cancella la cronologia dei messaggi passati.",
+            "3": "Sono due azioni diverse: il defollow è privato, la segnalazione è ufficiale."
+        }
+    },
+    {
+        "id": "IR_000117",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un insegnante trova un video di se stesso su TikTok mentre spiega, con musica ridicola sotto. Cosa dovrebbe fare lo studente che l'ha postato?",
+        "answers": {
+            "1": "Nulla, i professori sono personaggi pubblici e devono accettarlo",
+            "2": "Rimuoverlo subito e scusarsi: è una violazione della privacy e del decoro",
+            "3": "Mettere il video in 'privato' così lo vedono solo i suoi amici"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "I professori sono lavoratori, non personaggi pubblici senza diritti d'immagine.",
+            "2": "Riprendere e ridicolizzare qualcuno sul posto di lavoro è un atto grave di cyberbullismo.",
+            "3": "Anche se lo vedono 'solo' gli amici, il danno alla reputazione dell'insegnante rimane."
+        }
+    },
+    {
+        "id": "IR_000118",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Perché si dice che 'internet non dimentica mai'?",
+        "answers": {
+            "1": "Perché i server hanno una memoria infinita e i contenuti vengono duplicati ovunque",
+            "2": "Perché Google è gestito da un'intelligenza che ricorda tutto",
+            "3": "Perché le persone salvano tutto quello che vedono"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Una volta online, un'immagine può essere salvata da chiunque e riapparire dopo anni.",
+            "2": "Non è una questione di intelligenza, ma di come è strutturata la rete (web archiving).",
+            "3": "Non tutti salvano tutto, ma basta che lo faccia una sola persona per rendere il post eterno."
+        }
+    },
+    {
+        "id": "IR_000119",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Cosa sono le 'Echo Chambers'?",
+        "answers": {
+            "1": "Stanze d'albergo con connessione Wi-Fi gratuita",
+            "2": "Ambienti digitali dove senti solo opinioni simili alla tua, rafforzando i tuoi pregiudizi",
+            "3": "App per registrare musica con l'effetto eco"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Nessuna relazione con il settore alberghiero.",
+            "2": "Portano a diventare intolleranti verso chi la pensa diversamente, alimentando conflitti.",
+            "3": "Quello è un tool audio, non un fenomeno sociale."
+        }
+    },
+    {
+        "id": "IR_000120",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Chi è il 'Garante della Privacy'?",
+        "answers": {
+            "1": "Un'autorità che vigila sul rispetto dei dati personali dei cittadini",
+            "2": "Il poliziotto che controlla i messaggi di WhatsApp",
+            "3": "L'avvocato che difende i bulli in tribunale"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Può intervenire per far rimuovere contenuti dannosi o sanzionare aziende che abusano dei dati.",
+            "2": "La polizia interviene su reati, il Garante si occupa della protezione dei dati a livello amministrativo.",
+            "3": "L'avvocato difensore è una figura diversa e privata."
+        }
+    },
+    {
+        "id": "IR_000121",
+        "category": "Terminologia",
+        "difficulty": "facile",
+        "question": "Cosa sono i 'Memes'?",
+        "answers": {
+            "1": "Immagini o video virali, spesso ironici, che si diffondono velocemente",
+            "2": "Virus che colpiscono i computer della Apple",
+            "3": "Messaggi vocali molto lunghi e noiosi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Possono essere divertenti, ma se usati contro qualcuno diventano strumenti di bullismo.",
+            "2": "Non sono software dannosi, ma contenuti culturali/sociali.",
+            "3": "Non c'è relazione con la lunghezza dei messaggi."
+        }
+    },
+    {
+        "id": "IR_000122",
+        "category": "Gaming",
+        "difficulty": "medio",
+        "question": "Un giocatore usa la 'Voice Chat' solo per urlare e disturbare la partita degli altri. Come si chiama questo comportamento?",
+        "answers": {
+            "1": "Pro-gaming",
+            "2": "Tossicità (Toxic behavior)",
+            "3": "Teamwork"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Il pro-gaming richiede disciplina e rispetto, l'opposto di questo comportamento.",
+            "2": "Rovina l'esperienza a tutti e allontana le persone sane dalle community di gioco.",
+            "3": "Il lavoro di squadra richiede comunicazione costruttiva, non urla."
+        }
+    },
+    {
+        "id": "IR_000123",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Perché è pericoloso rispondere a chi ti chiede foto intime (sexting)?",
+        "answers": {
+            "1": "Perché perdi il controllo della tua immagine per sempre e potresti subire ricatti",
+            "2": "Perché la fotocamera del telefono si rovina se scatti troppo",
+            "3": "Perché le foto occupano troppo spazio in memoria"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il revenge porn inizia spesso da una foto inviata con fiducia che viene poi tradita.",
+            "2": "Assurdo: l'hardware non soffre per il tipo di contenuto fotografato.",
+            "3": "Lo spazio su disco è un problema minimo rispetto al rischio sociale e legale."
+        }
+    },
+    {
+        "id": "IR_000124",
+        "category": "Salute Mentale",
+        "difficulty": "facile",
+        "question": "Cosa dovresti fare se i social ti fanno sentire 'inferiore' agli altri?",
+        "answers": {
+            "1": "Comprare vestiti nuovi per fare foto più belle",
+            "2": "Ricordare che quello che vedi è solo una piccola parte, spesso filtrata, della realtà altrui",
+            "3": "Insultare chi sembra più felice di te"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Inseguire gli standard altrui non risolve il senso di insicurezza interiore.",
+            "2": "I social mostrano i successi (highlights), non i fallimenti o la normalità quotidiana.",
+            "3": "Questo ti renderebbe un bullo e non ti farebbe sentire meglio a lungo termine."
+        }
+    },
+    {
+        "id": "IR_000125",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "Qual è il limite di età ufficiale per iscriversi alla maggior parte dei social (senza consenso genitori)?",
+        "answers": {
+            "1": "13 o 14 anni (a seconda del paese/piattaforma)",
+            "2": "18 anni compiuti",
+            "3": "6 anni, quando si impara a leggere"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È stabilito per proteggere la privacy dei minori (normative GDPR e COPPA).",
+            "2": "A 18 anni si ha la piena capacità, ma l'accesso è permesso prima con dei limiti.",
+            "3": "A 6 anni un bambino non è minimamente pronto a gestire i pericoli della rete."
+        }
+    },
+    {
+        "id": "IR_000126",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è un 'Lurker'?",
+        "answers": {
+            "1": "Un utente che legge e osserva tutto ma non partecipa mai attivamente",
+            "2": "Un hacker che ruba le password degli utenti",
+            "3": "Un tipo di mostro nei giochi fantasy"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Sebbene non insulti, il lurker è comunque uno spettatore silente che può testimoniare il bullismo.",
+            "2": "Non c'è relazione con il furto di dati.",
+            "3": "Esistono mostri con nomi simili, ma nel web design e social media indica un comportamento utente."
+        }
+    },
+    {
+        "id": "IR_000127",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Sei in un gruppo e qualcuno aggiunge un numero sconosciuto che inizia a insultare tutti. Cosa fai?",
+        "answers": {
+            "1": "Lo insulto a mia volta per fargli vedere chi comanda",
+            "2": "Lo blocco, segnalo l'utente e chiedo agli admin di rimuoverlo",
+            "3": "Esco subito dal gruppo senza dire nulla"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Dare attenzione al bullo è esattamente quello che lui vuole per continuare.",
+            "2": "Azione immediata: protezione individuale (blocco) e collettiva (rimozione).",
+            "3": "Uscire ti protegge, ma lasciare il bullo dentro espone gli altri amici al rischio."
+        }
+    },
+    {
+        "id": "IR_000128",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Perché è importante chiedere 'Tutto bene?' a chi subisce un attacco online?",
+        "answers": {
+            "1": "Perché così si sente meno solo e capisce di avere supporto",
+            "2": "Solo per farsi i fatti propri e avere più gossip",
+            "3": "Perché è un obbligo previsto dal contratto di WhatsApp"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il supporto morale è la prima difesa contro l'isolamento cercato dal bullo.",
+            "2": "Il vero supporto nasce dall'empatia, non dalla curiosità morbosa.",
+            "3": "Nessun social obbliga alla gentilezza; è una scelta umana fondamentale."
+        }
+    },
+    {
+        "id": "IR_000129",
+        "category": "Benessere Digitale",
+        "difficulty": "difficile",
+        "question": "Cos'è il 'Digital Wellbeing' (benessere digitale)?",
+        "answers": {
+            "1": "L'uso consapevole della tecnologia per non farsi dominare da essa",
+            "2": "Comprare solo dispositivi che non emettono radiazioni",
+            "3": "Avere un profilo social con moltissimi follower"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Include gestire il tempo, le notifiche e la qualità delle interazioni online.",
+            "2": "La sicurezza hardware è importante, ma il benessere digitale riguarda il comportamento.",
+            "3": "La popolarità spesso diminuisce il benessere a causa dello stress da performance."
+        }
+    },
+    {
+        "id": "IR_000130",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "Il preside può sequestrare il cellulare a uno studente se sospetta atti di cyberbullismo?",
+        "answers": {
+            "1": "Sì, se previsto dal regolamento scolastico e per motivi di urgenza/tutela",
+            "2": "No, è proprietà privata e nessuno può toccarlo",
+            "3": "Sì, ma solo se lo studente lo permette"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La scuola ha il dovere di vigilare e intervenire per proteggere gli studenti.",
+            "2": "I diritti di proprietà non superano il dovere di tutela dei minori in caso di pericolo.",
+            "3": "In situazioni gravi, l'autorità scolastica può agire anche senza il consenso immediato."
+        }
+    },
+    {
+        "id": "IR_000131",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è un 'Sockpuppet'?",
+        "answers": {
+            "1": "Un profilo falso creato per sostenere segretamente le proprie idee o attaccare altri",
+            "2": "Un video divertente fatto con i calzini",
+            "3": "Un tipo di malware che ruba le foto profilo"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Viene usato dai bulli per dare l'impressione che 'molte persone' siano contro la vittima.",
+            "2": "Sebbene il nome ricordi i burattini, nel web indica una frode d'identità.",
+            "3": "Non è un software, ma un account gestito da una persona reale con scopi ingannevoli."
+        }
+    },
+    {
+        "id": "IR_000132",
+        "category": "Gaming",
+        "difficulty": "facile",
+        "question": "Perché è meglio non rivelare mai la propria età reale in una chat di gioco se si è minorenni?",
+        "answers": {
+            "1": "Per evitare di essere presi di mira da malintenzionati o adulti poco raccomandabili",
+            "2": "Perché altrimenti il sistema ti impedisce di usare le armi più forti",
+            "3": "Perché i giocatori più vecchi giocano meglio"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'età è un dato sensibile che aiuta i predatori a selezionare le proprie vittime.",
+            "2": "La potenza di gioco dipende dal livello, non dall'età dichiarata in chat.",
+            "3": "L'abilità non dipende dall'età anagrafica, ma dall'esperienza e dai riflessi."
+        }
+    },
+    {
+        "id": "IR_000133",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "Cos'è l' 'Ingegneria Sociale'?",
+        "answers": {
+            "1": "L'arte di manipolare le persone per indurle a rivelare informazioni segrete",
+            "2": "La costruzione di ponti e strade nel mondo virtuale",
+            "3": "Studiare sociologia all'università tramite internet"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "I cyberbulli la usano per ottenere password o segreti dalle vittime tramite l'inganno emotivo.",
+            "2": "Nessuna relazione con l'ingegneria civile.",
+            "3": "L'e-learning è una cosa diversa; qui si parla di manipolazione psicologica."
+        }
+    },
+    {
+        "id": "IR_000134",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "Cosa prova chi soffre di 'Cyber-ostracismo'?",
+        "answers": {
+            "1": "Senso di invisibilità, solitudine e forte ansia sociale",
+            "2": "Voglia di viaggiare e scoprire nuovi posti",
+            "3": "Grande forza fisica e voglia di fare sport"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'essere ignorati o esclusi deliberatamente online ferisce quanto un insulto diretto.",
+            "2": "Al contrario, la vittima tende a chiudersi in se stessa e a non uscire di casa.",
+            "3": "Lo stress da esclusione indebolisce il corpo e la mente, non li potenzia."
+        }
+    },
+    {
+        "id": "IR_000135",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Si può essere denunciati per un 'Like' a un post diffamatorio?",
+        "answers": {
+            "1": "In alcuni casi sì, se il like contribuisce consapevolmente alla diffusione del reato",
+            "2": "No, il like è un'azione anonima e non rintracciabile",
+            "3": "Sì, ma solo se si hanno più di 10.000 follower"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Approvando e aiutando l'algoritmo a diffondere l'offesa, si può essere considerati complici.",
+            "2": "Ogni interazione è registrata dai server e può essere usata in un'indagine.",
+            "3": "La legge si applica a tutti, indipendentemente dalla popolarità."
+        }
+    },
+    {
+        "id": "IR_000136",
+        "category": "Terminologia",
+        "difficulty": "facile",
+        "question": "Chi è lo 'Sheriff' (sceriffo) in una community online?",
+        "answers": {
+            "1": "Un utente che si autonomina controllore e attacca chiunque sbagli",
+            "2": "Un moderatore ufficiale pagato dalla piattaforma",
+            "3": "Un software che cancella i file inutili"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Spesso questi utenti diventano loro stessi dei bulli, agendo con aggressività per 'giustizia'.",
+            "2": "Il moderatore ha un ruolo istituzionale; lo sceriffo agisce di propria iniziativa (vigilante).",
+            "3": "Nessuna relazione con la manutenzione del computer."
+        }
+    },
+    {
+        "id": "IR_000137",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Vedi una diretta (live) dove qualcuno viene umiliato e costretto a fare cose ridicole. Cosa fai?",
+        "answers": {
+            "1": "Continuo a guardare per vedere come va a finire",
+            "2": "Commento incitando lo streamer a smettere e segnalo la live",
+            "3": "Scrivo 'HAHA' perché la situazione sembra assurda"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Restare a guardare aumenta il numero di spettatori, motivando lo streamer a continuare.",
+            "2": "Intervenire e usare gli strumenti di segnalazione è l'unico modo per fermare l'abuso in tempo reale.",
+            "3": "Ridere ti rende partecipe del bullismo e umilia ancora di più la vittima."
+        }
+    },
+    {
+        "id": "IR_000138",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Perché è difficile per un bullo accorgersi del dolore che causa?",
+        "answers": {
+            "1": "Perché non vede la reazione fisica e il pianto della vittima attraverso lo schermo",
+            "2": "Perché i bulli sono nati senza sentimenti",
+            "3": "Perché i messaggi vengono letti troppo velocemente"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La mancanza di feedback visivo/uditivo riduce l'inibizione naturale verso la violenza.",
+            "2": "Falso: tutti possono provare empatia, ma la tecnologia può 'disattivarla' temporaneamente.",
+            "3": "La velocità non c'entra, è la mancanza di connessione umana diretta il problema."
+        }
+    },
+    {
+        "id": "IR_000139",
+        "category": "Benessere Digitale",
+        "difficulty": "facile",
+        "question": "Cosa indica la funzione 'Tempo di utilizzo' sul tuo smartphone?",
+        "answers": {
+            "1": "Quanto tempo passi su ogni app, aiutandoti a darti dei limiti",
+            "2": "L'ora esatta in cui il telefono si spegnerà",
+            "3": "Quanto tempo ci mette la batteria a caricarsi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È fondamentale per accorgersi se si sta passando troppo tempo sui social a scapito della vita reale.",
+            "2": "Quello è un timer o una previsione di durata della batteria.",
+            "3": "Questa è una statistica di ricarica, non di utilizzo sociale."
+        }
+    },
+    {
+        "id": "IR_000140",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Cosa succede se un minore di 14 anni commette un atto grave di cyberbullismo?",
+        "answers": {
+            "1": "Viene comunque arrestato e mandato in una prigione per adulti",
+            "2": "Non può essere condannato penalmente, ma vengono applicate misure rieducative",
+            "3": "Non succede nulla perché i bambini sono sempre innocenti"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Sotto i 14 anni non si è penalmente imputabili in Italia.",
+            "2": "Il Tribunale per i Minorenni interviene con percorsi di recupero e sostegno alla famiglia.",
+            "3": "Niente affatto: il fatto rimane grave e ci sono conseguenze legali per i genitori (risarcimento)."
+        }
+    },
+    {
+        "id": "IR_000141",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Trolling'?",
+        "answers": {
+            "1": "Provocare e insultare intenzionalmente per scatenare litigi e caos nelle discussioni",
+            "2": "Cercare informazioni su Google (da 'trollare')",
+            "3": "Pubblicare foto di bellissimi paesaggi di montagna"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il troll vive del conflitto; ignorarlo è spesso la strategia migliore.",
+            "2": "Cercare informazioni si chiama semplicemente 'fare una ricerca' o 'googlare'.",
+            "3": "Nessuna relazione con la fotografia naturalistica."
+        }
+    },
+    {
+        "id": "IR_000142",
+        "category": "Gaming",
+        "difficulty": "facile",
+        "question": "Perché è pericoloso accettare 'amicizie' da sconosciuti su Discord o Steam?",
+        "answers": {
+            "1": "Perché potrebbero inviarti link dannosi o cercare di ottenere tue info private",
+            "2": "Perché i server potrebbero diventare troppo pieni",
+            "3": "Perché poi devi giocare per forza con loro ogni giorno"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Molti attacchi di phishing e adescamento iniziano con una richiesta di amicizia apparentemente innocua.",
+            "2": "La capienza dei server non dipende dai tuoi contatti personali.",
+            "3": "Nessuno ti obbliga a giocare, ma il rischio per i tuoi dati è molto concreto."
+        }
+    },
+    {
+        "id": "IR_000143",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "Cosa dovresti scrivere nella tua 'Bio' (biografia) sui social per essere sicuro?",
+        "answers": {
+            "1": "Il minimo indispensabile, evitando scuola, indirizzo o numero di telefono",
+            "2": "Tutto quello che mi piace, incluso dove vado a scuola e quando sono solo a casa",
+            "3": "Una lista dei miei nemici così tutti sanno chi sono"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Meno informazioni dai pubblicamente, meno punti di attacco dai ai cyberbulli.",
+            "2": "Queste sono informazioni d'oro per stalker e ladri; non pubblicarle mai.",
+            "3": "Questo alimenterebbe solo l'odio e ti metterebbe in una posizione di bullo a tua volta."
+        }
+    },
+    {
+        "id": "IR_000144",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Doomscrolling'?",
+        "answers": {
+            "1": "Continuare a leggere notizie negative online anche se ci fanno stare male",
+            "2": "Giocare al videogioco Doom per troppe ore di fila",
+            "3": "Cancellare tutti i messaggi vecchi dal telefono"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Crea uno stato di ansia perenne e una visione distorta e tragica della realtà.",
+            "2": "Nessuna relazione con lo storico videogioco, sebbene il nome sia simile.",
+            "3": "Questo si chiama pulizia della memoria, non doomscrolling."
+        }
+    },
+    {
+        "id": "IR_000145",
+        "category": "Aspetti Legali",
+        "difficulty": "facile",
+        "question": "Chi è il responsabile finale delle azioni compiute con il tuo account?",
+        "answers": {
+            "1": "Tu (o i tuoi genitori se sei minorenne)",
+            "2": "L'azienda che ha creato il social media",
+            "3": "La persona che ti ha prestato lo smartphone"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Legalmente l'account è personale; se qualcuno lo usa per fare danni, ne rispondi tu se non provi il furto.",
+            "2": "L'azienda fornisce solo lo strumento, non è responsabile dell'uso illecito dei singoli utenti.",
+            "3": "Il proprietario del dispositivo non risponde dei messaggi inviati con il tuo account personale."
+        }
+    },
+    {
+        "id": "IR_000146",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Doxing' (termine derivato da 'docs')?",
+        "answers": {
+            "1": "Cercare e pubblicare documenti privati di qualcuno per danneggiarlo",
+            "2": "Stampare troppi fogli con la stampante di casa",
+            "3": "Un tipo di medicina contro i virus informatici"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Rivela indirizzi, numeri o segreti per scatenare attacchi di massa contro la vittima.",
+            "2": "Nessuna relazione con il consumo di carta.",
+            "3": "Non è una medicina, ma una pratica aggressiva e spesso illegale."
+        }
+    },
+    {
+        "id": "IR_000147",
+        "category": "Scenari",
+        "difficulty": "facile",
+        "question": "Un tuo amico ti confessa: 'Ieri ho scritto un commento d'odio a quel ragazzo, è stato divertente'. Cosa gli rispondi?",
+        "answers": {
+            "1": "Gli spiego che non è affatto divertente e che ha ferito una persona reale",
+            "2": "Gli chiedo di farmi vedere il commento per ridere insieme",
+            "3": "Gli dico di stare attento a non farsi scoprire dalla polizia"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Essere un amico significa anche correggere i comportamenti sbagliati degli altri.",
+            "2": "Questo ti rende complice morale del bullismo.",
+            "3": "Questo suggerisce che il problema sia solo 'farsi scoprire', non il male causato."
+        }
+    },
+    {
+        "id": "IR_000148",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Cosa si prova ad essere vittima di 'Esclusione digitale'?",
+        "answers": {
+            "1": "Un senso di vuoto e la paura di essere stato dimenticato da tutti",
+            "2": "Tanta felicità perché si ha più tempo per studiare",
+            "3": "Niente, tanto la vita reale è più importante"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'essere lasciati fuori dai gruppi classe o dalle uscite organizzate online fa soffrire moltissimo.",
+            "2": "Nessuno è felice di essere isolato deliberatamente dai propri pari.",
+            "3": "Per un adolescente, la vita digitale e reale sono intrecciate; il dolore è reale."
+        }
+    },
+    {
+        "id": "IR_000149",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "Cosa sono le 'Fine-grained permissions' (permessi granulari) nelle app?",
+        "answers": {
+            "1": "La possibilità di scegliere esattamente quali dati l'app può vedere (es. solo foto, non GPS)",
+            "2": "Il costo delle app in base a quanti megabyte occupano",
+            "3": "Le impostazioni per rendere il testo delle app più piccolo"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Controllare questi permessi è un passo fondamentale per la tua sicurezza digitale.",
+            "2": "Il costo non dipende dai permessi di privacy.",
+            "3": "Questa è l'accessibilità o la dimensione del font, non la privacy."
+        }
+    },
+    {
+        "id": "IR_000150",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "Perché è importante fare delle 'Pausa dagli schermi'?",
+        "answers": {
+            "1": "Per far riposare gli occhi e ricollegarsi con la realtà e le persone fisiche",
+            "2": "Perché lo schermo potrebbe esplodere se resta acceso troppo a lungo",
+            "3": "Per dare tempo ai server dei social di raffreddarsi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Migliora il sonno, riduce lo stress e previene la dipendenza da notifiche.",
+            "2": "Assurdo: i dispositivi sono testati per restare accesi, il rischio è per la tua mente, non per l'hardware.",
+            "3": "I server dei grandi social sono in enormi stanze climatizzate, non dipendono dal tuo schermo."
+        }
+    },
+    {
+        "id": "IR_000151",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "In Italia, la diffusione di immagini intime senza il consenso della persona ritratta (Revenge Porn) è:",
+        "answers": {
+            "1": "Un reato penale punibile con la reclusione da 1 a 6 anni",
+            "2": "Una violazione che comporta solo una multa amministrativa",
+            "3": "Un comportamento lecito se le foto erano state inviate volontariamente all'inizio"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il Codice Rosso ha introdotto pene severe per proteggere la dignità e la privacy delle vittime.",
+            "2": "Data la gravità del danno psicologico e sociale, la sanzione è penale, non solo pecuniaria.",
+            "3": "Il consenso a ricevere o scattare una foto non implica MAI il consenso a diffonderla ad altri."
+        }
+    },
+    {
+        "id": "IR_000152",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un ragazzo diffonde la foto in costume di una compagna per 'scherzo' in un gruppo. Cosa dovresti fare?",
+        "answers": {
+            "1": "Riderci sopra per non rovinare il clima del gruppo",
+            "2": "Chiedere di cancellarla subito e segnalare l'azione come molesta",
+            "3": "Inviarne una simile di un altro ragazzo per parità"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Ridere valida il comportamento del bullo e aumenta l'umiliazione della ragazza.",
+            "2": "Rispettare l'immagine altrui è fondamentale; diffondere foto private è una violazione grave.",
+            "3": "Aggiungere altra violenza non risolve il problema, crea solo una catena di abusi."
+        }
+    },
+    {
+        "id": "IR_000153",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Perché le ragazze sono spesso bersaglio di commenti sul loro aspetto fisico nelle foto in costume?",
+        "answers": {
+            "1": "Perché si espongono troppo e quindi devono accettare le critiche",
+            "2": "Perché le foto al mare sono vietate dalla netiquette",
+            "3": "A causa di pregiudizi di genere e della tendenza a oggettivare il corpo femminile"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Nessuno 'merita' insulti o molestie in base a come decide di vestirsi o mostrarsi.",
+            "2": "Non esiste alcun divieto; il problema è il comportamento irrispettoso di chi commenta.",
+            "3": "Il body shaming colpisce duramente le ragazze a causa di standard estetici tossici e sessismo."
+        }
+    },
+    {
+        "id": "IR_000154",
+        "category": "Privacy",
+        "difficulty": "facile",
+        "question": "Ricevi per sbaglio una foto intima di una persona che conosci. Cosa è corretto fare?",
+        "answers": {
+            "1": "Inoltrarla al tuo migliore amico promettendo di non dirlo a nessuno",
+            "2": "Cancellarla immediatamente e avvisare la persona che la foto sta girando",
+            "3": "Tenerla in galleria 'per sicurezza' in caso servisse come prova"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "L'inoltro ti rende complice di un reato e aumenta il danno alla vittima.",
+            "2": "Fermare la catena di diffusione è l'unico modo etico e legale di agire.",
+            "3": "Possedere materiale intimo non autorizzato può crearti seri problemi legali."
+        }
+    },
+    {
+        "id": "IR_000155",
+        "category": "Terminologia",
+        "difficulty": "difficile",
+        "question": "Cos'è il 'Slut-shaming'?",
+        "answers": {
+            "1": "Un complimento ironico sulla bellezza di qualcuno",
+            "2": "Un software che cancella le foto dai social",
+            "3": "L'atto di colpevolizzare o umiliare una ragazza per i suoi comportamenti sessuali o il suo abbigliamento"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Non è mai un complimento, ma un attacco mirato alla dignità della persona.",
+            "2": "Nessuna relazione con i software; è una dinamica sociale tossica.",
+            "3": "È una forma di cyberbullismo che mira a isolare e giudicare le donne tramite la vergogna."
+        }
+    },
+    {
+        "id": "IR_000156",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "In una chat, qualcuno scrive commenti volgari su una foto in spiaggia di una vostra amica. Tu cosa fai?",
+        "answers": {
+            "1": "Prendo le distanze e scrivo che quei commenti sono fuori luogo e irrispettosi",
+            "2": "Ignoro la cosa sperando che smettano da soli",
+            "3": "Metto un'emoji che ride per non sembrare troppo serio"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Rompere il silenzio del gruppo è l'unico modo per far capire che quel comportamento non è accettabile.",
+            "2": "L'indifferenza viene interpretata come consenso silenzioso da parte dei bulli.",
+            "3": "Ridere dei commenti volgari ti rende complice della molestia."
+        }
+    },
+    {
+        "id": "IR_000157",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Qual è il rischio di basare la propria autostima sul numero di 'like' alle proprie foto?",
+        "answers": {
+            "1": "Che si diventi troppo famosi e non si abbia più tempo per studiare",
+            "2": "Che la propria felicità dipenda dal giudizio esterno, portando a ansia e insicurezza",
+            "3": "Nessuno, i like sono la misura reale del valore di una persona"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La fama digitale raramente si traduce in successo reale se manca la base psicologica.",
+            "2": "L'approvazione digitale è volatile; se cala, chi ne è dipendente può cadere in depressione.",
+            "3": "Il valore di una persona è intrinseco e non ha nulla a che fare con gli algoritmi social."
+        }
+    },
+    {
+        "id": "IR_000158",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Cosa si intende per 'Consenso' nella condivisione di immagini?",
+        "answers": {
+            "1": "Che se ho scattato io la foto, posso decidere io dove metterla",
+            "2": "Che l'altra persona deve aver dato un permesso esplicito e consapevole per quella specifica pubblicazione",
+            "3": "Che se la foto è stata fatta in un luogo pubblico, non serve chiedere nulla"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Il diritto all'immagine appartiene a chi è ritratto, non a chi scatta la foto.",
+            "2": "Il consenso è revocabile e specifico; aver dato il permesso una volta non vale per sempre.",
+            "3": "Anche nei luoghi pubblici, la dignità della persona va rispettata, specie se l'intento è denigratorio."
+        }
+    },
+    {
+        "id": "IR_000159",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cosa si intende per 'Sexting' sicuro?",
+        "answers": {
+            "1": "Non esiste un sexting totalmente sicuro, poiché una volta inviata una foto se ne perde il controllo",
+            "2": "Usare solo app che cancellano le foto dopo 5 secondi",
+            "3": "Mandare foto solo a persone che conosci da almeno un mese"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Anche con app sicure, è possibile fare screenshot o foto allo schermo con un altro telefono.",
+            "2": "I sistemi di 'autodistruzione' sono aggirabili tecnicamente in molti modi.",
+            "3": "La fiducia può essere tradita a prescindere dal tempo; la prudenza digitale è l'unica difesa."
+        }
+    },
+    {
+        "id": "IR_000160",
+        "category": "Salute Mentale",
+        "difficulty": "facile",
+        "question": "Ricevi insulti online sul proprio corpo può portare a:",
+        "answers": {
+            "1": "Disturbi alimentari, isolamento sociale e calo dell'autostima",
+            "2": "Una maggiore voglia di andare al mare con gli amici",
+            "3": "Un miglioramento della propria forma fisica per sfida"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il body shaming ha conseguenze psicofisiche reali e spesso molto gravi nei ragazzi.",
+            "2": "Al contrario, la vittima tende a nascondersi e a evitare situazioni sociali reali.",
+            "3": "L'insulto non motiva mai in modo sano; crea solo ossessione e sofferenza."
+        }
+    },
+    {
+        "id": "IR_000161",
+        "category": "Social Media",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Catcalling' digitale?",
+        "answers": {
+            "1": "Commentare in modo volgare o molesto le foto altrui con fischi o apprezzamenti pesanti",
+            "2": "Inviare video di gatti che miagolano per disturbare",
+            "3": "Chiamare ripetutamente qualcuno su FaceTime senza motivo"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È la versione online delle molestie di strada e crea un clima di insicurezza per le ragazze.",
+            "2": "Questa sarebbe una sciocchezza o spam, non una molestia sessuale.",
+            "3": "Questo è un disturbo o stalking, ma il catcalling ha una connotazione sessista specifica."
+        }
+    },
+    {
+        "id": "IR_000162",
+        "category": "Scenari",
+        "difficulty": "difficile",
+        "question": "Un tuo amico ti confessa di avere delle foto intime della sua ex e minaccia di caricarle online. Cosa fai?",
+        "answers": {
+            "1": "Gli dico di farlo, così impara a lasciarlo",
+            "2": "Resto neutrale perché è una questione tra loro due",
+            "3": "Gli spiego che sta commettendo un reato grave e cerco di fermarlo subito"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Incitare al Revenge Porn ti rende moralmente e potenzialmente legalmente complice.",
+            "2": "Il silenzio di fronte a un crimine imminente aiuta l'aggressore, non la giustizia.",
+            "3": "Intervenire può salvare la vita sociale della vittima e impedire al tuo amico di finire nei guai con la legge."
+        }
+    },
+    {
+        "id": "IR_000163",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "Perché non dovresti mai inviare foto del tuo corpo (anche se non nuda) a chi te lo chiede con insistenza?",
+        "answers": {
+            "1": "Perché chi insiste non rispetta i tuoi confini e userà quelle foto per manipolarti",
+            "2": "Perché le foto scattate sotto pressione vengono sempre male",
+            "3": "Perché consumi i dati del tuo abbonamento telefonico"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'insistenza è un segnale di allarme (red flag) di una personalità manipolatoria o predatrice.",
+            "2": "Il problema non è estetico, ma di sicurezza e rispetto della tua libertà.",
+            "3": "Il costo dei dati è irrilevante rispetto al rischio di ricatto e pressione psicologica."
+        }
+    },
+    {
+        "id": "IR_000164",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Se una ragazza pubblica una foto 'provocante', è colpa sua se riceve insulti?",
+        "answers": {
+            "1": "Sì, se l'è cercata pubblicando quel tipo di contenuto",
+            "2": "No, la responsabilità dell'insulto è sempre e solo di chi lo scrive",
+            "3": "Dipende da quanti anni ha la ragazza"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questo è victim blaming; nessuno ha il diritto di insultare a prescindere dal contenuto.",
+            "2": "Ognuno è libero di esprimersi; il bullo sceglie attivamente di aggredire, non è mai obbligato.",
+            "3": "L'età può cambiare l'aspetto legale, ma non giustifica mai l'odio o la maleducazione."
+        }
+    },
+    {
+        "id": "IR_000165",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "Se cancelli una foto intima che hai inviato, sei al sicuro?",
+        "answers": {
+            "1": "Sì, una volta cancellata dal server sparisce per sempre",
+            "2": "No, qualcuno potrebbe aver fatto uno screenshot o un salvataggio prima della cancellazione",
+            "3": "Sì, se la cancelli entro i primi 10 secondi"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Molte app mantengono tracce o i riceventi possono duplicare il file all'istante.",
+            "2": "La velocità digitale supera quella umana; una volta inviata, la foto sfugge al tuo controllo.",
+            "3": "Non esiste un 'tempo di sicurezza' garantito su internet."
+        }
+    },
+    {
+        "id": "IR_000166",
+        "category": "Terminologia",
+        "difficulty": "difficile",
+        "question": "Cos'è l' 'Image-Based Sexual Abuse'?",
+        "answers": {
+            "1": "Usare foto per spiegare l'educazione sessuale a scuola",
+            "2": "Un termine tecnico per indicare il revenge porn e la creazione di deepfake pornografici",
+            "3": "L'abitudine di farsi troppi selfie durante la giornata"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questa è didattica, non abuso.",
+            "2": "È la definizione internazionale più corretta per indicare la violenza sessuale tramite immagini.",
+            "3": "Questa è vanità, non una forma di violenza o abuso verso terzi."
+        }
+    },
+    {
+        "id": "IR_000167",
+        "category": "Scenari",
+        "difficulty": "facile",
+        "question": "Vedi che circola un fotomontaggio denigratorio di una tua compagna. Cosa fai?",
+        "answers": {
+            "1": "Lo inoltro per chiedere se è vero",
+            "2": "Non lo inoltro e segnalo il post o la chat agli adulti/piattaforma",
+            "3": "Lo salvo per ridere con i miei amici a scuola"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Chiedere 'se è vero' diffonde comunque l'immagine e aumenta il dolore della vittima.",
+            "2": "Il silenzio della diffusione e la segnalazione attiva sono le uniche risposte corrette.",
+            "3": "Partecipare alla derisione ti rende complice di un atto di bullismo."
+        }
+    },
+    {
+        "id": "IR_000168",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Perché molte ragazze si sentono obbligate a usare filtri che cambiano i connotati del viso?",
+        "answers": {
+            "1": "Perché i social impongono standard di bellezza irreali che creano insicurezza",
+            "2": "Perché le fotocamere dei telefoni non funzionano bene senza filtri",
+            "3": "Perché è un modo per risparmiare sul trucco reale"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La pressione sociale digitale spinge a nascondere i propri difetti naturali, danneggiando l'accettazione di sé.",
+            "2": "Le fotocamere moderne sono eccellenti; il filtro è una scelta estetica e psicologica.",
+            "3": "Il trucco reale non ha nulla a che fare con la modifica digitale dei lineamenti."
+        }
+    },
+    {
+        "id": "IR_000169",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Cosa dovresti fare se un tuo 'contatto' inizia a farti domande troppo personali dopo aver visto una tua foto?",
+        "answers": {
+            "1": "Rispondere con educazione per non sembrare scortese",
+            "2": "Bloccare subito l'utente e non dare ulteriori spiegazioni",
+            "3": "Chiedere perché gli interessa saperlo prima di rispondere"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La cortesia online non deve mai superare il tuo diritto alla sicurezza e alla privacy.",
+            "2": "Se qualcuno varca i tuoi confini personali, il blocco è lo strumento di difesa più efficace.",
+            "3": "Dare spiegazioni permette all'altro di continuare la manipolazione; meglio chiudere il contatto."
+        }
+    },
+    {
+        "id": "IR_000170",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "La minaccia di diffondere foto intime (anche se non lo si fa realmente) è reato?",
+        "answers": {
+            "1": "No, se non le pubblichi non hai fatto nulla di male",
+            "2": "Sì, si configura come reato di estorsione o minaccia",
+            "3": "Solo se chiedi dei soldi in cambio del silenzio"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La minaccia in sé causa terrore e pressione psicologica, atti puniti dalla legge.",
+            "2": "Usare materiale privato per spaventare qualcuno è un comportamento criminale.",
+            "3": "L'estorsione può essere anche di favori o semplicemente un atto di potere; rimane reato."
+        }
+    },
+    {
+        "id": "IR_000171",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Qual è l'effetto del 'branco' digitale quando una ragazza viene insultata?",
+        "answers": {
+            "1": "Molti si sentono legittimati a insultare perché 'lo fanno tutti', aumentando il trauma",
+            "2": "Le persone si stancano presto e l'insulto sparisce da solo",
+            "3": "La ragazza riceve più follower e quindi diventa più famosa"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'anonimato e la massa riducono il senso di responsabilità individuale, scatenando violenza gratuita.",
+            "2": "Purtroppo l'odio digitale tende a auto-alimentarsi e a lasciare tracce permanenti.",
+            "3": "La 'fama' derivante dagli insulti è tossica e non compensa mai il dolore subito."
+        }
+    },
+    {
+        "id": "IR_000172",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "Cosa prova una vittima di Revenge Porn?",
+        "answers": {
+            "1": "Un profondo senso di tradimento, vergogna, ansia e paura per il futuro",
+            "2": "Soddisfazione per aver mostrato la propria bellezza a tutti",
+            "3": "Indifferenza, perché tanto internet è un mondo virtuale"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Le vittime si sentono 'violate' nell'intimità, con conseguenze spesso devastanti sulla vita reale.",
+            "2": "La bellezza non c'entra: è la mancanza di controllo e consenso a generare il trauma.",
+            "3": "Le conseguenze su scuola, lavoro e relazioni sono reali e dolorosissime."
+        }
+    },
+    {
+        "id": "IR_000173",
+        "category": "Social Media",
+        "difficulty": "facile",
+        "question": "Perché è pericoloso partecipare a gruppi WhatsApp o Telegram chiamati 'Scambi' o simili?",
+        "answers": {
+            "1": "Perché sono luoghi creati apposta per diffondere materiale illegale e violare la privacy altrui",
+            "2": "Perché i gruppi con troppe persone rallentano il telefono",
+            "3": "Perché si finisce per leggere troppi messaggi e si perde tempo"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Far parte di questi gruppi può renderti legalmente complice di reati gravi come la pedopornografia.",
+            "2": "Il rallentamento tecnico è un problema insignificante rispetto ai rischi penali.",
+            "3": "Il tempo perso è nulla rispetto alla distruzione della vita delle persone ritratte in quei gruppi."
+        }
+    },
+    {
+        "id": "IR_000174",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un ragazzo ti chiede: 'Mi mandi una foto? Voglio vedere quanto sei bella'. Cosa dovresti pensare?",
+        "answers": {
+            "1": "Che è un complimento e che dovrei scattarla subito",
+            "2": "Che se non lo faccio penserà che sono brutta",
+            "3": "Che ho il diritto di dire di no e che la mia privacy vale più di un suo desiderio"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Spesso queste richieste mirano a testare i tuoi confini per poi spingersi oltre.",
+            "2": "Questa è una forma di pressione psicologica; non lasciarti condizionare.",
+            "3": "Dire di no è un atto di rispetto verso te stessa e il tuo corpo."
+        }
+    },
+    {
+        "id": "IR_000175",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Se ricevi una foto intima e la mostri solo a un amico dal vivo sul tuo schermo, è reato?",
+        "answers": {
+            "1": "No, perché non l'hai inviata digitalmente",
+            "2": "Sì, è comunque una diffusione non consensuale di materiale privato",
+            "3": "Solo se l'amico fa una foto al tuo schermo"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La legge punisce la 'messa a disposizione' di materiale intimo a terzi, in qualunque modo avvenga.",
+            "2": "Stai violando la privacy della persona ritratta mostrandola a chi non ha il permesso di vederla.",
+            "3": "L'atto dell'amico è un'ulteriore violazione, ma la tua è già sanzionabile."
+        }
+    },
+    {
+        "id": "IR_000176",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è l' 'Oggettivazione' digitale?",
+        "answers": {
+            "1": "Trasformare le foto in oggetti reali tramite la stampa 3D",
+            "2": "Ridurre una persona a un oggetto estetico o sessuale tramite commenti e post",
+            "3": "Usare oggetti inanimati al posto delle persone nei video"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questa è tecnologia di stampa, non c'entra con il bullismo.",
+            "2": "Porta a dimenticare che dietro la foto c'è un essere umano con sentimenti e diritti.",
+            "3": "Nessuna relazione; l'oggettivazione riguarda il modo in care trattiamo le persone."
+        }
+    },
+    {
+        "id": "IR_000177",
+        "category": "Scenari",
+        "difficulty": "facile",
+        "question": "Una tua amica ha pubblicato una foto in costume e riceve commenti volgari. Come la supporti?",
+        "answers": {
+            "1": "Le scrivo in privato per chiederle come sta e le dico di non ascoltarli",
+            "2": "Le dico che se l'è cercata pubblicando quella foto",
+            "3": "Le consiglio di cancellare l'account e non uscire di casa"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il supporto morale privato aiuta a combattere il senso di isolamento e vergogna.",
+            "2": "Colpevolizzare la vittima peggiora solo la sua sofferenza psicologica.",
+            "3": "Nascondersi è ciò che il bullo vuole; la ragazza non deve rinunciare alla sua vita sociale."
+        }
+    },
+    {
+        "id": "IR_000178",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Perché i social tendono a mostrare foto di ragazze che corrispondono a canoni estetici perfetti?",
+        "answers": {
+            "1": "Perché gli algoritmi premiano i contenuti che generano più interazioni (spesso basate sull'estetica)",
+            "2": "Perché esistono solo ragazze bellissime sui social",
+            "3": "Perché le ragazze meno belle vengono bannate automaticamente"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Questo crea una visione distorta della realtà, facendo sentire inadeguate le ragazze 'normali'.",
+            "2": "Assurdo: i social mostrano solo quello che l'algoritmo decide di spingere.",
+            "3": "Non esiste alcun ban estetico; esiste però una 'bolla' che filtra la realtà."
+        }
+    },
+    {
+        "id": "IR_000179",
+        "category": "Privacy",
+        "difficulty": "difficile",
+        "question": "Cosa dovresti fare se sospetti che qualcuno abbia installato un 'Spyware' sul tuo telefono per vederti?",
+        "answers": {
+            "1": "Coprire la fotocamera con un adesivo e portarlo subito a un tecnico o alla polizia",
+            "2": "Ignorare la cosa finché non vedi foto tue online",
+            "3": "Chiedere agli amici se anche a loro succede lo stesso"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La sicurezza fisica (coprire la cam) e l'aiuto professionale sono fondamentali contro lo spionaggio.",
+            "2": "Aspettare che il danno avvenga è pericolosissimo; bisogna agire preventivamente.",
+            "3": "Gli spyware sono spesso mirati; parlarne con gli amici non risolve il problema tecnico."
+        }
+    },
+    {
+        "id": "IR_000180",
+        "category": "Aspetti Legali",
+        "difficulty": "medio",
+        "question": "Inviare foto intime a una persona che NON te le ha chieste è:",
+        "answers": {
+            "1": "Un modo corretto per flirtare online",
+            "2": "Una forma di molestia sessuale digitale",
+            "3": "Sempre divertente se fatto con gli amici"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Il flirt richiede consenso reciproco; inviare foto intime non richieste è un'aggressione.",
+            "2": "Molte piattaforme bannano chi invia materiale esplicito non richiesto (cyber-flashing).",
+            "3": "Non è mai divertente ricevere materiale sessuale senza volerlo; è violento e molesto."
+        }
+    },
+    {
+        "id": "IR_000181",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Cosa significa 'Mettersi nei panni' di chi subisce derisione per una foto?",
+        "answers": {
+            "1": "Cercare di capire il dolore e l'umiliazione che quella persona sta provando",
+            "2": "Indossare gli stessi vestiti della persona nella foto",
+            "3": "Provare a fare la stessa foto per vedere se anche tu ricevi insulti"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'empatia è la chiave per fermare il bullismo prima di parteciparvi.",
+            "2": "Nessuna relazione con l'abbigliamento reale.",
+            "3": "Questo non aiuterebbe nessuno e potrebbe esporti a rischi inutili."
+        }
+    },
+    {
+        "id": "IR_000182",
+        "category": "Salute Mentale",
+        "difficulty": "medio",
+        "question": "La paura che una propria foto intima possa essere diffusa si chiama:",
+        "answers": {
+            "1": "Ansia da performance digitale",
+            "2": "Sexting-phobia",
+            "3": "Stress da ricatto d'immagine"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Riguarda la paura di non essere abbastanza popolari, non il ricatto.",
+            "2": "Termine non scientifico; il problema è l'abuso, non la pratica in sé.",
+            "3": "È una condizione di ansia perenne che può portare a gravi attacchi di panico e depressione."
+        }
+    },
+    {
+        "id": "IR_000183",
+        "category": "Social Media",
+        "difficulty": "facile",
+        "question": "Cosa dovresti fare se vedi un profilo che pubblica sistematicamente foto di ragazze per insultarle?",
+        "answers": {
+            "1": "Segnalare il profilo alla piattaforma per incitamento all'odio e bullismo",
+            "2": "Scrivere un commento per dire che le ragazze sono belle",
+            "3": "Mettere 'non mi piace' a tutti i post"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La segnalazione di massa è il modo più efficace per far chiudere account tossici.",
+            "2": "Commentare aumenta la visibilità del profilo bullo grazie all'algoritmo; meglio segnalare.",
+            "3": "Molti social non hanno il tasto 'non mi piace' e le interazioni negative aiutano comunque il bullo."
+        }
+    },
+    {
+        "id": "IR_000184",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Un ragazzo ti dice: 'Se non mi mandi una foto, significa che non mi ami'. Che tipo di frase è?",
+        "answers": {
+            "1": "Una dimostrazione di grande affetto e romanticismo",
+            "2": "Un ricatto emotivo usato per manipolarti e farti fare ciò che non vuoi",
+            "3": "Una sfida divertente tipica delle coppie giovani"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "L'amore reale si basa sul rispetto dei tempi e della privacy dell'altro.",
+            "2": "È una tecnica di controllo psicologico: usa i tuoi sentimenti per violare la tua privacy.",
+            "3": "Le sfide devono essere giocose e sicure; questa mette a rischio la tua dignità."
+        }
+    },
+    {
+        "id": "IR_000185",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "In caso di Revenge Porn, oltre al colpevole, può essere sanzionato chi ha aiutato a diffondere la foto?",
+        "answers": {
+            "1": "No, solo chi l'ha pubblicata per primo è responsabile",
+            "2": "Sì, la legge punisce chiunque contribuisca alla diffusione del materiale",
+            "3": "Solo se chi diffonde ha più di 18 anni"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Ogni 'inoltro' o 'condivisione' è un atto autonomo di violenza e reato.",
+            "2": "Tutti i membri della 'catena' possono essere indagati e condannati.",
+            "3": "Dai 14 anni in su si è imputabili penalmente per questi reati."
+        }
+    },
+    {
+        "id": "IR_000186",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Deepfake Porn'?",
+        "answers": {
+            "1": "Un software che crea immagini realistiche di nudo usando il volto di una persona ignara",
+            "2": "Un tipo di video con effetti speciali molto costosi",
+            "3": "Un virus che cancella le foto dal telefono"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "È una delle forme più pericolose di cyberbullismo moderno, usata spesso contro le ragazze.",
+            "2": "Viene fatto con l'intelligenza artificiale, non richiede grandi budget ma solo cattive intenzioni.",
+            "3": "Non cancella nulla, crea contenuti falsi e dannosi."
+        }
+    },
+    {
+        "id": "IR_000187",
+        "category": "Scenari",
+        "difficulty": "facile",
+        "question": "Ricevi un messaggio: 'Ho visto le tue foto al mare, sei proprio ridicola'. Come reagisci?",
+        "answers": {
+            "1": "Gli chiedo cosa non gli piace per potermi giustificare",
+            "2": "Blocco subito l'utente e non rispondo alla provocazione",
+            "3": "Gli rispondo con un insulto ancora più pesante"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Non devi giustificarti con chi vuole solo ferirti; gli daresti solo più potere.",
+            "2": "L'indifferenza e il blocco tolgono al bullo il suo unico nutrimento: la tua reazione.",
+            "3": "Insultare ti mette dalla parte del torto e alimenta la discussione tossica."
+        }
+    },
+    {
+        "id": "IR_000188",
+        "category": "Benessere Digitale",
+        "difficulty": "medio",
+        "question": "Perché è utile disattivare le notifiche dei social durante lo studio o il riposo?",
+        "answers": {
+            "1": "Per evitare distrazioni e ridurre l'ansia da controllo costante del telefono",
+            "2": "Perché il telefono fa meno rumore e non si scalda",
+            "3": "Perché così i server risparmiano energia"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Mantenere il controllo sul proprio tempo è fondamentale per una vita digitale sana.",
+            "2": "Il surriscaldamento non dipende dalle notifiche, ma dall'uso intensivo delle app.",
+            "3": "I server non risentono delle tue impostazioni di notifica locali."
+        }
+    },
+    {
+        "id": "IR_000189",
+        "category": "Privacy",
+        "difficulty": "facile",
+        "question": "Quale di queste informazioni NON dovresti mai mettere in chiaro sotto una tua foto?",
+        "answers": {
+            "1": "Il nome della tua scuola e la tua posizione attuale",
+            "2": "Il nome del tuo gatto o del tuo cane",
+            "3": "Il titolo del libro che stai leggendo"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Queste info permettono a stalker e bulli di rintracciarti fisicamente nella vita reale.",
+            "2": "È un dato personale ma generalmente meno pericoloso, a meno che non sia una risposta di sicurezza.",
+            "3": "Condividere i propri gusti culturali è sicuro e fa parte della socialità positiva."
+        }
+    },
+    {
+        "id": "IR_000190",
+        "category": "Aspetti Legali",
+        "difficulty": "difficile",
+        "question": "Cosa deve fare una vittima di Revenge Porn per proteggersi?",
+        "answers": {
+            "1": "Sporgere denuncia alla Polizia Postale e chiedere l'oscuramento dei contenuti al Garante Privacy",
+            "2": "Cancellare tutti i propri account social e non parlarne con nessuno",
+            "3": "Sperare che le persone si dimentichino presto dell'accaduto"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Esistono canali d'urgenza per rimuovere le foto dal web entro poche ore.",
+            "2": "L'isolamento aiuta il bullo; parlarne con adulti e autorità è il primo passo verso la soluzione.",
+            "3": "Senza un intervento legale, le foto possono riapparire in qualunque momento."
+        }
+    },
+    {
+        "id": "IR_000191",
+        "category": "Empatia",
+        "difficulty": "medio",
+        "question": "Perché le ragazze tendono a scusarsi se una loro foto viene diffusa senza consenso?",
+        "answers": {
+            "1": "A causa del senso di vergogna indotto socialmente, anche se non hanno alcuna colpa",
+            "2": "Perché sanno di aver fatto una cosa illegale inviandola",
+            "3": "Perché sperano che scusandosi le foto vengano rimosse"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La società spesso giudica la vittima invece del colpevole; dobbiamo ricordare che la colpa è di chi diffonde.",
+            "2": "Inviare foto non è illegale; diffonderle sì. La vittima non è una criminale.",
+            "3": "Le scuse non fermano i bulli, anzi, spesso li fanno sentire ancora più potenti."
+        }
+    },
+    {
+        "id": "IR_000192",
+        "category": "Salute Mentale",
+        "difficulty": "facile",
+        "question": "Cosa dovresti fare se un'amica ti confessa: 'Hanno messo la mia foto su quel gruppo di schifezze'?",
+        "answers": {
+            "1": "Supportarla emotivamente e aiutarla a parlare subito con un adulto di fiducia",
+            "2": "Chiedere di vedere la foto per capire quanto è grave",
+            "3": "Dirle che non è niente e che passerà in pochi giorni"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "L'ascolto e l'azione rapida sono fondamentali per limitare il danno alla vittima.",
+            "2": "Vedere la foto aumenta l'umiliazione dell'amica; non farlo mai.",
+            "3": "Minimizzare il problema impedisce alla vittima di cercare l'aiuto necessario."
+        }
+    },
+    {
+        "id": "IR_000193",
+        "category": "Social Media",
+        "difficulty": "medio",
+        "question": "Cosa si intende per 'Algoritmo Sessista'?",
+        "answers": {
+            "1": "Un sistema che penalizza o premia i contenuti in base a pregiudizi di genere",
+            "2": "Un computer che funziona solo con programmi maschili",
+            "3": "Una regola che impedisce ai ragazzi di commentare le foto delle ragazze"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "A volte gli algoritmi mostrano più facilmente foto di ragazze in pose particolari perché generano più clic.",
+            "2": "L'hardware non ha genere; il software invece riflette i pregiudizi di chi lo crea.",
+            "3": "Non esistono tali blocchi automatici; il comportamento dipende dall'educazione dell'utente."
+        }
+    },
+    {
+        "id": "IR_000194",
+        "category": "Scenari",
+        "difficulty": "medio",
+        "question": "Ricevi una richiesta di 'Nudes' (foto nuda) da un ragazzo che ti piace. Cosa dovresti considerare?",
+        "answers": {
+            "1": "Che se non le mando, mi lascerà per un'altra",
+            "2": "Che se gliele mando, sarò più popolare nel suo gruppo",
+            "3": "Che la mia intimità non è un prezzo da pagare per l'affetto di qualcuno"
+        },
+        "correct_answer": "3",
+        "explanations": {
+            "1": "Se ti lascia per questo, non ti amava e non ti rispettava affatto.",
+            "2": "La popolarità basata sulle foto intime è pericolosa e si trasforma spesso in bullismo.",
+            "3": "Un partner che ti rispetta non ti metterebbe mai in una posizione di rischio così alta."
+        }
+    },
+    {
+        "id": "IR_000195",
+        "category": "Aspetti Legali",
+        "difficulty": "facile",
+        "question": "A chi appartengono legalmente i tuoi dati personali online?",
+        "answers": {
+            "1": "A te, e hai il diritto di chiederne la cancellazione in ogni momento",
+            "2": "Al proprietario del social media non appena ti iscrivi",
+            "3": "Al governo del paese in cui vivi"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "Il GDPR garantisce ai cittadini europei il controllo e la proprietà dei propri dati.",
+            "2": "Le aziende hanno solo il permesso di usarli secondo i termini, non ne diventano proprietarie.",
+            "3": "Il governo vigila tramite il Garante, ma i dati restano tuoi."
+        }
+    },
+    {
+        "id": "IR_000196",
+        "category": "Terminologia",
+        "difficulty": "medio",
+        "question": "Cos'è il 'Victim Shaming'?",
+        "answers": {
+            "1": "Premiare la vittima per aver denunciato il bullo",
+            "2": "Cercare di far sentire la vittima colpevole per l'attacco subito",
+            "3": "Un tipo di sport estremo praticato online"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questo sarebbe un riconoscimento del coraggio, l'opposto dello shaming.",
+            "2": "È un meccanismo di difesa del bullo per sviare le proprie responsabilità.",
+            "3": "Nessuna relazione con lo sport; è un comportamento sociologico negativo."
+        }
+    },
+    {
+        "id": "IR_000197",
+        "category": "Scenari",
+        "difficulty": "difficile",
+        "question": "Vedi una diretta in cui un gruppo di ragazzi commenta pesantemente le foto di Instagram di diverse ragazze. Cosa fai?",
+        "answers": {
+            "1": "Partecipo ai commenti per ridere insieme a loro",
+            "2": "Segnalo la diretta alla piattaforma per bullismo e molestie",
+            "3": "Faccio un video della diretta per farlo vedere a tutti"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Questo ti rende parte del branco e complice della violenza verbale.",
+            "2": "È il modo più rapido per far chiudere la diretta e limitare l'esposizione delle vittime.",
+            "3": "Registrare e diffondere aiuta a propagare l'odio, non a fermarlo."
+        }
+    },
+    {
+        "id": "IR_000198",
+        "category": "Benessere Digitale",
+        "difficulty": "facile",
+        "question": "Cosa dovresti fare se senti di non poter fare a meno di controllare il telefono ogni 5 minuti?",
+        "answers": {
+            "1": "Parlarne con un adulto o uno psicologo: potresti avere una dipendenza digitale",
+            "2": "Comprare una batteria esterna per non farlo mai scaricare",
+            "3": "Cercare altre app più divertenti da scaricare"
+        },
+        "correct_answer": "1",
+        "explanations": {
+            "1": "La dipendenza da smartphone è reale e va affrontata con l'aiuto di professionisti.",
+            "2": "Questo alimenta la dipendenza invece di risolverla.",
+            "3": "Più app significano più notifiche e più stress da controllo."
+        }
+    },
+    {
+        "id": "IR_000199",
+        "category": "Privacy",
+        "difficulty": "medio",
+        "question": "È sicuro tenere le proprie foto intime salvate sul 'Cloud'?",
+        "answers": {
+            "1": "Sì, il cloud è blindato e nessuno potrà mai entrarci",
+            "2": "No, se qualcuno ruba la tua password o il cloud viene hackerato, le tue foto saranno pubbliche",
+            "3": "Sì, ma solo se usi un account Apple"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "Nessun sistema digitale è sicuro al 100% da attacchi informatici o errori umani.",
+            "2": "Il furto di credenziali (phishing) è la causa principale della diffusione di foto dal cloud.",
+            "3": "Tutti i fornitori di cloud (Google, Apple, Microsoft) sono potenziali bersagli."
+        }
+    },
+    {
+        "id": "IR_000200",
+        "category": "Empatia",
+        "difficulty": "facile",
+        "question": "Qual è il messaggio finale più importante per un navigatore digitale sicuro?",
+        "answers": {
+            "1": "Cerca di avere sempre l'ultimo modello di smartphone",
+            "2": "Ricordati che dietro ogni pixel c'è un cuore che batte: porta rispetto sempre",
+            "3": "Impara a hackerare per poterti difendere da solo"
+        },
+        "correct_answer": "2",
+        "explanations": {
+            "1": "La tecnologia cambia, l'etica e il rispetto restano fondamentali.",
+            "2": "Il rispetto e l'empatia sono le migliori barriere contro il cyberbullismo.",
+            "3": "L'hacking è illegale; per difendersi servono le autorità e la consapevolezza."
+        }
+    }
+  ]
+}
