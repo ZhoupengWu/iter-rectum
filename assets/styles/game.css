@@ -137,7 +137,6 @@ nav a:hover::after, nav a.active::after {
     line-height: 1;
 }
 
-/* Three.js mounts its <canvas> here; let it fill the viewport below the title */
 #game {
     position: relative;
     background-color: #0e1520;
